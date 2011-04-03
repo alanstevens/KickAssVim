@@ -108,6 +108,7 @@ vim_plugin_task "sinatra",          "git://github.com/hallison/vim-ruby-sinatra.
 vim_plugin_task "securemodelines",  "git://github.com/ciaranm/securemodelines.git"
 vim_plugin_task "abolish",          "git://github.com/tpope/vim-abolish.git"
 vim_plugin_task "liftweb",          "git://github.com/Shadowfiend/liftweb-vim.git"
+vim_plugin_task "solarized",        "git://github.com/altercation/vim-colors-solarized.git"
 # vim_plugin_task "grails",           "git://github.com/felipero/grails-vim.git"
 # vim_plugin_task "clojure",          "git://github.com/vim-scripts/VimClojure.git"
 vim_plugin_task "zencoding",        "git://github.com/mattn/zencoding-vim.git"
