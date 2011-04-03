@@ -5,7 +5,7 @@
 """"""""""""""""""""""""""""""""""""""""
 
 " fix arrow keys in console mode
-if !has('gui_running')
+if !(has('gui_running') || has('win32'))
     set term=ansi
 endif
 
