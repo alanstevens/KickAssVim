@@ -132,26 +132,26 @@ nmap <leader>g/ :g/<c-r>//d<cr>gg
 
 " TODO: enable <S-F8> to cycle backwards through the list.
 " Rotate Color Scheme <F8>
-let colorstring = ""
-nnoremap <silent> <F8> :let colorstring = RotateColorTheme()<CR> :echo colorstring<CR>
+let colorlist = ""
+nnoremap <silent> <F8> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
+nnoremap <silent> <S-F8> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
 
 let themeindex = 0
 
-function! RotateColorTheme()
-    let y = -1
-    while y == -1
-        let colorstring = "#solarized#darkspectrum#inkpot#freya#twilight#darkz#herald#jammy#tir_black#zmrok#camo#earendel#jellybeans#moria#rootwater#vividchalk#wombat#desert#desert256#ir_black#"
-        let x = match( colorstring, "#", g:themeindex )
-        let y = match( colorstring, "#", x + 1 )
-        let g:themeindex = x + 1
-        if y == -1
-            let g:themeindex = 0
-        else
-            let themestring = strpart(colorstring, x + 1, y - x - 1)
-            :execute ":colorscheme ".themestring
-            return themestring
-        endif
-    endwhile
+function! RotateColorTheme(reverse)
+    let colorlist = ["solarized","darkspectrum","inkpot","freya","twilight","darkz","herald","jammy","tir_black","zmrok","camo","earendel","jellybeans","moria","rootwater","vividchalk","wombat","desert","desert256","ir_black"]
+    if a:reverse
+        let g:themeindex -= 1
+    else
+        let g:themeindex += 1
+    endif
+    let themestring = get(colorlist, g:themeindex, "NONE")
+    if themestring == "NONE"
+        let g:themeindex = 0
+        let themestring = colorlist[0]
+    endif
+    :execute ":colorscheme ".themestring
+    return themestring
 endfunction
 
 " Open Url on this line with the browser \w
