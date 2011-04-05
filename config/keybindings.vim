@@ -133,13 +133,13 @@ nmap <leader>g/ :g/<c-r>//d<cr>gg
 " TODO: enable <S-F8> to cycle backwards through the list.
 " Rotate Color Scheme <F8>
 let colorlist = ""
-nnoremap <silent> <F8> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
-nnoremap <silent> <S-F8> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
+nnoremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
+nnoremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
 
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-    let colorlist = ["solarized","darkspectrum","inkpot","freya","twilight","darkz","herald","jammy","tir_black","zmrok","camo","earendel","jellybeans","moria","rootwater","vividchalk","wombat","desert","desert256","ir_black"]
+    let colorlist = ["ir_black","solarized","darkspectrum","inkpot","freya","twilight","darkz","herald","jammy","tir_black","zmrok","camo","earendel","jellybeans","moria","rootwater","vividchalk","wombat","desert","desert256"]
     if a:reverse
         let g:themeindex -= 1
     else
