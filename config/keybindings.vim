@@ -53,8 +53,8 @@ map <C-k> ddkP
 noremap ' `
 noremap ` '
 
-" Toggle auto-wrap with F9
-map <F9> :set wrap!<cr>
+" Toggle auto-wrap with F4
+map <F4> :set wrap!<cr>
 
 " makes jk leave insert mode (like Esc)
 inoremap jk <Esc>
@@ -130,8 +130,7 @@ cmap <C-P> <C-R>=expand("%:p:h")<CR>
 nmap <leader>v/ :v/<c-r>//d<cr>gg
 nmap <leader>g/ :g/<c-r>//d<cr>gg
 
-" TODO: enable <S-F8> to cycle backwards through the list.
-" Rotate Color Scheme <F8>
+" Rotate Color Scheme <F6>
 let colorlist = ""
 nnoremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
 nnoremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
