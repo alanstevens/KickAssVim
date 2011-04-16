@@ -29,6 +29,9 @@ map <Leader>j <C-W>j
 map <Leader>k <C-W>k
 map <Leader>l <C-W>l
 
+" change the file format to unix
+map <Leader>nix :setlocal ff=unix<CR> :w!<CR>
+
 " navigate around in buffers...
 map <Leader>n :bnext<CR>
 map <Leader>p :bprevious<CR>

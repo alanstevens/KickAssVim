@@ -30,7 +30,7 @@ let mapleader = ";"
 " T - trunctate other messages in the middle if they are too long to fit on
 " the command line. "..." will appear in the middle.
 " I - don't give the intro message when starting Vim.
-"set shortmess=filmnrxtTI
+set shortmess=filmnrxtTI
 
 " No startup messages
 set shm+=atmI
