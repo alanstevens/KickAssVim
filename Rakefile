@@ -47,7 +47,7 @@ end
 
 vim_plugin_task "abolish",           "git://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack",               "git://github.com/mileszs/ack.vim.git"
-vim_plugin_task "align",             "git://github.com/vim-scripts/Align.vim.git"
+vim_plugin_task "align",             "git://github.com/tsaleh/vim-align.git"
 vim_plugin_task "autoclose",         "git://github.com/Townk/vim-autoclose.git"
 vim_plugin_task "bufexplorer",       "git://github.com/vim-scripts/bufexplorer.zip.git"
 vim_plugin_task "bufonly",           "git://github.com/duff/vim-bufonly.git"
