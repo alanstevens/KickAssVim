@@ -52,7 +52,13 @@ highlight CursorLine term=none cterm=none ctermbg=3
 set background=dark
 
 " set English language
-language messages en
+if has('unix') || has('mac')
+    language en_US.UTF-8
+    language messages en_US.UTF-8
+else
+    language English_United States.1252
+    language messages English_United States.1252
+endif
 set langmenu=non
 
 " Smoother redraws
