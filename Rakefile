@@ -77,7 +77,7 @@ vim_plugin_task "less" do
 end
 vim_plugin_task "markdown",          "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "nerdcommenter",     "git://github.com/ddollar/nerdcommenter.git"
-vim_plugin_task "nerdtree",          "git://github.com/wycats/nerdtree.git"
+vim_plugin_task "nerdtree",          "git://github.com/alanstevens/nerdtree.git"
 vim_plugin_task "pathogen" do
     sh "curl  https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim > autoload/pathogen.vim"
 end
