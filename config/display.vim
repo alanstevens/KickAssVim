@@ -39,8 +39,7 @@ set statusline+=\ %P    "percent through file
 " TODO check for Git
 "set statusline+=[%{GitBranch()}]
 
-" TODO check for RVM
-"set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
+set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
 
 "dont load csapprox if there is no gui support - silences an annoying warning
 let g:CSApprox_loaded = 1
