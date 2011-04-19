@@ -3,7 +3,7 @@ if has("gui_macvim")
   map <D-F> :Ack<space>
 endif
 
-let g:ackprg="ack.cmd -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Use <Leader>A to bring up an Ack search prompt.
 map <Leader>A :Ack<Space>
