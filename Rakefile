@@ -17,7 +17,7 @@ def vim_plugin_task(name, repo=nil)
             task :install => subdirs do
                 if repo =~ /git$/
                     unless File.exist?(dir)
-                        sh "git clone #{repo} #{dir}"
+                        sh "git clone #{repo} \"#{dir}\""
                     else
                         Dir.chdir dir do
                             sh "git pull"
@@ -47,7 +47,7 @@ end
 
 vim_plugin_task "abolish",           "git://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack",               "git://github.com/mileszs/ack.vim.git"
-vim_plugin_task "align",             "git://github.com/tsaleh/vim-align.git"
+vim_plugin_task "align",         "git://github.com/vim-scripts/Align.vim.git"
 vim_plugin_task "autoclose",         "git://github.com/Townk/vim-autoclose.git"
 vim_plugin_task "bufexplorer",       "git://github.com/vim-scripts/bufexplorer.zip.git"
 vim_plugin_task "bufonly",           "git://github.com/duff/vim-bufonly.git"
@@ -75,13 +75,13 @@ vim_plugin_task "less" do
         end
     end
 end
+vim_plugin_task "mac-classic",   "git://github.com/nelstrom/vim-mac-classic-theme.git"
 vim_plugin_task "markdown",          "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "nerdcommenter",     "git://github.com/ddollar/nerdcommenter.git"
-vim_plugin_task "nerdtree",          "git://github.com/alanstevens/nerdtree.git"
+vim_plugin_task "nerdtree",      "git://github.com/alanstevens/nerdtree.git"
 vim_plugin_task "pathogen" do
-    sh "curl  https://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim > autoload/pathogen.vim"
+    sh "curl https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > autoload/pathogen.vim"
 end
-vim_plugin_task "pik",               "git://github.com/zaki/pik_vim.git"
 vim_plugin_task "preview",           "git://github.com/greyblake/vim-preview.git" # Changed markdown preview to preview
 vim_plugin_task "ragtag",            "git://github.com/tpope/vim-ragtag.git"
 vim_plugin_task "rails",             "git://github.com/tpope/vim-rails.git"

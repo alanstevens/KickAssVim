@@ -9,7 +9,7 @@ if !(has('gui_running') || has('win32'))
     set term=ansi
 endif
 
-" Map Tab and Shift-Tab for tab navigation
+
 " Note that S-TAB does not work in certain consoles (i.e. KDE Konsole)
 nnoremap <Tab> gt
 nmap <S-Tab> gT
@@ -141,7 +141,7 @@ nnoremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-    let colorlist = ["ir_black","solarized","darkspectrum","inkpot","freya","twilight","darkZ","herald","jammy","tir_black","zmrok","camo","earendel","jellybeans","moria","rootwater","vividchalk","wombat","desert","desert256"]
+    let colorlist = ["ir_black","mac_classic","solarized","darkspectrum","inkpot","freya","twilight","darkz","herald","jammy","tir_black","zmrok","camo","earendel","jellybeans","moria","rootwater","vividchalk","wombat","desert","desert256"]
     if a:reverse
         let g:themeindex -= 1
     else
