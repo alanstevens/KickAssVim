@@ -82,6 +82,12 @@ map <A-k> :cprevious<CR>
 " New Tab
 nnoremap <silent> <C-t> :tabnew<CR>
 
+" Use the system clipboard in Unix
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
+
 " Force gf to open in new tabs
 nnoremap gf <C-W>gf
 
