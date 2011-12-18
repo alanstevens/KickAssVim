@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+readonly rubyversion = "1.9.2"
+
+# Source RVM as a function into local environment.
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+
+  # First try to load from a user install
+  source "$HOME/.rvm/scripts/rvm"
+
+elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+
+  # Then try to load from a root install
+  source "/usr/local/rvm/scripts/rvm"
+
+else
+
+  printf "ERROR: An RVM installation was not found.\n"
+  exit;
+
+fi
+
+if [ "$#" -eq "0" ]
+then
+
+    name="${PWD##*/}"
+
+else
+
+    name="$1"
+
+fi
+
+rvm use $rubyversion
+rvm gemset create $name
+rvm use $rubyversion@$name
+echo  "rvm use $rubyversion@$name" >> .rvmrc
+rvm rvmrc trust
+gem env gemdir
