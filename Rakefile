@@ -47,7 +47,7 @@ end
 
 vim_plugin_task "abolish",           "git://github.com/tpope/vim-abolish.git"
 vim_plugin_task "ack",               "git://github.com/mileszs/ack.vim.git"
-vim_plugin_task "align",         "git://github.com/vim-scripts/Align.vim.git"
+vim_plugin_task "align",             "git://github.com/alanstevens/Align.git"
 vim_plugin_task "autoclose",         "git://github.com/Townk/vim-autoclose.git"
 vim_plugin_task "bufexplorer",       "git://github.com/vim-scripts/bufexplorer.zip.git"
 vim_plugin_task "bufonly",           "git://github.com/duff/vim-bufonly.git"
@@ -75,10 +75,10 @@ vim_plugin_task "less" do
         end
     end
 end
-vim_plugin_task "mac-classic",   "git://github.com/nelstrom/vim-mac-classic-theme.git"
+vim_plugin_task "mac-classic",       "git://github.com/nelstrom/vim-mac-classic-theme.git"
 vim_plugin_task "markdown",          "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "nerdcommenter",     "git://github.com/ddollar/nerdcommenter.git"
-vim_plugin_task "nerdtree",      "git://github.com/alanstevens/nerdtree.git"
+vim_plugin_task "nerdtree",          "git://github.com/alanstevens/nerdtree.git"
 vim_plugin_task "pathogen" do
     sh "curl https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > autoload/pathogen.vim"
 end
