@@ -8,7 +8,6 @@ end
 
 def vim_plugin_task(name, repo=nil)
     cwd = File.expand_path("../", __FILE__)
-    # Changed tmp to bundle.
     dir = File.expand_path("bundle/#{name}")
     subdirs = VIM::Dirs
 
