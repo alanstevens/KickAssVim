@@ -1,6 +1,33 @@
 #!/usr/bin/env bash
 
-readonly rubyversion="1.9.2"
+export -f newgemset
+export -f gvimwithtab
+
+function gvimwithtab(){
+
+if [ "$#" -eq "0" ]; then
+
+    local serverList=`vim --serverlist`
+
+    if [ -z "$serverList" ]; then
+
+        /usr/bin/gvim
+
+        return
+
+    fi
+
+    /usr/bin/gvim --remote-send "<C-\><C-N>:tabnew<CR>"
+
+else
+
+    /usr/bin/gvim --remote-tab-silent "$1"
+
+fi
+}
+
+function newgemset(){
+local readonly rubyversion="1.9.2"
 
 # Source RVM as a function into local environment.
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
@@ -16,18 +43,17 @@ elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
 else
 
   printf "ERROR: An RVM installation was not found.\n"
-  exit;
+  return
 
 fi
 
-if [ "$#" -eq "0" ]
-then
+if [ "$#" -eq "0" ]; then
 
-    name="${PWD##*/}"
+    local name="${PWD##*/}"
 
 else
 
-    name="$1"
+    local name="$1"
 
 fi
 
@@ -37,3 +63,4 @@ rvm use $rubyversion@$name
 echo  "rvm use $rubyversion@$name" >> .rvmrc
 rvm rvmrc trust
 gem env gemdir
+}
