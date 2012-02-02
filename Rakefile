@@ -91,7 +91,7 @@ vim_plugin_task "scss",              "git://github.com/cakebaker/scss-syntax.vim
 vim_plugin_task "searchfold",        "git://github.com/vim-scripts/searchfold.vim.git"
 vim_plugin_task "simplefold",        "git://github.com/vim-scripts/simplefold.git"
 vim_plugin_task "sinatra",           "git://github.com/hallison/vim-ruby-sinatra.git"
-vim_plugin_task "snipmate",          "git://github.com/msanders/snipmate.vim.git"
+vim_plugin_task "snipmate",          "git://github.com/garbas/vim-snipmate.git"
 vim_plugin_task "snippets",          "git://github.com/akitaonrails/snipmate-snippets.git"
 vim_plugin_task "solarized",         "git://github.com/altercation/vim-colors-solarized.git"
 vim_plugin_task "supertab",          "git://github.com/ervandew/supertab.git"
