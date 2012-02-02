@@ -162,16 +162,6 @@ function! RotateColorTheme(reverse)
     return themestring
 endfunction
 
-" Open Url on this line with the browser \w
-" TODO: set the browser based on the platform. HAS
-"map <Leader>w :call Browser ()<CR>
-
-"function! Browser ()
-"    let line = getline (".")
-"    let line = matchstr (line, "http[^   ]*")
-"    exec "!konqueror ".line
-"endfunction
-
 " TODO Mode
 nnoremap <silent> <Leader>todo :execute TodoListMode()<CR>
 

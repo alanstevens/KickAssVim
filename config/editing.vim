@@ -14,10 +14,10 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l   " cursor keys also wrap
 
 " spaces instead of tabs
-" prefer 4 spaces
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
+" prefer 2 spaces
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 
@@ -86,6 +86,3 @@ set clipboard=unnamed
 " Use modeline overrides
 set modeline
 set modelines=10
-
-" Press F5 to compile and open the error window if there are errors
-" map <F5> <ESC>:make<CR><ESC>:botright cwindow<CR>
