@@ -1,66 +1,68 @@
 #!/usr/bin/env bash
 
-export -f newgemset
-export -f gvimwithtab
-
 function gvimwithtab(){
 
 if [ "$#" -eq "0" ]; then
 
-    local serverList=`vim --serverlist`
+  local serverList=`vim --serverlist`
 
-    if [ -z "$serverList" ]; then
+  if [ -z "$serverList" ]; then
 
-        /usr/bin/gvim
+    /usr/bin/gvim
 
-        return
+    return
 
-    fi
+  fi
 
-    /usr/bin/gvim --remote-send "<C-\><C-N>:tabnew<CR>"
+  /usr/bin/gvim --remote-send "<C-\><C-N>:tabnew<CR>"
 
 else
 
-    /usr/bin/gvim --remote-tab-silent "$1"
+  /usr/bin/gvim --remote-tab-silent "$1"
 
 fi
 }
 
 function newgemset(){
-local readonly rubyversion="1.9.2"
 
-# Source RVM as a function into local environment.
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  # Use the folder name, sans path, if no name supplied.
+  local name="${PWD##*/}"
 
-  # First try to load from a user install
-  source "$HOME/.rvm/scripts/rvm"
+  if [ $# > 0 ]; then
+    name="$1"
+  fi
 
-elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  local ruby_version="1.9.2"
 
-  # Then try to load from a root install
-  source "/usr/local/rvm/scripts/rvm"
+  if [ $# > 1 ]; then
+    ruby_version="$2"
+  fi
+  # Source RVM as a function into local environment.
+  if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
 
-else
+    # First try to load from a user install
+    source "$HOME/.rvm/scripts/rvm"
 
-  printf "ERROR: An RVM installation was not found.\n"
-  return
+  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
 
-fi
+    # Then try to load from a root install
+    source "/usr/local/rvm/scripts/rvm"
 
-if [ "$#" -eq "0" ]; then
+  else
 
-    local name="${PWD##*/}"
+    printf "ERROR: An RVM installation was not found.\n"
+    return 1
 
-else
+  fi
 
-    local name="$1"
-
-fi
-
-rvm use $rubyversion
-rvm gemset create $name
-rvm use $rubyversion@$name
-echo  "rvm use $rubyversion@$name" >> .rvmrc
-rvm rvmrc trust
-gem env gemdir
+  rvm use $ruby_version
+  rvm gemset create $name
+  rvm use $ruby_version@$name
+  echo  "rvm use $ruby_version@$name" > .rvmrc
+  rvm rvmrc trust
+  gem env gemdir
 }
+
+export -f newgemset
+export -f gvimwithtab
+
