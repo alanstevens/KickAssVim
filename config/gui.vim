@@ -57,7 +57,7 @@ if has("gui_running")
     endif
 
     if has("gui_win32") || has("gui_win32s")
-        set guifont=Andale_Mono:h12:cANSI
+        set guifont=Consolas:h12:cANSI
 
         set encoding=utf-8
 

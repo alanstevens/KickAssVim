@@ -81,9 +81,9 @@ vim_plugin_task "mac-classic",       "git://github.com/nelstrom/vim-mac-classic-
 #vim_plugin_task "markdown",          "git://github.com/tpope/vim-markdown.git"
 vim_plugin_task "nerdcommenter",     "git://github.com/ddollar/nerdcommenter.git"
 vim_plugin_task "nerdtree",          "git://github.com/alanstevens/nerdtree.git"
-#vim_plugin_task "pathogen" do
-#    sh "curl https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > autoload/pathogen.vim"
-#end
+vim_plugin_task "pathogen" do
+    sh "curl -k https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim > autoload/pathogen.vim"
+end
 #vim_plugin_task "preview",           "git://github.com/greyblake/vim-preview.git" # Changed markdown preview to preview
 #vim_plugin_task "ragtag",            "git://github.com/tpope/vim-ragtag.git"
 vim_plugin_task "rails",             "git://github.com/tpope/vim-rails.git"
@@ -95,7 +95,9 @@ vim_plugin_task "rails",             "git://github.com/tpope/vim-rails.git"
 #vim_plugin_task "simplefold",        "git://github.com/vim-scripts/simplefold.git"
 #vim_plugin_task "sinatra",           "git://github.com/hallison/vim-ruby-sinatra.git"
 vim_plugin_task "snipmate",          "git://github.com/garbas/vim-snipmate.git"
-vim_plugin_task "snippets",          "git://github.com/akitaonrails/snipmate-snippets.git"
+vim_plugin_task "tlib_vim",          "https://github.com/tomtom/tlib_vim.git"
+vim_plugin_task "mw-util",           "https://github.com/MarcWeber/vim-addon-mw-utils.git"
+vim_plugin_task "snippets",          "https://github.com/scrooloose/snipmate-snippets.git"
 vim_plugin_task "solarized",         "git://github.com/altercation/vim-colors-solarized.git"
 #vim_plugin_task "supertab",          "git://github.com/ervandew/supertab.git"
 #vim_plugin_task "surround",          "git://github.com/tpope/vim-surround.git"
