@@ -110,6 +110,7 @@ vim_plugin_task "taglist",           "git://github.com/vim-scripts/taglist.vim.g
 #vim_plugin_task "textobj-rubyblock", "git://github.com/nelstrom/vim-textobj-rubyblock.git"
 #vim_plugin_task "vimoutliner",       "git://github.com/Raimondi/vimoutliner.git"
 #vim_plugin_task "vim-rake",          "git://github.com/tpope/vim-rake.git"
+vim_plugin_task "vim-slim",          "https://github.com/bbommarito/vim-slim.git"
 vim_plugin_task "yankring",          "git://github.com/chrismetcalf/vim-yankring.git"
 vim_plugin_task "zencoding",         "git://github.com/mattn/zencoding-vim.git"
 #vim_plugin_task "zoomfont",          "git://github.com/alanstevens/zoomfont.git"

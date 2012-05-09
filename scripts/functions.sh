@@ -66,7 +66,12 @@ function newgemset(){
   rvm rvmrc trust
 }
 
+# Create a new rails app from the Rails Template.
+# arg1: app_name
 function newrailsapp(){
+  if [ "$#" -eq "0" ]; then
+    return
+  fi
   app_name=$1
   echo -e "#\n# Cloning template\n#"
 
@@ -74,25 +79,20 @@ function newrailsapp(){
 
   cd $app_name
 
-  echo -e "#\n# Current working directory has changed to $PWD\n#"
+  echo -e "Current working directory has changed to $PWD"
 
   rm -rf .git
   rm -f Gemfile.loc
 
-  newgemset
-
-  echo -e "#\n# Installing gems via bundler\n#"
+  echo -e "Installing gems via bundler"
 
   bundle install --binstubs
 
   echo -e "#\n# Renaming rails app to $app_name\n#"
 
-  bundle exec rails g rename_to $app_name
-
-	rm -r "vendor/plugins/Rename"
-
-  rm README.markdown
-  echo "# $app_name" > README.markdown
+  bundle exec rails g rename_app $app_name
+  rm config/initializers/rename_app.rb
+  rm lib/rename_app.rb
 
   echo -e "#\n# Creating git repository and adding files\n#"
 
