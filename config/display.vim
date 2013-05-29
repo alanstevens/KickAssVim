@@ -1,13 +1,10 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-"" loads display-related option (colorscheme, etc.)
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+" loads display-related options
 
 if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
     colorscheme desert256
 endif
 
-set laststatus=2   " always display a status line
 set number         " show line numbers
 set ruler          " display coordinates in status bar
 set showcmd        " display unfinished commands
@@ -18,47 +15,16 @@ set title          " show file in titlebar
 " Set off the other paren
 highlight MatchParen ctermbg=4
 
-" status bar
-"set statusline+=%f\                                           " filename
-"set statusline+=[%{strlen(&ft)?&ft:'none'}]                   " filetype
-"set statusline+=%h%1*%m%r%w%0*                                " flags
-"set statusline+=%=                                            " right align
-"set statusline+=%{fugitive#statusline()}                      " git status
-"set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''} " rvm status
-"set statusline+=(%l,%c%V)\ %<%P                               " offset
-
-"statusline setup
-set statusline=%f\        "tail of the filename
-"set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-
-"set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
-
-" TODO check for Git
-"set statusline+=[%{GitBranch()}]
-
-set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
-
 "dont load csapprox if there is no gui support - silences an annoying warning
 let g:CSApprox_loaded = 1
+
+syntax enable         " Turn on syntax highlighting allowing local overrides
 
 " adjust highlight color
 highlight CursorLine term=none cterm=none ctermbg=3
 
 " we plan to use a dark background
 set background=dark
-
-" set English language
-if has('unix') || has('mac')
-    language en_US.UTF-8
-    language messages en_US.UTF-8
-else
-    language English_United States.1252
-    language messages English_United States.1252
-endif
-set langmenu=non
 
 " Smoother redraws
 set ttyfast
@@ -74,15 +40,6 @@ set vb t_vb=
 
 "disable visual bell
 set visualbell t_vb=
-
-set showbreak=...
-"set wrap linebreak nolist
-
-" Vim Tip #989: Word wrap without line breaks
-set nowrap
-set textwidth=80
-set formatoptions=l
-set lbr
 
 "add some line space for easy reading
 set linespace=4
@@ -105,3 +62,50 @@ function! s:HighlightLongLines(width)
         echomsg "Usage: HighlightLongLines [natural number]"
     endif
 endfunction
+
+" shortmess settings:
+" f - use "(3 of 5)" instead of "(file 3 of 5)"
+" i - use "[noeol]" instead of "[Incomplete last line]"
+" l - use "999L, 888C" instead of "999 lines, 888 characters"
+" m - use "[+]" instead of "[Modified]"
+" n - use "[New]" instead of "[New File]"
+" r - use "[RO]" instead of "[readonly]"
+" x - use "[dos]" instead of "[dos format]", "[unix]" instead of "[unix
+" format]", and "[mac]" instead of "[mac format]"
+" t - truncate file message at the start if it is too long to fit on the
+" command-line, "<" will appear in the left most column.
+" T - trunctate other messages in the middle if they are too long to fit on
+" the command line. "..." will appear in the middle.
+" I - don't give the intro message when starting Vim.
+set shortmess=filmnrxtTI
+
+" status bar
+
+if has("statusline") && !&cp
+  set laststatus=2 " always show the status bar
+
+  "set statusline+=%f\                                           " filename
+  "set statusline+=[%{strlen(&ft)?&ft:'none'}]                   " filetype
+  "set statusline+=%h%1*%m%r%w%0*                                " flags
+  "set statusline+=%=                                            " right align
+  "set statusline+=%{fugitive#statusline()}                      " git status
+  "set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''} " rvm status
+  "set statusline+=(%l,%c%V)\ %<%P                               " offset
+
+  " Janus default
+  " set statusline=%f\ %m\ %r
+  " set statusline+=Line:%l/%L[%p%%]
+  " set statusline+=Col:%v
+  " set statusline+=Buf:#%n
+  " set statusline+=[%b][0x%B]
+
+  set statusline=%f\      "tail of the filename
+  "set statusline+=%=     "left/right separator
+  set statusline+=%c,     "cursor column
+  set statusline+=%l/%L   "cursor line/total lines
+  set statusline+=\ %P    "percent through file
+  set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
+
+  " TODO check for Git
+  "set statusline+=[%{GitBranch()}]
+endif

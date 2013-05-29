@@ -16,7 +16,7 @@ imap <F2> <ESC>:NERDTreeToggle<cr>i
 "map <Leader>n :NERDTreeToggle<CR>
 "silent! nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
-nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
+" nnoremap <silent> <C-f> :call FindInNERDTree()<CR>
 
 let NERDTreeIgnore=['\.rbc$', '\~$']
 

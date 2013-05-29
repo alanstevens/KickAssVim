@@ -1,6 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""
-"" GUI-specific settings
-""""""""""""""""""""""""""""""""""""""""
+" GUI-specific settings
 
 " only execute the contents of this file if the GUI is in use.
 if has("gui_running")
@@ -37,21 +35,17 @@ if has("gui_running")
     endif
 
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h14
+        " set guifont=Menlo:h14
+        set gfn=Mensch:h16
 
         " MacVIM shift+arrow-keys behavior (required in .vimrc)
         let macvim_hig_shift_movement = 1
-
-        " key binding for Command-T to behave properly
-        " uncomment to replace the Mac Command-T key to Command-T plugin
-        "macmenu &File.New\ Tab key=<nop>
-        "map <D-t> :CommandT<CR>
 
         " make Mac's Option key behave as the Meta key
         set invmmta
 
         try
-            set transparency=5
+            set transparency=8
         catch
         endtry
     endif

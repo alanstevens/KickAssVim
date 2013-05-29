@@ -1,13 +1,10 @@
-""""""""""""""""""""""""""""""""""""""""
-"" This file deals with all settings
-"" related to searching.
-""""""""""""""""""""""""""""""""""""""""
+" This file deals with all settings related to searching.
 
-set hlsearch    " highlight search terms
-set incsearch   " search incrementally
-
-set ignorecase  " ignore case in searches...
-set smartcase   " ...but not really. Case sensitive if capitals are included.
+" Searching
+set hlsearch    " highlight matches
+set incsearch   " incremental searching
+set ignorecase  " searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
 
 "visual search mappings
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>

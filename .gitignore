@@ -2,3 +2,6 @@
 /bundle
 /autoload
 /yankring_history_v2.txt
+/log/*.log
+/tmp
+*.DS_Store

@@ -1,25 +1,43 @@
-""""""""""""""""""""""""""""""""""""""""
-"" This file manages all global editing
-"" settings, such as indent size, etc.
-""""""""""""""""""""""""""""""""""""""""
+" This file manages all global editing
+" settings, such as indent size, etc.
+
+" When I close a tab, remove the buffer
+set nohidden
+
+" save the last 1000 commands/search terms
+set history=1000
 
 " automatically indent lines and try to do it intelligently
 set autoindent
 set smartindent
 
-" allow backspacing over everything in insert mode
-" backspace behaves 'normally'
-set backspace=indent,eol,start
-
 set whichwrap+=<,>,h,l   " cursor keys also wrap
 
-" spaces instead of tabs
-" prefer 2 spaces
+" Whitespace
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
 set softtabstop=2
-set tabstop=2
-set shiftwidth=2
-set expandtab
 set smarttab
+
+" Vim Tip #989: Word wrap without line breaks
+set nowrap                        " don't wrap lines
+set textwidth=80                  " 80-character lines maximum
+set linebreak                     " try not to wrap in the middle of a word
+set showbreak=...
+"set wrap linebreak nolist
+
+
+" List chars
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the left of the screen
 
 " automatically reload a file if it's changed outside vim
 set autoread
@@ -27,11 +45,6 @@ set autoread
 " Avoid vim complains about not written file when jumping
 " between buffers using ctags
 set autowrite
-
-" wrap settings
-set nowrap       " wrap lines rather than use horiz. scrolling
-set linebreak    " try not to wrap in the middle of a word
-set textwidth=80 " 80-character lines maximum
 
 " format settings
 " t - Auto-wrap text using textwidth
@@ -50,6 +63,8 @@ set textwidth=80 " 80-character lines maximum
 "     instead (if possible).
 " set formatoptions=tcrqn21
 
+set formatoptions+=l
+
 "dont continue comments when pushing o/O
 set formatoptions-=o
 
@@ -57,14 +72,21 @@ set formatoptions-=o
 runtime! macros/matchit.vim
 
 "folding settings
-"set foldmethod=marker
-"set foldmethod=indent   "fold based on indent
-"set fo=l
 set foldmethod=syntax
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 set grepprg=grep\ -nH\ $*
+
+" set English language
+if has('unix') || has('mac')
+    language en_US.UTF-8
+    language messages en_US.UTF-8
+else
+    language English_United States.1252
+    language messages English_United States.1252
+endif
+set langmenu=non
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700

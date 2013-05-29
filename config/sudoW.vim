@@ -1,6 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""
-"" command to save a file with sudo privileges
-""""""""""""""""""""""""""""""""""""""""
+" save a file with sudo privileges
 
 if has("win32")
 else
