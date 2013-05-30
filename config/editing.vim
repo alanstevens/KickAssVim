@@ -29,15 +29,14 @@ set linebreak                     " try not to wrap in the middle of a word
 set showbreak=...
 "set wrap linebreak nolist
 
-
 " List chars
 set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
 set listchars+=trail:.            " show trailing spaces as dots
 set listchars+=extends:>          " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
+" off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the left of the screen
+" off and the line continues beyond the left of the screen
 
 " automatically reload a file if it's changed outside vim
 set autoread
@@ -80,18 +79,18 @@ set grepprg=grep\ -nH\ $*
 
 " set English language
 if has('unix') || has('mac')
-    language en_US.UTF-8
-    language messages en_US.UTF-8
+  language en_US.UTF-8
+  language messages en_US.UTF-8
 else
-    language English_United States.1252
-    language messages English_United States.1252
+  language English_United States.1252
+  language messages English_United States.1252
 endif
 set langmenu=non
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
-   set spl=en spell
-   set nospell
+  set spl=en spell
+  set nospell
 endif
 
 " Enable mouse support in console
@@ -99,7 +98,7 @@ set mouse=a
 set ttymouse=xterm2
 
 if $COLORTERM == 'gnome-terminal'
-    let g:clipbrdDefaultReg = '+'
+  let g:clipbrdDefaultReg = '+'
 endif
 
 " Universal clipboard

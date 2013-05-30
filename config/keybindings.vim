@@ -4,10 +4,8 @@
 
 " fix arrow keys in console mode
 if !(has('gui_running') || has('win32'))
-    set term=ansi
+  set term=ansi
 endif
-
-" Command-Line Mappings
 
 " After whitespace, insert the current directory into a command-line path
 " cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
@@ -15,12 +13,8 @@ endif
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
-" Toggle paste mode
-nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
-imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
-
 " format the entire file
-nmap <leader>kd ggVG= :KillWhitespace :nohls
+nmap <silent> <leader>kd ggVG=<CR>:KillWhitespace<CR>:nohls<CR>
 
 " upper/lower word
 nmap <leader>uc mQviwU`Q
@@ -160,37 +154,37 @@ nnoremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-    let colorlist = ["ir_black","solarized","mac_classic","github","pyte","liquidcarbon","rootwater","twilight","darkspectrum","zmrok","jellybeans","moria","getafe","wombat","freya","camo","desert","desert256","jammy"]
-    if a:reverse
-        let g:themeindex -= 1
-    else
-        let g:themeindex += 1
-    endif
-    let themestring = get(colorlist, g:themeindex, "NONE")
-    if themestring == "NONE"
-        let g:themeindex = 0
-        let themestring = colorlist[0]
-    endif
-    :execute ":colorscheme ".themestring
-    return themestring
+  let colorlist = ["ir_black","solarized","mac_classic","github","pyte","liquidcarbon","rootwater","twilight","darkspectrum","zmrok","jellybeans","moria","getafe","wombat","freya","camo","desert","desert256","jammy"]
+  if a:reverse
+    let g:themeindex -= 1
+  else
+    let g:themeindex += 1
+  endif
+  let themestring = get(colorlist, g:themeindex, "NONE")
+  if themestring == "NONE"
+    let g:themeindex = 0
+    let themestring = colorlist[0]
+  endif
+  :execute ":colorscheme ".themestring
+  return themestring
 endfunction
 
 if has("gui_mac") || has("gui_macvim")
-    "Key mapping for textmate-like indentation
-    nmap <D-[> <<
-    nmap <D-]> >>
-    vmap <D-[> <gv
-    vmap <D-]> >gv
+  "Key mapping for textmate-like indentation
+  nmap <D-[> <<
+  nmap <D-]> >>
+  vmap <D-[> <gv
+  vmap <D-]> >gv
 
-    " Command-][ to increase/decrease indentation
-    vmap <D-]> >gv
-    vmap <D-[> <gv
+  " Command-][ to increase/decrease indentation
+  vmap <D-]> >gv
+  vmap <D-[> <gv
 
-    " Fullscreen takes up entire screen
-    set fuoptions=maxhorz,maxvert
+  " Fullscreen takes up entire screen
+  set fuoptions=maxhorz,maxvert
 
-    " Command-Return for fullscreen
-    macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
+  " Command-Return for fullscreen
+  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
 endif
 
 " Inserts the path of the currently edited file into a command
@@ -203,41 +197,45 @@ nmap <leader>g/ :g/<c-r>//d<cr>gg
 
 " Shortcut to edit vimrc
 if has("win32")
-    nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/_vim_files/vimrc<CR>
-    nnoremap <silent> <Leader>eg :tabnew<CR>:e ~/_gvimrc<CR>
+  nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/_vim_files/vimrc<CR>
+  nnoremap <silent> <Leader>eg :tabnew<CR>:e ~/_gvimrc<CR>
 else
-    nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vim/vimrc<CR>
-    nnoremap <silent> <Leader>eg :tabnew<CR>:e ~/.gvimrc<CR>
+  nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vim/vimrc<CR>
+  nnoremap <silent> <Leader>eg :tabnew<CR>:e ~/.gvimrc<CR>
 endif
 
 " TODO Mode
 nnoremap <silent> <Leader>todo :execute TodoListMode()<CR>
 
 function! TodoListMode()
-    e ~/.todo.otl
-    Calendar
-    wincmd l
-    set foldlevel=1
-    tabnew ~/.notes.txt
-    tabfirst
-    " or 'norm! zMzr'
+  e ~/.todo.otl
+  Calendar
+  wincmd l
+  set foldlevel=1
+  tabnew ~/.notes.txt
+  tabfirst
+  " or 'norm! zMzr'
 endfunction
 
-" Paste Mode!  Dang! <F10>
-nnoremap <silent> <F10> :call Paste_on_off()<CR>
-set pastetoggle=<F10>
+" Toggle paste mode
+" nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
+" imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
+
+" Paste Mode!  Dang!
+nnoremap <silent> <F8> :call Paste_on_off()<CR>
+set pastetoggle=<F8>
 
 let paste_mode = 0 " 0 = normal, 1 = paste
 
 func! Paste_on_off()
-    if g:paste_mode == 0
-        set paste
-        let g:paste_mode = 1
-    else
-        set nopaste
-        let g:paste_mode = 0
-    endif
-    return
+  if g:paste_mode == 0
+    set paste
+    let g:paste_mode = 1
+  else
+    set nopaste
+    let g:paste_mode = 0
+  endif
+  return
 endfunc
 
 "map Q to something useful

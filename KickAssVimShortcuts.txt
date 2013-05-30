@@ -1,86 +1,87 @@
-F4: toggle paste mode
+F4                :toggle paste mode
 
-;kd: format the entire file
+;kd               :format the entire file
 
-;uc/;lc: upper/lower case word
+;uc/;lc           :upper/lower case word
 
-;U/;L: upper/lower case first char of word
+;U/;L             :upper/lower case first char of word
 
-gw: swap two words
+gw                :swap two words
 
-;ul: underline the current line with '='
+;ul               :underline the current line with '='
 
-F4: toggle auto-wrap
+F4                :toggle auto-wrap
 
-tab/shift tab: cycle between tabs
+tab/shift tab     :cycle between tabs
 
-;w: save buffer
+;w                :save buffer
 
-;q: closes window
+;q                :closes window
 
-;x: saves and closes window
+;x                :saves and closes window
 
-;h, ;j, ;k, ;l: move between viewports
+;h, ;j, ;k, ;l    :move between viewports
 
-;nix: change file format to unix
+;nix              :change file format to unix
 
-;n, ;p: navigate between buffers
+;n, ;p            :navigate between buffers
 
-alt+`: cycle through buffers
+alt+`             :cycle through buffers
 
-;bo: close all buffers but this one
+;bo               :close all buffers but this one
 
-jk, kj: leave insert mode like Esc
+jk, kj            :leave insert mode like Esc
 
-;f: clear highlight and redraw
+;f                :clear highlight and redraw
 
-Ctrl+t: new tab
+Ctrl+t            :new tab
 
-;o, ;O: create blank newlines and stay in normal mode
+;o, ;O            :create blank newlines and stay in normal mode
 
-space: toggle folds
+space             :toggle folds
 
-;e: opens edit command in the path of the currently edited file
+;e                :opens edit command in the path of the currently edited file
 
-;te: opens a tab edit in the path of the currently edited file
+;te               :opens a tab edit in the path of the currently edited file
 
-;ve: opens a new vertical split viewport in the path of the currently edited file
+;ve               :opens a new vertical split viewport in the path of the currently edited file
 
-;he: opens a new horizontal split viewport in the path of the currently edited file
+;he               :opens a new horizontal split viewport in the path of the currently edited file
 
-F6/Shift F6: cycle through color schemes
+F6/Shift F6       :cycle through color schemes
 
-;v/: keep lines that contain the last search term
+;v/               :keep lines that contain the last search term
 
-;g/: keep lines that do not contain the last search term
+;g/               :keep lines that do not contain the last search term
 
-;b: open BufExplorer
+;b                :open BufExplorer
 
-;c: toggle comments
+;c                :toggle comments
 
-F2: toggle NERDTree window
+Ctrl+p            :Control P finder
 
-NERDTree aliases:
-cd, touch, rm, e, mkdir
+Cmd+shift+f       :Ack (ag)
 
-;rt: run ctags
+  ;a                :Ack (ag)
 
-Ctrl+\: next tag
+  F2                :toggle NERDTree window
 
-F7: toggle tag list
+  NERDTree aliases:
+  cd, touch, rm, e, mkdir
 
-F3: open the taglist plugin
+  ;rt               :run ctags
 
-;y: show YankRing
+  Ctrl+\            :next tag
 
-;;: toggle the current viewport fullscreen
+  F7                :toggle tag list
 
-In Ruby syntax files:
-Ctrl+l: hashrocket (=>)
-Ctrl+k: turns current word into a symbol
+  F3                :open the taglist plugin
 
-;t: CommandT finder
-Command+t: CommandT finder
+  ;y                :show YankRing
 
-Command+shift+f: Ack
-;A: Ack (capital A)
+  ;;                :toggle the current viewport fullscreen
+
+  In Ruby syntax files:
+Ctrl+l            :hashrocket (=>)
+
+  Ctrl+k            :turns current word into a symbol
