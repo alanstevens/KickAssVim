@@ -1,30 +1,23 @@
 
 module VIM
-  Dirs = %w[ bundle ]
   if RUBY_PLATFORM.downcase.include?("mingw")
     system "ruby devkit.rb"
   end
 end
 
 def install_pathogen_task
-  cwd = File.expand_path("../", __FILE__)
-  dir = File.expand_path "#{cwd}/autoload"
+  dir = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload"
   FileUtils.mkdir_p(dir) unless File.exists?(dir)
-  sh "curl -Sso #{File.expand_path("../", __FILE__)}/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
-end
-
-VIM::Dirs.each do |dir|
-  directory(dir)
+  sh "curl -Sso #{dir}/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
 end
 
 def install_plugin_task(repo)
   name = repo.split("/")[1].split(".")[0]
   cwd = File.expand_path("../", __FILE__)
-  dir = File.expand_path("bundle/#{name}")
-  subdirs = VIM::Dirs
+  dir = File.expand_path("#{cwd}/bundle/#{name}")
 
   namespace(name) do
-    task :install => subdirs do
+    task :install do
       unless File.exist?(dir)
         sh "git clone git://github.com/#{repo} \"#{dir}\""
       else
@@ -35,7 +28,6 @@ def install_plugin_task(repo)
     end
   end
 
-  desc "Install #{name} plugin"
   task name do
     puts
     puts "*" * 40
