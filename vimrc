@@ -13,6 +13,7 @@ filetype off
 
 " use pathogen to load plugins/etc.
 call pathogen#incubate()
+call pathogen#helptags()
 
 " Turn on filetype plugins (:help filetype-plugin)
 filetype plugin indent on
@@ -21,5 +22,5 @@ filetype plugin indent on
 runtime! config/**/*
 
 if has('win32')
-    source $VIMRUNTIME/mswin.vim
+  source $VIMRUNTIME/mswin.vim
 endif

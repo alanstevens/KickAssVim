@@ -62,26 +62,14 @@ Ctrl+p            :Control P finder
 
 Cmd+shift+f       :Ack (ag)
 
-  ;a                :Ack (ag)
+;a                :Ack (ag)
 
-  F2                :toggle NERDTree window
+F2                :toggle NERDTree window
 
-  NERDTree aliases:
-  cd, touch, rm, e, mkdir
+NERDTree aliases:
+cd, touch, rm, e, mkdir
 
-  ;rt               :run ctags
-
-  Ctrl+\            :next tag
-
-  F7                :toggle tag list
-
-  F3                :open the taglist plugin
-
-  ;y                :show YankRing
-
-  ;;                :toggle the current viewport fullscreen
-
-  In Ruby syntax files:
+In Ruby syntax files:
 Ctrl+l            :hashrocket (=>)
 
-  Ctrl+k            :turns current word into a symbol
+Ctrl+k            :turns current word into a symbol

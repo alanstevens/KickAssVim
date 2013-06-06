@@ -1,6 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""
-"" NERDTree-specific settings.
-""""""""""""""""""""""""""""""""""""""""
+" NERDTree-specific settings.
 
 " let NERDTree change my working directory if its root changes.
 let NERDTreeChDirMode=2
@@ -10,7 +8,7 @@ let NERDTreeShowHidden=1
 " keybindings
 " toggles NERDTree on and off
 map <F2> :NERDTreeToggle<cr>
-imap <F2> <ESC>:NERDTreeToggle<cr>i
+imap <F2> <ESC>:NERDTreeToggle<cr>
 
 " map <Leader>d :NERDTreeToggle<CR>
 "map <Leader>n :NERDTreeToggle<CR>
@@ -161,8 +159,8 @@ RUBY
 endfunction
 
 " Define the NERDTree-aware aliases
-call s:DefineCommand("cd", "ChangeDirectory")
-call s:DefineCommand("touch", "Touch")
-call s:DefineCommand("rm", "Remove")
-call s:DefineCommand("e", "Edit")
-call s:DefineCommand("mkdir", "Mkdir")
+" call s:DefineCommand("cd", "ChangeDirectory")
+" call s:DefineCommand("touch", "Touch")
+" call s:DefineCommand("rm", "Remove")
+" call s:DefineCommand("e", "Edit")
+" call s:DefineCommand("mkdir", "Mkdir")

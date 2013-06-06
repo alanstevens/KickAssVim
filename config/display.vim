@@ -1,9 +1,12 @@
 " loads display-related options
 
 if $COLORTERM == 'gnome-terminal'
-    set term=gnome-256color
-    colorscheme desert256
+  set term=gnome-256color
+  " colorscheme desert256
 endif
+
+" Default color Scheme
+colorscheme ir_black
 
 set number         " show line numbers
 set ruler          " display coordinates in status bar
@@ -32,7 +35,7 @@ set ttyfast
 " If in diff mode (vimdiff) use the inkpot color scheme
 " that better highlights file differences
 if &diff
-    colors inkpot    " Vim Tip #1143
+  colors inkpot    " Vim Tip #1143
 endif
 
 " turn off the error beep
@@ -55,12 +58,12 @@ set linespace=4
 command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
 
 function! s:HighlightLongLines(width)
-    let targetWidth = a:width != '' ? a:width : 79
-    if targetWidth > 0
-        exec 'match Todo /\%>' . (targetWidth) . 'v/'
-    else
-        echomsg "Usage: HighlightLongLines [natural number]"
-    endif
+  let targetWidth = a:width != '' ? a:width : 79
+  if targetWidth > 0
+    exec 'match Todo /\%>' . (targetWidth) . 'v/'
+  else
+    echomsg "Usage: HighlightLongLines [natural number]"
+  endif
 endfunction
 
 " shortmess settings:

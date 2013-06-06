@@ -13,8 +13,24 @@ endif
 " Kills Trailing Whitespaces
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
+function! SaveCursor()
+  " Preparation: save last search, and cursor position.
+  let s:_s=@/
+  let s:l = line(".")
+  let s:c = col(".")
+endfunction
+command! SaveCursor call SaveCursor()
+
+function! RestoreCursor()
+  " Clean up: restore previous search history, and cursor position
+  let @/=s:_s
+  call cursor(s:l, s:c)
+endfunction
+command! RestoreCursor call RestoreCursor()
+
 " format the entire file
-nmap <silent> <leader>kd ggVG=<CR>:KillWhitespace<CR>:nohls<CR>
+nmap <silent> <leader>kd :SaveCursor<CR>ggVG=<CR>:KillWhitespace<CR>:nohls<CR>:RestoreCursor<CR>
+"
 
 " upper/lower word
 nmap <leader>uc mQviwU`Q
@@ -62,7 +78,7 @@ map <Leader>q :q!<CR>
 " ;x saves and closes a vim-window
 map <Leader>x :x!<CR>
 
-" navigate among windows using ;[hjkl]
+
 map <Leader>h <C-W>h
 map <Leader>j <C-W>j
 map <Leader>k <C-W>k
@@ -145,29 +161,6 @@ imap <Leader>= <Esc> <C-w>=
 " rotate viewports
 map <Leader>r <C-w>r
 imap <Leader>r <Esc> <C-w>r
-
-" Rotate Color Scheme <F6>
-let colorlist = ""
-nnoremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
-nnoremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
-
-let themeindex = 0
-
-function! RotateColorTheme(reverse)
-  let colorlist = ["ir_black","solarized","mac_classic","github","pyte","liquidcarbon","rootwater","twilight","darkspectrum","zmrok","jellybeans","moria","getafe","wombat","freya","camo","desert","desert256","jammy"]
-  if a:reverse
-    let g:themeindex -= 1
-  else
-    let g:themeindex += 1
-  endif
-  let themestring = get(colorlist, g:themeindex, "NONE")
-  if themestring == "NONE"
-    let g:themeindex = 0
-    let themestring = colorlist[0]
-  endif
-  :execute ":colorscheme ".themestring
-  return themestring
-endfunction
 
 if has("gui_mac") || has("gui_macvim")
   "Key mapping for textmate-like indentation
