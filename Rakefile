@@ -91,7 +91,6 @@ install_plugin_task "jimenezrick/vimerl"
 # Plugins
 # install_plugin_task "tpope/vim-abolish"
 install_plugin_task "mileszs/ack.vim" # like grep but better. Currently used with Ag
-# install_plugin_task "alanstevens/Align"
 # install_plugin_task "Townk/vim-autoclose"
 install_plugin_task "vim-scripts/bufexplorer.zip"
 install_plugin_task "duff/vim-bufonly" # quickly close all other buffers
@@ -108,7 +107,7 @@ install_plugin_task "vim-scripts/greplace.vim"
 install_plugin_task "hallettj/jslint.vim"
 install_plugin_task "tsaleh/vim-matchit"
 install_plugin_task "ddollar/nerdcommenter" # easy syntax appropriate commenting
-install_plugin_task "alanstevens/nerdtree" # provides a file system tree view
+install_plugin_task "scrooloose/nerdtree" # provides a file system tree view
 # install_plugin_task "greyblake/vim-preview" # Changed markdown preview to preview
 # install_plugin_task "tpope/vim-ragtag"
 install_plugin_task "danro/rename.vim"
