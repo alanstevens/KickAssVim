@@ -48,7 +48,7 @@ if has("gui_running")
   endif
 
   if has("gui_win32") || has("gui_win32s")
-    set guifont=Consolas:h12:cANSI
+    set guifont=Droid_Sans_Mono:h11:cANSI
 
     set encoding=utf-8
 
