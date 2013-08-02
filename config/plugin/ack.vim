@@ -1,3 +1,4 @@
+" Ack-specific config options
 
 if has('unix')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -12,9 +13,4 @@ if executable("ag")
 endif
 
 " Use <Leader>a to bring up an Ack search prompt.
-map <Leader>a :Ack<Space>
-
-if has("gui_macvim")
-  " Command-Shift-F for Ack
-  map <D-F> :Ack<space>
-endif
+noremap <Leader>a :Ack<Space>

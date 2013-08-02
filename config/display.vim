@@ -1,5 +1,10 @@
 " loads display-related options
 
+" fix arrow keys in console mode
+if !(has('gui_running') || has('win32'))
+  set term=ansi
+endif
+
 if $COLORTERM == 'gnome-terminal'
   set term=gnome-256color
   " colorscheme desert256
@@ -14,6 +19,10 @@ set showcmd        " display unfinished commands
 set showmatch      " show matching bracket (briefly jump)
 set showmode       " display the current mode in the status bar
 set title          " show file in titlebar
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 " Set off the other paren
 highlight MatchParen ctermbg=4

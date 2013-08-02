@@ -4,11 +4,7 @@
 " When I close a tab, remove the buffer
 set nohidden
 
-" save the last 1000 commands/search terms
-set history=1000
-
 " automatically indent lines and try to do it intelligently
-set autoindent
 set smartindent
 
 set whichwrap+=<,>,h,l   " cursor keys also wrap
@@ -18,28 +14,16 @@ set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
-set backspace=indent,eol,start    " backspace through everything in insert mode
 set softtabstop=2
-set smarttab
 
 " Vim Tip #989: Word wrap without line breaks
 set nowrap                        " don't wrap lines
 set textwidth=80                  " 80-character lines maximum
 set linebreak                     " try not to wrap in the middle of a word
 set showbreak=...
-"set wrap linebreak nolist
-
-" List chars
-set listchars=""                  " Reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:.            " show trailing spaces as dots
-set listchars+=extends:>          " The character to show in the last column when wrap is
-" off and the line continues beyond the right of the screen
-set listchars+=precedes:<         " The character to show in the last column when wrap is
-" off and the line continues beyond the left of the screen
-
+"
 " automatically reload a file if it's changed outside vim
-set autoread
+" set autoread
 
 " Avoid vim complains about not written file when jumping
 " between buffers using ctags

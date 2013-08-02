@@ -15,9 +15,6 @@ filetype off
 call pathogen#incubate()
 call pathogen#helptags()
 
-" Turn on filetype plugins (:help filetype-plugin)
-filetype plugin indent on
-
 " load everything else in its own config file
 runtime! config/**/*
 

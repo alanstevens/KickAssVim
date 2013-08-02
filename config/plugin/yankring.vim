@@ -1,11 +1,7 @@
-""""""""""""""""""""""""""""""""""""""""
-"" YankRing configuration
-""""""""""""""""""""""""""""""""""""""""
-
-" Keybindings
+" YankRing configuration
 
 " use <Leader>y to open the YankRing window
-:nnoremap <silent> <Leader>y :YRShow<CR>
+nnoremap <silent> <Leader>y :YRShow<CR>
 
 " skip all single-letter deletes (x)
 let g:yankring_min_element_length = 2

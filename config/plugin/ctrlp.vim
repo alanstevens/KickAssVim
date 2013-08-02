@@ -1,8 +1,7 @@
-" ctrlp settings
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-"
-" CtrlP OS-X Menu remapping
-if has("gui_macvim")
-  macmenu &File.New\ Tab key=<D-S-t>
-endif
+" ctrlp specific settings
+
+" I have no idea why these defaults don't work for me
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+noremap <C-P> :CtrlP<CR>
+inoremap <C-P> :CtrlP<CR>

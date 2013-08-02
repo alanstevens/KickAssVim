@@ -20,7 +20,7 @@ if has("autocmd")
     autocmd VimResized * wincmd =
 
     " Automatically cd into the directory that the file is in
-    autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+    " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
     " Additional filetypes
     au BufRead,BufNewFile *.cls      setlocal filetype=tex

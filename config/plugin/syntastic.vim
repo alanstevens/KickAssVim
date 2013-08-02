@@ -1,6 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""
-"" Syntastic-specific config settings
-""""""""""""""""""""""""""""""""""""""""
+" Syntastic-specific config settings
+
+let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
 
 " use signs to indicate lines with errors
 " only if signs are available
@@ -19,3 +19,10 @@ let g:syntastic_quiet_warnings=1
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
+
+" Install jshint:
+" $ brew install node.js
+" $ npm install -g jshint
+
+" May need this:
+" Then add '/usr/local/share/npm/bin' to your PATH (probably in ~/.bashrc). For example, add the line: export PATH="$PATH:/usr/local/share/npm/bin"
