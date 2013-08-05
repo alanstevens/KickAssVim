@@ -2,13 +2,13 @@
 def install_pathogen
   dir = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload"
   FileUtils.mkdir_p(dir) unless File.exists?(dir)
-  sh "curl -Ssko #{dir}/pathogen.vim https://rawhub.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
+  sh "curl -Ssko #{dir}/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
 end
 
 def install_sensible
   dir = File.expand_path "#{File.expand_path("../", __FILE__)}/config"
   FileUtils.mkdir_p(dir) unless File.exists?(dir)
-  sh "curl -Ssko #{dir}/sensible.vim https://rawhub.com/tpope/vim-sensible/master/plugin/sensible.vim"
+  sh "curl -Ssko #{dir}/sensible.vim https://raw.github.com/tpope/vim-sensible/master/plugin/sensible.vim"
 end
 
 def install_plugin(repo)
