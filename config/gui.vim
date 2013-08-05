@@ -6,8 +6,11 @@ if has("gui_running")
   set lines=60
   set columns=180
 
-  "tell the term has 256 colors
+  " tell the term has 256 colors
   set t_Co=256
+  "
+  " don't blink the cursor
+  set guicursor=a:blinkon0
 
   " Remove Toolbar
   set guioptions-=T
@@ -21,9 +24,9 @@ if has("gui_running")
   " Turn on the horizontal scrollbar
   set guioptions+=b
 
-  "vertical/horizontal scroll off settings
-  set scrolloff=3
-  set sidescrolloff=7
+  " scroll the window when we get near the edge
+  set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+  set sidescrolloff=15
   set sidescroll=1
 
   if has("gui_gnome")

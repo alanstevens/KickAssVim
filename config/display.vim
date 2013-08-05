@@ -15,6 +15,7 @@ colorscheme ir_black
 
 set number         " show line numbers
 set ruler          " display coordinates in status bar
+set rulerformat=%=%l/%L " show current line info (current/total)
 set showcmd        " display unfinished commands
 set showmatch      " show matching bracket (briefly jump)
 set showmode       " display the current mode in the status bar
@@ -41,6 +42,12 @@ set background=dark
 " Smoother redraws
 set ttyfast
 
+" have the mouse enabled all the time
+set mouse=a
+
+" allow lots of tabs
+set tabpagemax=20
+
 " If in diff mode (vimdiff) use the inkpot color scheme
 " that better highlights file differences
 if &diff
@@ -55,6 +62,9 @@ set visualbell t_vb=
 
 "add some line space for easy reading
 set linespace=4
+
+" When lines are cropped at the screen bottom, show as much as possible "
+set display=lastline
 
 " I don't know what this does HAS
 "let g:rct_completion_use_fri = 1
@@ -120,4 +130,14 @@ if has("statusline") && !&cp
 
   " TODO check for Git
   "set statusline+=[%{GitBranch()}]
+
+  " augment status line
+  function! ETry(function, ...)
+    if exists('*'.a:function)
+      return call(a:function, a:000)
+    else
+      return ''
+    endif
+  endfunction
+  set statusline=[%n]\ %<%.99f\ %h%w%m%r%{ETry('CapsLockStatusline')}%y%{ETry('rails#statusline')}%{ETry('fugitive#statusline')}%#ErrorMsg#%*%=%-16(\ %l,%c-%v\ %)%P
 endif

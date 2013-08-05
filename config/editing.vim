@@ -1,13 +1,16 @@
 " This file manages all global editing
 " settings, such as indent size, etc.
 
-" When I close a tab, remove the buffer
-set nohidden
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
 
 " automatically indent lines and try to do it intelligently
 set smartindent
 
-set whichwrap+=<,>,h,l   " cursor keys also wrap
+" cursor keys also wrap
+set whichwrap+=<,>,h,l
 
 " Whitespace
 set tabstop=2                     " a tab is two spaces
@@ -21,9 +24,13 @@ set nowrap                        " don't wrap lines
 set textwidth=80                  " 80-character lines maximum
 set linebreak                     " try not to wrap in the middle of a word
 set showbreak=...
-"
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
 " automatically reload a file if it's changed outside vim
-" set autoread
+set autoread
 
 " Avoid vim complains about not written file when jumping
 " between buffers using ctags
@@ -91,3 +98,18 @@ set clipboard=unnamed
 " Use modeline overrides
 set modeline
 set modelines=10
+
+" use tab-complete to see a list of possiblities when entering commands
+set wildmode=list:full
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif

@@ -16,6 +16,21 @@ if has("autocmd")
     autocmd InsertLeave * set nocul
     autocmd InsertEnter * set cul
 
+    " remember last position in file
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+    " Thorfile, Rakefile, Vagrantfile, and Gemfile are Ruby
+    au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+
+    " hb is handlebars
+    au BufNewFile,BufRead *.hb set ai filetype=handlebars
+
+    " hbs is handlebars
+    au BufNewFile,BufRead *.hbs set ai filetype=handlebars
+
+    " JSON is JS
+    au BufNewFile,BufRead *.json set ai filetype=javascript
+
     " Automatically resize splits when resizing window
     autocmd VimResized * wincmd =
 
@@ -30,23 +45,16 @@ if has("autocmd")
     " Set the Ruby filetype for a number of common Ruby files without .rb
     au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 
-    " md, markdown, and mk are markdown and define buffer-local preview
-    " au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
-    " Make sure all mardown files have the correct filetype set and setup wrapping
-    au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
-    au FileType markdown call s:setupWrapping()
+    " Markdown syntax highlighting
+    autocmd BufNewFile,BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
+    autocmd BufNewFile,BufRead *.md set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
+    autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
 
     " make uses real tabs
     au FileType make setlocal noexpandtab
 
     " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
     au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
-
-    function! s:setupMarkup()
-      call s:setupWrapping()
-      map <buffer> <Leader>p :Mm <CR>
-    endfunction
 
     au BufRead,BufNewFile *.txt call s:setupWrapping()
 
@@ -78,6 +86,7 @@ if has("autocmd")
           \     exe JumpCursorOnEdit_foo |
           \   endif |
           \ endif
+
     " Need to postpone using "zv" until after reading the modelines.
     autocmd BufWinEnter *
           \ if exists("b:doopenfold") |
