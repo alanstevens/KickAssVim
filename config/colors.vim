@@ -20,7 +20,7 @@ noremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<C
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-  let colorlist = ["ir_black","mac_classic","solarized","base16-default","github","pyte","liquidcarbon","rootwater","twilight","darkspectrum","zmrok","jellybeans","moria","getafe","wombat","freya","camo","desert","desert256","jammy"]
+  let colorlist = ["ir_black","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","pyte","github","mac_classic"]
   if a:reverse
     let g:themeindex -= 1
   else

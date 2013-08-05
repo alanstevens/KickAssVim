@@ -1,7 +1,18 @@
 " NERDTree-specific settings.
 
-noremap <F2> :NERDTreeToggle<CR>
+noremap <F2> :NERDTreeTabsToggle<CR>
+inoremap <F2> <ESC>:NERDTreeTabsToggle<cr>i
+
+" noremap <F2> :NERDTreeToggle<CR>
+" inoremap <F2> <ESC>:NERDTreeToggle<cr>i
 ":NERDTreeMirror<CR>
+
+let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+" let NERDTree change my working directory if its root changes.
+let NERDTreeChDirMode=2
+" show hidden files
+" use I to show/hide hidden files and directories
+" let NERDTreeShowHidden=1
 
 " Auto open nerd tree on startup
 let g:nerdtree_tabs_open_on_gui_startup = 0
@@ -9,15 +20,12 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_focus_on_files = 1
 "
 " Make nerdtree look nice
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:NERDTreeWinSize = 30
+" let NERDTreeMinimalUI = 1
+" let NERDTreeDirArrows = 1
+" let g:NERDTreeWinSize = 30
 
-let NERDTreeHijackNetrw = 0
-
-augroup AuNERDTreeCmd
-autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-autocmd AuNERDTreeCmd FocusGained * call s:UpdateNERDTree()
+autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+autocmd FocusGained * call s:UpdateNERDTree()
 
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)

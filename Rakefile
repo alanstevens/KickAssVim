@@ -43,13 +43,11 @@ install_pathogen
 install_sensible
 
 # Colors
-install_plugin "larssmit/vim-getafe"
 install_plugin "croaky/vim-colors-github"
 install_plugin "twerth/ir_black"
 install_plugin "nelstrom/vim-mac-classic-theme"
 install_plugin "vim-scripts/pyte"
 install_plugin "vim-scripts/Colour-Sampler-Pack"
-install_plugin "altercation/vim-colors-solarized"
 install_plugin "wgibbs/vim-irblack"
 install_plugin "chriskempson/base16-vim"
 
