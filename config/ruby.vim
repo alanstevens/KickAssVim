@@ -1,6 +1,6 @@
-""""""""""""""""""""""""""""""""
-"" Set Ruby-specific keybindings
-""""""""""""""""""""""""""""""""
+" Set Ruby-specific keybindings
+
+let g:rubycomplete_buffer_loading = 1
 
 autocmd FileType ruby  call LoadRubyKeybindings()
 autocmd FileType eruby call LoadRubyKeybindings()
