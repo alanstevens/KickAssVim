@@ -13,8 +13,8 @@ if has("autocmd")
     au!
     " Vim Tip #1279 - Highlight current line in Insert Mode
     " http://www.vim.org/tips/tip.php?tip_id=1279
-    autocmd InsertLeave * set nocul
-    autocmd InsertEnter * set cul
+    " autocmd InsertLeave * set nocul
+    " autocmd InsertEnter * set cul
 
     " remember last position in file
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
@@ -35,7 +35,10 @@ if has("autocmd")
     autocmd VimResized * wincmd =
 
     " Automatically cd into the directory that the file is in
-    autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+    " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+    set autochdir
+    " autocmd BufEnter * lcd %:p:h
+    autocmd BufEnter * silent! lcd %:p:h
 
     " Additional filetypes
     au BufRead,BufNewFile *.cls      setlocal filetype=tex

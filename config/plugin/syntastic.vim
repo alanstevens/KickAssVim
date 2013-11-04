@@ -12,9 +12,9 @@ endif
 let g:syntastic_auto_loc_list=1
 
 " always show warnings
-" let g:syntastic_quiet_warnings=1
+" let g:syntastic_quiet_warnings=0
 "don't care about warnings
-let g:syntastic_quiet_warnings=0
+let g:syntastic_quiet_warnings=1
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1

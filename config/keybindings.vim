@@ -199,7 +199,7 @@ inoremap <silent> <F8> <ESC>:set invpaste<CR>:set paste?<CR>
 " nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
 " After whitespace, insert the current directory into a command-line path
-" cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
+" cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : :"\<C-P>"
 
 "map Q to something useful
 " noremap Q gq

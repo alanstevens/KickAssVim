@@ -70,6 +70,7 @@ Bundle "tpope/vim-markdown"
 Bundle "maba/vim-markdown-preview"
 Bundle "juvenn/mustache.vim"
 Bundle "sunaku/vim-ruby-minitest"
+# Bundle "ecomba/vim-ruby-refactoring" # Refactoring tool for Ruby in vim!
 # Bundle "ajf/puppet-vim"
 Bundle "tpope/vim-rails"
 Bundle "tpope/vim-rake"
