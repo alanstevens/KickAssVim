@@ -1,6 +1,7 @@
 " Syntastic-specific config settings
 
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " use signs to indicate lines with errors
 " only if signs are available
