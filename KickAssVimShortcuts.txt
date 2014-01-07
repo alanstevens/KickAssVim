@@ -64,6 +64,8 @@ Cmd+shift+f       :Ack (ag)
 
 ;a                :Ack (ag)
 
+;rv               :reload .vimrc
+
 F2                :toggle NERDTree window
 
 NERDTree aliases:

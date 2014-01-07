@@ -1,7 +1,7 @@
 " Syntastic-specific config settings
 
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " use signs to indicate lines with errors
 " only if signs are available
@@ -12,10 +12,8 @@ endif
 " automatically open the location list when a buffer has errors
 let g:syntastic_auto_loc_list=1
 
-" always show warnings
-" let g:syntastic_quiet_warnings=0
 "don't care about warnings
-let g:syntastic_quiet_warnings=1
+g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
