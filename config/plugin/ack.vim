@@ -3,8 +3,10 @@
 if has('unix')
   let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 else
-  " let g:ackprg="ack -H --nocolor --nogroup --column"
-  let g:ackprg = 'ag --nogroup --nocolor --column'
+  let g:ackprg="ack -H --nocolor --nogroup --column"
+  if executable("ag")
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+  endif
 endif
 
 if executable("ag")

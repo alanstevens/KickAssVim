@@ -64,6 +64,10 @@ if has("autocmd")
     " Treat JSON files like JavaScript
     au BufNewFile,BufRead *.json set ft=javascript
 
+    au BufNewFile,BufRead *.bas set ft=vb
+    au BufNewFile,BufRead *.cls set ft=vb
+    au BufNewFile,BufRead *.frm set ft=vb
+
     " Stop annoying me every time I have a file open in two different vim sessions.
     " 'e' is "Edit Anyway" in this circumstance. Other options you could use here:
     " 'q' - quit.
