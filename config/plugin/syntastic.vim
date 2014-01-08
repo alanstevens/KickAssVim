@@ -13,7 +13,7 @@ endif
 let g:syntastic_auto_loc_list=1
 
 "don't care about warnings
-g:syntastic_quiet_messages = {'level': 'warnings'}
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
