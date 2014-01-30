@@ -35,6 +35,9 @@ function! CloseWindow()
 endfunction
 command! CloseWindow call CloseWindow()
 
+" run rubocop -a on the current file
+noremap <Leader>rua :!rubocop -a %:p<CR><CR>
+
 " navigate viewports with hjkl
 noremap <Leader>h <C-W>h
 noremap <Leader>j <C-W>j

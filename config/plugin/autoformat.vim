@@ -1,7 +1,8 @@
 " autoformat-specific settings
 
 " format the entire file
-nnoremap <silent> <leader>kd :Autoformat<CR><CR>
+" nnoremap <silent> <leader>kd :Autoformat<CR><CR>
+nnoremap <silent> <leader>kd ggVG=
 
 " nnoremap <silent> <leader>kd :SaveCursor<CR>ggVG=<CR>:KillWhitespace<CR>:nohls<CR>:RestoreCursor<CR>
 
