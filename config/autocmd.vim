@@ -36,9 +36,9 @@ if has("autocmd")
 
     " Automatically cd into the directory that the file is in
     " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-    set autochdir
+    "set autochdir
     " autocmd BufEnter * lcd %:p:h
-    autocmd BufEnter * silent! lcd %:p:h
+    "autocmd BufEnter * silent! lcd %:p:h
 
     " Additional filetypes
     au BufRead,BufNewFile *.cls      setlocal filetype=tex
