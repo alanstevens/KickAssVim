@@ -12,7 +12,8 @@ set shm+=atmI
 filetype off
 
 " use pathogen to load plugins/etc.
-call pathogen#incubate()
+" call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 call pathogen#helptags()
 
 " load everything else in its own config file

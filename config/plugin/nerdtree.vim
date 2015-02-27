@@ -1,11 +1,14 @@
 " NERDTree-specific settings.
 
-noremap <F2> :NERDTreeTabsToggle<CR>
-inoremap <F2> <ESC>:NERDTreeTabsToggle<cr>i
+if has("gui_running")
+  noremap <F2> :NERDTreeTabsToggle<CR>
+  inoremap <F2> <ESC>:NERDTreeTabsToggle<cr>i
+else
+  noremap <F2> :NERDTreeToggle<CR>
+  inoremap <F2> <ESC>:NERDTreeToggle<cr>i
+  " :NERDTreeMirror<CR>
+endif
 
-" noremap <F2> :NERDTreeToggle<CR>
-" inoremap <F2> <ESC>:NERDTreeToggle<cr>i
-":NERDTreeMirror<CR>
 
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 " let NERDTree change my working directory if its root changes.

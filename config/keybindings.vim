@@ -78,7 +78,7 @@ noremap N Nzz
 noremap n nzz
 
 " cd to the directory containing the file in the buffer
-nmap <silent> <leader>cd :lcd %:h<CR>
+"nmap <silent> <leader>cd :lcd %:h<CR>
 
 " Return a path separator on the current OS
 " Taken from pathogen
