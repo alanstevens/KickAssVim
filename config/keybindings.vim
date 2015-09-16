@@ -3,8 +3,10 @@
 " just 'global' ones.
 
 " makes jk leave insert mode (like Esc)
-inoremap jk <Esc>
-inoremap kj <Esc>
+" inoremap jk <Esc>
+" inoremap kj <Esc>
+inoremap jk <Nop>
+inoremap kj <Nop>
 
 "make <leader>f clear the highlight as well as redraw
 nnoremap <leader>f :nohls<CR><C-L>
@@ -57,8 +59,8 @@ nnoremap <silent> <C-t> :tabnew<CR>
 " Use the system clipboard in Unix
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
-vnoremap <C-p> "+gP
+" nnoremap <C-p> "+gP
+" vnoremap <C-p> "+gP
 
 " Create Blank Newlines and stay in Normal mode
 nnoremap <Leader>O O<Esc>
@@ -103,7 +105,8 @@ noremap <Leader>= <C-w>=
 " imap <Leader>= <Esc> <C-w>=
 
 " rotate viewports
-noremap <Leader>r <C-w>r
+" <Leader>r is used by vroom
+" noremap <Leader>r <C-w>r
 " imap <Leader>r <Esc> <C-w>r
 
 " Keep lines that do contain the last search term
