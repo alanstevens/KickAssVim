@@ -36,7 +36,7 @@ if has("gui_running")
 
   if has("gui_mac") || has("gui_macvim")
     " set guifont=Menlo:h14
-    set guifont=Mensch:h16
+    set guifont=Hack:h16
 
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
@@ -51,7 +51,7 @@ if has("gui_running")
   endif
 
   if has("gui_win32") || has("gui_win32s")
-    set guifont=Droid_Sans_Mono:h13:cANSI
+    set guifont=hack:h13:cANSI
 
     set encoding=utf-8
 

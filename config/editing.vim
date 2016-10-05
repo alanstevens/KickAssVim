@@ -79,10 +79,10 @@ endif
 set langmenu=non
 
 " Use english for spellchecking, but don't spellcheck by default
-if version >= 700
-  set spl=en spell
-  set nospell
-endif
+" if version >= 700
+"   set spl=en spell
+"   set nospell
+" endif
 
 " Enable mouse support in console
 set mouse=a

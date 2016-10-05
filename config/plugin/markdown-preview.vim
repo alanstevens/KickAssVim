@@ -1,1 +1,1 @@
-map <buffer> <Leader>mp :Mm<CR>
+nnoremap <C-M> :MDP<CR>

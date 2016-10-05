@@ -2,13 +2,7 @@
 def install_pathogen
   dir = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload"
   FileUtils.mkdir_p(dir) unless File.exists?(dir)
-  sh "curl -Ssko #{dir}/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
-end
-
-def install_sensible
-  dir = File.expand_path "#{File.expand_path("../", __FILE__)}/config"
-  FileUtils.mkdir_p(dir) unless File.exists?(dir)
-  sh "curl -Ssko #{dir}/sensible.vim https://raw.github.com/tpope/vim-sensible/master/plugin/sensible.vim"
+  sh "curl -LSso #{dir}/pathogen.vim https://tpo.pe/pathogen.vim"
 end
 
 def Bundle(repo)
@@ -39,8 +33,11 @@ def Bundle(repo)
   task :default => name
 end
 
+sh "gem install bundle"
+sh "bundle install"
+
 install_pathogen
-install_sensible
+Bundle "tpope/vim-sensible"
 
 # Colors
 Bundle "croaky/vim-colors-github"
@@ -52,56 +49,60 @@ Bundle "wgibbs/vim-irblack"
 Bundle "chriskempson/base16-vim"
 
 # Languages
+Bundle "jimmyhchan/dustjs.vim" #dustjs template syntax highlighting and more for vim
 # Bundle "vim-scripts/Arduino-syntax-file"
 # Bundle "guns/vim-clojure-static"
-Bundle "kchmck/vim-coffee-script"
+# Bundle "kchmck/vim-coffee-script"
 Bundle "chrisbra/csv.vim"
-Bundle "tpope/vim-cucumber"
+# Bundle "tpope/vim-cucumber"
 # Bundle "elixir-lang/vim-elixir"
 Bundle "tpope/vim-git"
 # Bundle "jnwhiteh/vim-golang"
-Bundle "tpope/vim-haml"
+# Bundle "tpope/vim-haml"
 Bundle "nono/vim-handlebars"
 # Bundle "wlangstroth/vim-haskell"
 Bundle "pangloss/vim-javascript"
 Bundle "itspriddle/vim-jquery"
 Bundle "groenewege/vim-less"
 Bundle "tpope/vim-markdown"
-Bundle "maba/vim-markdown-preview"
-Bundle "juvenn/mustache.vim"
-Bundle "sunaku/vim-ruby-minitest"           # Vim highlighting & completion for MiniTest.
+# Bundle "maba/vim-markdown-preview"       # can't get this one to work.
+Bundle "mkitt/markdown-preview.vim"        # Preview markdown files in the browser from vim (requires redcarpet gem)
+Bundle "elzr/vim-json"                     # A better JSON for Vim
+# Bundle "juvenn/mustache.vim"
+# Bundle "sunaku/vim-ruby-minitest"           # Vim highlighting & completion for MiniTest.
 # Bundle "ecomba/vim-ruby-refactoring"      # Refactoring tool for Ruby in vim!
 # Bundle "ajf/puppet-vim"
-Bundle "tpope/vim-rails"
-Bundle "tpope/vim-rake"
+# Bundle "tpope/vim-rails"
+# Bundle "tpope/vim-rake"
 # Bundle "rosstimson/scala-vim-support"
 Bundle "cakebaker/scss-syntax.vim"
-Bundle "timcharper/textile.vim"
+# Bundle "timcharper/textile.vim"
 Bundle "mmalecki/vim-node.js"
 Bundle "vim-ruby/vim-ruby"
-Bundle "slim-template/vim-slim"              # slim syntax highlighting for vim
+# Bundle "slim-template/vim-slim"              # slim syntax highlighting for vim
 Bundle "nanki/treetop.vim"
 Bundle "jimenezrick/vimerl"
 
 # Plugins
 # Bundle "tpope/vim-abolish"                  # easily search for, substitute, and abbreviate multiple variants of a word
 Bundle "mileszs/ack.vim"                      # like grep but better. Currently used with Ag, if available
-Bundle "bling/vim-airline"                    # lean & mean statusline for vim that's light as air
+Bundle "vim-airline/vim-airline"                    # lean & mean statusline for vim that's light as air
+Bundle "vim-airline/vim-airline-themes"                    # lean & mean statusline for vim that's light as air
 # Bundle "Townk/vim-autoclose"                # automatically closes quotes, parens, brackets, etc
 Bundle "Chiel92/vim-autoformat"               # Provides easy code formatting in Vim by integrating existing code formatters.
-Bundle "bonsaiben/bootstrap-snippets"         # Twitter Bootstrap snippets for vim-snipmate
+# Bundle "bonsaiben/bootstrap-snippets"         # Twitter Bootstrap snippets for vim-snipmate
 # Bundle "vim-scripts/bufexplorer.zip"
 Bundle "jeetsukumaran/vim-buffergator"        # list, select and switch between buffers.
 Bundle "duff/vim-bufonly"                     # quickly close all other buffers
-Bundle "tpope/vim-bundler"                    # Lightweight support for Ruby's Bundler
+# Bundle "tpope/vim-bundler"                    # Lightweight support for Ruby's Bundler
 # Bundle "vim-scripts/camelcasemotion"
 Bundle "vim-scripts/ctags.vim"
 Bundle "kien/ctrlp.vim"                       # quick search window
 # Bundle "vim-scripts/dbext.vim"
 Bundle "Raimondi/delimitMate"                 # provides insert mode auto-completion for quotes, parens, brackets, etc.
-Bundle "Lokaltog/vim-easymotion"              # Vim motions on speed!
-Bundle "tpope/vim-endwise"
-Bundle "tpope/vim-fugitive"
+# Bundle "Lokaltog/vim-easymotion"              # Vim motions on speed!
+# Bundle "tpope/vim-endwise"
+# Bundle "tpope/vim-fugitive"
 # Bundle "vim-scripts/greplace.vim"
 Bundle "sjl/gundo.vim"                        # provides an undo graph window
 # Bundle "henrik/vim-indexed-search"
@@ -116,16 +117,16 @@ Bundle "jistr/vim-nerdtree-tabs"              # NERDTree and tabs together in Vi
 # Bundle "tpope/vim-ragtag"
 Bundle "danro/rename.vim"
 Bundle "tpope/vim-repeat"
-Bundle "tpope/vim-rbenv"
+# Bundle "tpope/vim-rbenv"
 Bundle "airblade/vim-rooter"
 # Bundle "drewolson/ruby_focused_unit_test_vim" # run a focused ruby unit test in vim
-Bundle "vim-scripts/ruby-matchit"
+# Bundle "vim-scripts/ruby-matchit"
 # Bundle "csexton/rvm.vim"
 # Bundle "vim-scripts/searchfold.vim"
 # Bundle "vim-scripts/simplefold"
 # Bundle "hallison/vim-ruby-sinatra"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"                   # additional snippits to use with snipmate
+# Bundle "garbas/vim-snipmate"
+# Bundle "honza/vim-snippets"                   # additional snippits to use with snipmate
 Bundle "ervandew/supertab"                    # Perform all your vim insert mode completions with Tab
 Bundle "tpope/vim-surround"
 Bundle "scrooloose/syntastic"                 # syntax error checking
@@ -133,15 +134,15 @@ Bundle "godlygeek/tabular"                    # text filtering and alignment
 Bundle "majutsushi/tagbar"                    # displays a list of ctags in a sidebar
 # Bundle "vim-scripts/TailMinusF"
 Bundle "vim-scripts/tComment"
-Bundle "kana/vim-textobj-user"
+# Bundle "kana/vim-textobj-user"
 # Bundle "thinca/vim-textobj-comment"
-Bundle "nelstrom/vim-textobj-rubyblock"
-Bundle "tomtom/tlib_vim"                      # (snipmate dependency) Some utility functions for VIM
+# Bundle "nelstrom/vim-textobj-rubyblock"
+# Bundle "tomtom/tlib_vim"                      # (snipmate dependency) Some utility functions for VIM
 # Bundle "SirVer/ultisnips"                   # code snipped engine. ships with some templates
 Bundle "tpope/vim-unimpaired"                 # pairs of handy bracket mappings
 # Bundle "Raimondi/vimoutliner"
 Bundle "sjl/vitality.vim"                     # enables a thin cursor while in insert mode in console vim
-Bundle "skalnik/vim-vroom"                    # A vim plugin for running your Ruby tests
+# Bundle "skalnik/vim-vroom"                    # A vim plugin for running your Ruby tests
 Bundle "vim-scripts/YankRing.vim"             # provides a yank buffer history
 # Bundle "mattn/zencoding-vim"
 Bundle "vim-scripts/ZoomWin"                  # enables temporary full screen for a viewport

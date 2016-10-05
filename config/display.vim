@@ -66,6 +66,9 @@ set linespace=4
 " When lines are cropped at the screen bottom, show as much as possible "
 set display=lastline
 
+" Removes dollar signs from end of lines
+set nolist
+
 " I don't know what this does HAS
 "let g:rct_completion_use_fri = 1
 

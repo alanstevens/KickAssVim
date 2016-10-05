@@ -9,8 +9,8 @@ inoremap jk <Nop>
 inoremap kj <Nop>
 
 "make <leader>f clear the highlight as well as redraw
-nnoremap <leader>f :nohls<CR><C-L>
-inoremap <leader>f <C-O>:nohls<CR>
+" nnoremap <leader>f :nohls<CR><C-L>
+" inoremap <leader>f <C-O>:nohls<CR>
 
 " cycle between tabs
 " Note that S-TAB does not work in certain consoles (i.e. KDE Konsole)
@@ -18,30 +18,30 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
 " ;w saves a buffer
-noremap <Leader>w :w!<CR>
+" noremap <Leader>w :w!<CR>
 
 " ;q closes a vim-window
-noremap <Leader>q :q!<CR>
+" noremap <Leader>q :q!<CR>
 
 " ;x saves and closes a vim-window
 " map <Leader>x :x!<CR>
-noremap <Leader>x :CloseWindow<CR>
+" noremap <Leader>x :CloseWindow<CR>
 
-function! CloseWindow()
-  if winbufnr(2) == -1
-    " if this window is last on screen quit without warning
-    quit!
-  else
-    hide
-  endif
-endfunction
-command! CloseWindow call CloseWindow()
+" function! CloseWindow()
+"   if winbufnr(2) == -1
+"     " if this window is last on screen quit without warning
+"     quit!
+"   else
+"     hide
+"   endif
+" endfunction
+" command! CloseWindow call CloseWindow()
 
 " run rubocop -a on the current file
 noremap <Leader>rua :!rubocop -a %:p<CR><CR>
 
 " navigate viewports with hjkl
-noremap <Leader>h <C-W>h
+" noremap <Leader>h <C-W>h
 noremap <Leader>j <C-W>j
 noremap <Leader>k <C-W>k
 noremap <Leader>l <C-W>l
@@ -101,7 +101,7 @@ noremap <Leader>ve :vsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 noremap <Leader>he :hsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 
 " Adjust viewports to the same size
-noremap <Leader>= <C-w>=
+" noremap <Leader>= <C-w>=
 " imap <Leader>= <Esc> <C-w>=
 
 " rotate viewports
@@ -127,20 +127,20 @@ nnoremap <silent> <Leader>rv :so $MYVIMRC<CR>
 
 " use C-j and C-k to 'bubble' lines (see
 " http://vimcasts.org/episodes/bubbling-text/)
-noremap <C-j> ddp
-noremap <C-k> ddkP
+" noremap <C-j> ddp
+" noremap <C-k> ddkP
 
 " switch ' and `, because:
 " ' jumps to the start of the line where a mark is
 " ` jumps to the exact location of a mark
 " because jumping to the exact location is more useful,
 " I like it to be closer to the home row, so I switch the keys.
-noremap ' `
-noremap ` '
+" noremap ' `
+" noremap ` '
 
 " Toggle paste mode
-nnoremap <silent> <F8> :set invpaste<CR>:set paste?<CR>
-inoremap <silent> <F8> <ESC>:set invpaste<CR>:set paste?<CR>
+" nnoremap <silent> <F8> :set invpaste<CR>:set paste?<CR>
+" inoremap <silent> <F8> <ESC>:set invpaste<CR>:set paste?<CR>
 
 "-----------------------------------------------------------------------------------------------
 
