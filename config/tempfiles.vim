@@ -1,5 +1,13 @@
 " settings controlling temporary/backup files
 
+" Stop annoying me every time I have a file open in two different vim sessions.
+" 'e' is "Edit Anyway" in this circumstance. Other options you could use here:
+" 'q' - quit.
+" 'o' - open the file in read-only mode.
+" 'r' - recover the changes.
+autocmd  SwapExists  *  :let v:swapchoice = 'e'
+
+
 " Backup and swap files
 if has("win32")
   set backupdir=$TEMP

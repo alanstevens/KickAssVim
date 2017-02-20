@@ -5,14 +5,6 @@ if !(has('gui_running') || has('win32'))
   set term=ansi
 endif
 
-if $COLORTERM == 'gnome-terminal'
-  set term=gnome-256color
-  " colorscheme desert256
-endif
-
-" Default color Scheme
-colorscheme ir_black
-
 set number         " show line numbers
 set ruler          " display coordinates in status bar
 set rulerformat=%=%l/%L " show current line info (current/total)
@@ -31,14 +23,6 @@ highlight MatchParen ctermbg=4
 "dont load csapprox if there is no gui support - silences an annoying warning
 let g:CSApprox_loaded = 1
 
-syntax enable         " Turn on syntax highlighting allowing local overrides
-
-" adjust highlight color
-highlight CursorLine term=none cterm=none ctermbg=3
-
-" we plan to use a dark background
-set background=dark
-
 " Smoother redraws
 set ttyfast
 
@@ -47,12 +31,6 @@ set mouse=a
 
 " allow lots of tabs
 set tabpagemax=20
-
-" If in diff mode (vimdiff) use the inkpot color scheme
-" that better highlights file differences
-if &diff
-  colors inkpot    " Vim Tip #1143
-endif
 
 " turn off the error beep
 set vb t_vb=
@@ -69,24 +47,24 @@ set display=lastline
 " Removes dollar signs from end of lines
 set nolist
 
-" I don't know what this does HAS
+" I don't know what this does --HAS
 "let g:rct_completion_use_fri = 1
 
-" WTF does this do? HAS
+" WTF does this do? --HAS
 "let ScreenShot = {'Icon':0, 'Credits':0, 'force_background':'#FFFFFF'}
 
 "define :HighlightLongLines command to highlight the offending parts of
 "lines that are longer than the specified length (defaulting to 80)
-command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-
-function! s:HighlightLongLines(width)
-  let targetWidth = a:width != '' ? a:width : 79
-  if targetWidth > 0
-    exec 'match Todo /\%>' . (targetWidth) . 'v/'
-  else
-    echomsg "Usage: HighlightLongLines [natural number]"
-  endif
-endfunction
+"command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
+"
+"function! s:HighlightLongLines(width)
+"  let targetWidth = a:width != '' ? a:width : 79
+"  if targetWidth > 0
+"    exec 'match Todo /\%>' . (targetWidth) . 'v/'
+"  else
+"    echomsg "Usage: HighlightLongLines [natural number]"
+"  endif
+"endfunction
 
 " shortmess settings:
 " f - use "(3 of 5)" instead of "(file 3 of 5)"

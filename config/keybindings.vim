@@ -38,10 +38,10 @@ nnoremap <S-Tab> gT
 " command! CloseWindow call CloseWindow()
 
 " run rubocop -a on the current file
-noremap <Leader>rua :!rubocop -a %:p<CR><CR>
+" noremap <Leader>rua :!rubocop -a %:p<CR><CR>
 
 " navigate viewports with hjkl
-" noremap <Leader>h <C-W>h
+noremap <Leader>h <C-W>h
 noremap <Leader>j <C-W>j
 noremap <Leader>k <C-W>k
 noremap <Leader>l <C-W>l
@@ -54,7 +54,7 @@ noremap <Leader>p :bprevious<CR>
 noremap <F4> :set wrap!<cr>
 
 " New Tab
-nnoremap <silent> <C-t> :tabnew<CR>
+" nnoremap <silent> <C-t> :tabnew<CR>
 
 " Use the system clipboard in Unix
 nnoremap <C-y> "+y
@@ -80,7 +80,7 @@ noremap N Nzz
 noremap n nzz
 
 " cd to the directory containing the file in the buffer
-"nmap <silent> <leader>cd :lcd %:h<CR>
+nmap <silent> <leader>cd :lcd %:h<CR>
 
 " Return a path separator on the current OS
 " Taken from pathogen

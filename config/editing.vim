@@ -13,11 +13,11 @@ set smartindent
 set whichwrap+=<,>,h,l
 
 " Whitespace
-set tabstop=2                     " a tab is two spaces
-set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set tabstop=4                     " a tab is four spaces
+set shiftwidth=4                  " an autoindent (with <<) is four spaces
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
-set softtabstop=2
+set softtabstop=4
 
 " Vim Tip #989: Word wrap without line breaks
 set nowrap                        " don't wrap lines
@@ -98,18 +98,3 @@ set clipboard=unnamed
 " Use modeline overrides
 set modeline
 set modelines=10
-
-" use tab-complete to see a list of possiblities when entering commands
-set wildmode=list:full
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif

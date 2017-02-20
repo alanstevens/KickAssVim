@@ -1,7 +1,28 @@
 " loads color-related options
 
+if !exists("g:syntax_on")
+    syntax enable     " Turn on syntax highlighting allowing local overrides
+endif
+
+" adjust highlight color
+highlight CursorLine term=none cterm=none ctermbg=3
+
 " we plan to use a dark background
 set background=dark
+
+if $COLORTERM == 'gnome-terminal'
+  set term=gnome-256color
+  " colorscheme desert256
+endif
+
+" Default color Scheme
+colorscheme ir_black
+
+" If in diff mode (vimdiff) use the inkpot color scheme
+" that better highlights file differences
+if &diff
+  colors inkpot    " Vim Tip #1143
+endif
 
 if $COLORTERM == 'gnome-terminal'
   " set term=gnome-256color
@@ -20,7 +41,7 @@ noremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<C
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-  let colorlist = ["ir_black","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","pyte","github","mac_classic"]
+  let colorlist = ["ir_black","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","distinguished","pyte","github","mac_classic"]
   if a:reverse
     let g:themeindex -= 1
   else

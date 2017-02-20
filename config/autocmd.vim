@@ -4,7 +4,7 @@ if has("autocmd")
   function! s:setupWrapping()
     set wrap
     set linebreak
-    set textwidth=72
+    set textwidth=84
     set nolist
   endfunction
 
@@ -16,42 +16,42 @@ if has("autocmd")
     " autocmd InsertLeave * set nocul
     " autocmd InsertEnter * set cul
 
-    " remember last position in file
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
-
     " Thorfile, Rakefile, Vagrantfile, and Gemfile are Ruby
-    au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+    " au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
     " hb is handlebars
-    au BufNewFile,BufRead *.hb set ai filetype=handlebars
+    " au BufNewFile,BufRead *.hb set ai filetype=handlebars
 
     " hbs is handlebars
-    au BufNewFile,BufRead *.hbs set ai filetype=handlebars
+    " au BufNewFile,BufRead *.hbs set ai filetype=handlebars
 
     " JSON is JS
-    au BufNewFile,BufRead *.json set ai filetype=javascript
+    " Treat JSON files like JavaScript
+    " au BufNewFile,BufRead *.json set ft=javascript
+    " au BufNewFile,BufRead *.json set ai filetype=javascript
+    " au BufRead,BufNewFile *.js syntax=enable
 
     " Automatically resize splits when resizing window
     autocmd VimResized * wincmd =
 
     " Automatically cd into the directory that the file is in
     " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-    "set autochdir
+    " set autochdir
     " autocmd BufEnter * lcd %:p:h
-    "autocmd BufEnter * silent! lcd %:p:h
+    " autocmd BufEnter * silent! lcd %:p:h
 
     " Additional filetypes
-    au BufRead,BufNewFile *.cls      setlocal filetype=tex
-    au BufRead,BufNewFile sconstruct setlocal filetype=python
-    au BufRead,BufNewFile *.xaml     setlocal filetype=xml
+    " au BufRead,BufNewFile *.cls      setlocal filetype=tex
+    " au BufRead,BufNewFile sconstruct setlocal filetype=python
+    " au BufRead,BufNewFile *.xaml     setlocal filetype=xml
 
     " Set the Ruby filetype for a number of common Ruby files without .rb
-    au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
+    " au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} set ft=ruby
 
     " Markdown syntax highlighting
-    autocmd BufNewFile,BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-    autocmd BufNewFile,BufRead *.md set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-    autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
+    " autocmd BufNewFile,BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
+    " autocmd BufNewFile,BufRead *.md set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
+    " autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
 
     " make uses real tabs
     au FileType make setlocal noexpandtab
@@ -59,26 +59,19 @@ if has("autocmd")
     " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
     au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
-    au BufRead,BufNewFile *.txt call s:setupWrapping()
+    " au BufRead,BufNewFile *.txt call s:setupWrapping()
 
-    " Treat JSON files like JavaScript
-    au BufNewFile,BufRead *.json set ft=javascript
-
-    au BufNewFile,BufRead *.bas set ft=vb
-    au BufNewFile,BufRead *.cls set ft=vb
-    au BufNewFile,BufRead *.frm set ft=vb
-
-    " Stop annoying me every time I have a file open in two different vim sessions.
-    " 'e' is "Edit Anyway" in this circumstance. Other options you could use here:
-    " 'q' - quit.
-    " 'o' - open the file in read-only mode.
-    " 'r' - recover the changes.
-    autocmd  SwapExists  *  :let v:swapchoice = 'e'
+    " au BufNewFile,BufRead *.bas set ft=vb
+    " au BufNewFile,BufRead *.cls set ft=vb
+    " au BufNewFile,BufRead *.frm set ft=vb
 
     " Remember last location in file, but not for commit messages.
     " see :help last-position-jump
     " au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
     "   \| exe "normal! g`\"" | endif
+
+    " remember last position in file
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 
     " Restore cursor position to where it was before
     autocmd BufReadPost *
@@ -135,14 +128,14 @@ if has("autocmd")
 
 
     "return the syntax highlight group under the cursor ''
-    function! StatuslineCurrentHighlight()
-      let name = synIDattr(synID(line('.'),col('.'),1),'name')
-      if name == ''
-        return ''
-      else
-        return '[' . name . ']'
-      endif
-    endfunction
+    " function! StatuslineCurrentHighlight()
+    "   let name = synIDattr(synID(line('.'),col('.'),1),'name')
+    "   if name == ''
+    "     return ''
+    "   else
+    "     return '[' . name . ']'
+    "   endif
+    " endfunction
 
     "return '[&et]' if &et is set wrong
     "return '[mixed-indenting]' if spaces and tabs are used to indent

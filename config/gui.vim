@@ -36,7 +36,9 @@ if has("gui_running")
 
   if has("gui_mac") || has("gui_macvim")
     " set guifont=Menlo:h14
-    set guifont=Hack:h16
+    " set guifont=Hack:h16
+    " Font must come from here to work with plugins: http://nerdfonts.com/
+     set guifont=Knack\ Nerd\ Font:h16
 
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
