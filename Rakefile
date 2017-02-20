@@ -65,7 +65,8 @@ Bundle "Lokaltog/vim-distinguished"
 Bundle "altercation/vim-colors-solarized"
 
 # Plugins
-# For whatever reason, this broke javascript editing.
+# For whatever reason, sensible broke javascript editing.
+# I commented the line "filetype plugin indent on" and added sensible.vim directly to my config
 # Bundle "tpope/vim-sensible"
 Bundle "pangloss/vim-javascript"                  # Vastly improved Javascript indentation and syntax support in Vim. provides syntax highlighting and improved indentation
 # Bundle 'jelera/vim-javascript-syntax'           # Enhanced JavaScript Syntax for Vim

@@ -54,10 +54,10 @@ if has("autocmd")
     " autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
 
     " make uses real tabs
-    au FileType make setlocal noexpandtab
+    " au FileType make setlocal noexpandtab
 
     " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
-    au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
+    " au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
     " au BufRead,BufNewFile *.txt call s:setupWrapping()
 

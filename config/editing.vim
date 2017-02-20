@@ -30,7 +30,7 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " automatically reload a file if it's changed outside vim
-set autoread
+" set autoread set in sensible.vim
 
 " Avoid vim complains about not written file when jumping
 " between buffers using ctags
@@ -59,7 +59,7 @@ set formatoptions+=l
 set formatoptions-=o
 
 " % to bounce from do to end etc.
-runtime! macros/matchit.vim
+" runtime! macros/matchit.vim set in sensible.vim
 
 "folding settings
 set foldmethod=syntax

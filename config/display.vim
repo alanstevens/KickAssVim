@@ -6,7 +6,7 @@ if !(has('gui_running') || has('win32'))
 endif
 
 set number         " show line numbers
-set ruler          " display coordinates in status bar
+" set ruler set in sensible.vim         " display coordinates in status bar
 set rulerformat=%=%l/%L " show current line info (current/total)
 set showcmd        " display unfinished commands
 set showmatch      " show matching bracket (briefly jump)
@@ -30,7 +30,7 @@ set ttyfast
 set mouse=a
 
 " allow lots of tabs
-set tabpagemax=20
+" set tabpagemax=20 set in sensible.vim
 
 " turn off the error beep
 set vb t_vb=
@@ -42,7 +42,7 @@ set visualbell t_vb=
 set linespace=4
 
 " When lines are cropped at the screen bottom, show as much as possible "
-set display=lastline
+" set display=lastline set in sensible.vim
 
 " Removes dollar signs from end of lines
 set nolist
@@ -85,7 +85,7 @@ set shortmess=filmnrxtTI
 " status bar
 
 if has("statusline") && !&cp
-  set laststatus=2 " always show the status bar
+  " set laststatus=2 set in sensible.vim " always show the status bar
 
   "set statusline+=%f\                                           " filename
   "set statusline+=[%{strlen(&ft)?&ft:'none'}]                   " filetype

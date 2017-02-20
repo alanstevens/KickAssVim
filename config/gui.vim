@@ -25,8 +25,8 @@ if has("gui_running")
   set guioptions+=b
 
   " scroll the window when we get near the edge
-  set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-  set sidescrolloff=15
+  set scrolloff=8         "Start scrolling when we're 8 lines away from margins, set to 1 in sensible.vim
+  set sidescrolloff=15 "set to 5 in sensible.vim
   set sidescroll=1
 
   if has("gui_gnome")
@@ -55,7 +55,7 @@ if has("gui_running")
   if has("gui_win32") || has("gui_win32s")
     set guifont=hack:h13:cANSI
 
-    set encoding=utf-8
+    " set encoding=utf-8 set in sensible.vim
 
     " For Win32 GUI, remove 't' flag from 'guioptions': no tearoff menu entries
     let &guioptions = substitute(&guioptions, "t", "", "g")

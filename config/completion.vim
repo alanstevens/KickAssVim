@@ -2,7 +2,7 @@
 " wildcard menus, etc.
 
 " enable ctrl-n and ctrl-p to scroll thru matches
-set wildmenu
+" set wildmenu set in sensible.vim
 
 " enable omnicompletion
 set ofu=syntaxcomplete#Complete

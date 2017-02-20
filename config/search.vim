@@ -4,7 +4,7 @@
 set hlsearch    " highlight matches
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
-set incsearch  " highlight as you type.
+" set incsearch set in sensible.vim  " highlight as you type.
 
 "visual search mappings
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>

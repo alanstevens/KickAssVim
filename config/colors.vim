@@ -1,8 +1,9 @@
 " loads color-related options
 
-if !exists("g:syntax_on")
-    syntax enable     " Turn on syntax highlighting allowing local overrides
-endif
+" this is set in sensible.vim
+" if !exists("g:syntax_on")
+"     syntax enable     " Turn on syntax highlighting allowing local overrides
+" endif
 
 " adjust highlight color
 highlight CursorLine term=none cterm=none ctermbg=3
