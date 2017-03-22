@@ -1,57 +1,68 @@
+# This isn't really a rakefile anymore, but it's convenient to simply type 'rake'
+
+def print_output(name)
+    puts
+    puts "*" * 42
+    puts "*#{"Installing #{name}".center(40)}*"
+    puts "*" * 42
+    puts
+end
 
 def install_pathogen
   dir = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload"
   FileUtils.mkdir_p(dir) unless File.exists?(dir)
+  print_output "pathogen"
   sh "curl -LSso #{dir}/pathogen.vim https://tpo.pe/pathogen.vim"
 end
-
-install_pathogen
 
 def Bundle(repo)
   name = File.basename(repo)
   cwd = File.expand_path("../", __FILE__)
   dir = File.expand_path("#{cwd}/bundle/#{name}")
 
-  namespace(name) do
-    task :install do
-      unless File.exist?(dir)
-        sh "git clone git://github.com/#{repo}.git \"#{dir}\""
-      else
-        Dir.chdir dir do
-          sh "git pull"
-        end
-      end
+  print_output name
+  unless File.exist?(dir)
+    sh "git clone git://github.com/#{repo}.git \"#{dir}\""
+  else
+    Dir.chdir dir do
+      sh "git pull"
     end
   end
-
-  task name do
-    puts
-    puts "*" * 42
-    puts "*#{"Installing #{name}".center(40)}*"
-    puts "*" * 42
-    puts
-    Rake::Task["#{name}:install"].invoke
-  end
-  task :default => name
 end
 
-at_exit do
+def install_binary_dependencies
     cwd = File.expand_path("../", __FILE__)
     dir = File.expand_path("#{cwd}/bundle/tern_for_vim")
     Dir.chdir dir do
+        print_output "tern_for_vim"
         sh "npm install"
     end
 
+    print_output "jshint"
+    sh "npm install -g jshint"
+    print_output "eslint"
+    sh "npm install -g eslint"
+    print_output "typescript"
+    sh "npm install -g typescript"
+    print_output "tslint"
+    sh "npm install -g tslint "
+
     dir = File.expand_path("#{cwd}/bundle/YouCompleteMe")
     Dir.chdir dir do
-        sh "git submodule update --init --recursive" # this takes an eternity
-        sh "./install.py --tern-completer"
+        print_output "YouCompleteMe dependencies"
+        sh "git submodule update --init --recursive"
+        print_output "YouCompleteMe"
+        # TODO: only compile when no binary. Where is it?
+        sh "./install.py --tern-completer" # this takes an eternity
     end
     dir = File.expand_path("#{cwd}/bundle/YouCompleteMe/third_party/ycmd/third_party/tern_runtime")
     Dir.chdir dir do
-        sh "npm install --production && npm install -g typescript"
+        print_output "tern_runtime"
+        sh "npm install --production"
     end
 end
+
+install_pathogen
 
 # Colors
 Bundle "wgibbs/vim-irblack"
@@ -65,17 +76,14 @@ Bundle "Lokaltog/vim-distinguished"
 Bundle "altercation/vim-colors-solarized"
 
 # Plugins
-# For whatever reason, sensible broke javascript editing.
-# I commented the line "filetype plugin indent on" and added sensible.vim directly to my config
-# Bundle "tpope/vim-sensible"
-Bundle "pangloss/vim-javascript"                  # Vastly improved Javascript indentation and syntax support in Vim. provides syntax highlighting and improved indentation
-# Bundle 'jelera/vim-javascript-syntax'           # Enhanced JavaScript Syntax for Vim
+Bundle "tpope/vim-sensible"                     # Defaults everyone can agree on
+Bundle "pangloss/vim-javascript"                # Vastly improved Javascript indentation and syntax support in Vim. provides syntax highlighting and improved indentation
+Bundle 'jelera/vim-javascript-syntax'           # Enhanced JavaScript Syntax for Vim
 Bundle 'othree/javascript-libraries-syntax.vim' # Syntax file for JavaScript libraries.
 Bundle "elzr/vim-json"                          # A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
-Bundle "ternjs/tern_for_vim"                    #  provides Tern-based JavaScript editing support.  It will hook into omni completion to handle autocompletion
+Bundle "ternjs/tern_for_vim"                    # provides Tern-based JavaScript editing support.  It will hook into omni completion to handle autocompletion
 Bundle "burnettk/vim-angular"                   # Some niceties for using Vim with the AngularJS framework
-Bundle "mmalecki/vim-node.js"
-Bundle "wookiehangover/jshint.vim"
+Bundle "mmalecki/vim-node.js"                   # File type detect plugin for vim which detects node.js shebang
 Bundle "jimmyhchan/dustjs.vim"                  # dustjs template syntax highlighting and more for vim
 Bundle "Valloric/YouCompleteMe"                 # a fast, as-you-type, fuzzy-search code completion engine
 Bundle "mileszs/ack.vim"                        # like grep but better. Currently used with Ag, if available
@@ -86,21 +94,36 @@ Bundle "duff/vim-bufonly"                       # quickly close all other buffer
 Bundle "scrooloose/syntastic"                   # syntax error checking
 Bundle "scrooloose/nerdtree"                    # provides a file system tree view
 Bundle "jistr/vim-nerdtree-tabs"                # NERDTree and tabs together in Vim, painlessly
+Bundle "tiagofumo/vim-nerdtree-syntax-highlight" # Extra syntax and highlight for nerdtree files
 Bundle "ryanoasis/vim-devicons"                 # Adds file type glyphs/icons to many popular Vim plugins such as: NERDTree, vim-airline, unite, vim-startify and many more
 Bundle "vim-scripts/tComment"                   # easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
 Bundle "sjl/vitality.vim"                       # Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
 Bundle 'ctrlpvim/ctrlp.vim'                     # Full path fuzzy file, buffer, mru, tag, ... finder
+Bundle "othree/html5.vim"                       # HTML5 omnicomplete and syntax
 Bundle "Chiel92/vim-autoformat"                 # Provides easy code formatting in Vim by integrating existing code formatters.
+Bundle "Raimondi/delimitMate"                   # provides insert mode auto-completion for quotes, parens, brackets, etc.
+Bundle 'junegunn/vim-easy-align'                # Makes those funny alignment issues trivial.
+Bundle 'leafgarland/typescript-vim'             # Typescript syntax files for Vim
+Bundle 'Quramy/vim-js-pretty-template'          # highlights JavaScript's Template Strings in other FileType syntax rule
+Bundle 'jason0x43/vim-js-indent'                # Vim indenter for standalone and embedded JavaScript
+Bundle 'HerringtonDarkholme/yats.vim'           # The most advanced TypeScript Syntax Highlighting
+# Bundle ''                #
+#===========================================================================================================================
 
-# Learn to use these
-# Bundle 'junegunn/vim-easy-align'                # Makes those funny alignment issues trivial.
-# Bundle "vim-ruby/vim-ruby"
+# Call this last:
+install_binary_dependencies()
+task :default
+
+#===========================================================================================================================
+# Bundle "wookiehangover/jshint.vim"            # syntastic leverages jshint natively  # JSHint fork of jslint.vim
+
+#--------------------------------
+# Bundle "ramitos/jsctags"                        # jsctags generator using tern
+# Bundle "majutsushi/tagbar"                      # displays a list of ctags in a sidebar
 # Bundle "sjl/gundo.vim"                          # provides an undo graph window
 # Bundle "Xuyuanp/nerdtree-git-plugin"            # A plugin of NERDTree showing git status flags.
-# Bundle "tiagofumo/vim-nerdtree-syntax-highlight" # Extra syntax and highlight for nerdtree files
 # Bundle "tpope/vim-surround"                     # all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
 # Bundle "tpope/vim-unimpaired"                   # pairs of handy bracket mappings
-# Bundle "Raimondi/delimitMate"                   # provides insert mode auto-completion for quotes, parens, brackets, etc.
 # Bundle "vim-scripts/YankRing.vim"               # provides a yank buffer history
 # Bundle "vim-scripts/ZoomWin"                    # enables temporary full screen for a viewport
 # Bundle "Lokaltog/vim-easymotion"                # Vim motions on speed!
@@ -112,13 +135,13 @@ Bundle "Chiel92/vim-autoformat"                 # Provides easy code formatting 
 # Bundle "mkitt/markdown-preview.vim"           # Preview markdown files in the browser from vim (requires redcarpet gem)
 # Bundle "jtratner/vim-flavored-markdown"
 
+# Bundle "vim-ruby/vim-ruby"
 # Bundle "chrisbra/csv.vim"
 # Bundle Shougo/denite.nvim                     # like the fuzzy finder, but it is more generic. (for neovim)
 # Bundle 'helino/vim-json'
 # Bundle "rking/ag.vim"                         # depricated
 # Seems to be abandoned: Bundle 'walm/jshint.vim'
 # Bundle "vim-scripts/ctags.vim"
-# Bundle "majutsushi/tagbar"                    # displays a list of ctags in a sidebar
 # Bundle "vim-scripts/matchit.zip"
 # Bundle "MarcWeber/vim-addon-mw-utils"         # (snipmate dependency) interpret a file by function and cache file automatically
 # Bundle "danro/rename.vim"

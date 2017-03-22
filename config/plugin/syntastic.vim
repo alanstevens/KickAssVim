@@ -10,6 +10,7 @@ if has('signs')
 endif
 
 let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['eslint']
 " silence complaints about angular attributes
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute \"ng-"]
 " silence complaints about ApproveMe attributes
@@ -61,3 +62,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list=1 " automatically open the location list when a buffer has errors
 let g:syntastic_check_on_open=1 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_wq = 0
+" nuclear option to eliminate hmtltidy for yelling about custom tags
+" let syntastic_mode_map = { 'passive_filetypes': ['html'] }
