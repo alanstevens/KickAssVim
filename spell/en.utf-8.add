@@ -1,0 +1,11 @@
+modeline
+templateUrl
+resolvedUrl
+basePath
+substr
+noremap
+CloseWindow
+nohls
+nnoremap
+inoremap
+Esc

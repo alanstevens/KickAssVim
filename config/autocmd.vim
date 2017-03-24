@@ -35,7 +35,7 @@ if has("autocmd")
     autocmd VimResized * wincmd =
 
     " Automatically cd into the directory that the file is in
-    " autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+    autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
     " set autochdir
     " autocmd BufEnter * lcd %:p:h
     " autocmd BufEnter * silent! lcd %:p:h

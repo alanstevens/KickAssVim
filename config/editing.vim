@@ -55,16 +55,16 @@ set autowrite
 
 set formatoptions+=l
 
-"dont continue comments when pushing o/O
+" Don't continue comments when pushing o/O
 set formatoptions-=o
 
 " % to bounce from do to end etc.
-" runtime! macros/matchit.vim set in sensible.vim
+" runtime! macros/matchit.vim "set in sensible.vim
 
 "folding settings
 set foldmethod=syntax
 set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+set nofoldenable        "don't fold by default
 
 set grepprg=grep\ -nH\ $*
 
@@ -78,11 +78,19 @@ else
 endif
 set langmenu=non
 
-" Use english for spellchecking, but don't spellcheck by default
-" if version >= 700
-"   set spl=en spell
-"   set nospell
-" endif
+" Use English for spellchecking, but don't spellcheck by default
+if version >= 700
+  " set spl=en spell
+  " set spell spelllang=en_us
+  " set nospell
+  " set spell
+  " press CTRL-N or CTRL-P in insert-mode to complete the word you're typing
+  set complete+=kspell
+  " cursor over a misspelled word and type zg to add it to the dictionary.
+  " use z=, and Vim will suggest a list of alternatives
+  " hit Enter if none of the suggestions work, or enter the number for the correct word.
+  " ]s will move the cursor to the next misspelled word. [s will move the cursor back previous misspelled words.
+endif
 
 " Enable mouse support in console
 set mouse=a

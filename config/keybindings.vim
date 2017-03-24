@@ -17,6 +17,15 @@ inoremap kj <Nop>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
+" quickly fix spelling errors
+imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
+nmap <c-f> [s1z=<c-o>
+
+" toggle spell checking
+nn <F7> :set spell! spell? spelllang=en_us<CR>
+" imap <F7> <C-o>:setlocal spell! spelllang=en_us<CR>
+" inoremap <F7> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
+
 " ;w saves a buffer
 " noremap <Leader>w :w!<CR>
 

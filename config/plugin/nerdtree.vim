@@ -1,12 +1,8 @@
 " NERDTree-specific settings.
-if has("gui_running")
-    noremap <F2> :NERDTreeTabsToggle<CR>
-    inoremap <F2> <ESC>:NERDTreeTabsToggle<cr>i
-else
-    noremap <F2> :NERDTreeToggle<CR>
-    inoremap <F2> <ESC>:NERDTreeToggle<cr>i
-    " :NERDTreeMirror<CR>
-endif
+noremap <F2> :NERDTreeTabsToggle<CR>
+inoremap <F2> <ESC>:NERDTreeTabsToggle<cr>i
+
+" autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
 
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 " let NERDTree change my working directory if its root changes.
@@ -23,6 +19,8 @@ let g:nerdtree_tabs_focus_on_files = 1
 noremap <c-F2> :NERDTreeTabsFind<CR>
 " Automatically find and select currently opened file in NERDTree.
 let g:nerdtree_tabs_autofind = 1
+
+ map <leader>f :NERDTreeFind<cr>
 
 " Make nerdtree look nice
 let NERDTreeMinimalUI = 1
