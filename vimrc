@@ -5,9 +5,7 @@ let mapleader = ","
 " No startup messages
 set shm+=atmI
 
-" Use pathogen to load plugins.
-execute pathogen#infect()
-execute pathogen#helptags()
+source $HOME/.vim/plug.vim
 
 " load everything else from its own config file
 runtime! config/**/*
