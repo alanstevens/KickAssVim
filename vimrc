@@ -1,14 +1,12 @@
-set nocompatible      " Use vim, no vi defaults
+set nocompatible " Use vim, no vi defaults
 
 let mapleader = ","
 
-" No startup messages
-set shm+=atmI
+set shm+=atmI " No startup messages
 
-source $HOME/.vim/plug.vim
+source $HOME/.vim/bundle.vim " add all plugins to the runtime path
 
-" load everything else from its own config file
-runtime! config/**/*
+runtime! config/**/* " load all config files
 
 if has('win32')
   source $VIMRUNTIME/mswin.vim

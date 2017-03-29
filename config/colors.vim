@@ -16,8 +16,12 @@ if $COLORTERM == 'gnome-terminal'
   " colorscheme desert256
 endif
 
-" Default color Scheme
-colorscheme ir_black
+try
+    " Default color Scheme
+    colorscheme ir_black
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 
 " If in diff mode (vimdiff) use the inkpot color scheme
 " that better highlights file differences

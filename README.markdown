@@ -7,6 +7,10 @@ Kick Ass Vim is a turn-key configuration for the [Vim][] editor. It is
 inspired by the Vim configurations by [Duwanis][], [Carlhuda][] and
 [Akitaonrails][].
 
+Must have Ruby and rake
+Must have Python 2.7 or higher
+must have node and npm
+install home brew
 Install xCode command line tools:
 xcode-select --install
 

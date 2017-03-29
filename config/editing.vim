@@ -82,10 +82,12 @@ set langmenu=non
 if version >= 700
   " set spl=en spell
   " set spell spelllang=en_us
-  " set nospell
   " set spell
+
   " press CTRL-N or CTRL-P in insert-mode to complete the word you're typing
   set complete+=kspell
+
+  " Notes on spell:
   " cursor over a misspelled word and type zg to add it to the dictionary.
   " use z=, and Vim will suggest a list of alternatives
   " hit Enter if none of the suggestions work, or enter the number for the correct word.
@@ -106,3 +108,4 @@ set clipboard=unnamed
 " Use modeline overrides
 set modeline
 set modelines=10
+

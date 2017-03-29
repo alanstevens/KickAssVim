@@ -1,4 +1,6 @@
 # This isn't really a rakefile anymore, but it's convenient to simply type 'rake'
+sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
+sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
 
 def print_output(name)
     puts
@@ -18,10 +20,7 @@ def install_vimplug
 
     file_name = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload/plug.vim"
 
-    puts "file exists? #{File.exists?(file_name)}"
-
     unless File.exists?(file_name)
-        puts "file name #{file_name}"
         sh "curl -LSso #{file_name} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     end
 
@@ -47,9 +46,7 @@ def install_binary_dependencies
 
     dir = File.expand_path("#{cwd}/bundle/YouCompleteMe")
     Dir.chdir dir do
-        print_output "YouCompleteMe dependencies"
-        sh "git submodule update --init --recursive"
-        print_output "YouCompleteMe"
+        print_output "Compiling YouCompleteMe"
         # TODO: only compile when no binary. Where is it?
         sh "./install.py --tern-completer" # this takes an eternity
     end
@@ -62,7 +59,12 @@ end
 
 install_vimplug
 
+print_output "Vim plugins"
+sh "vim -S '~/.vimrc' -c 'PlugUpgrade' -c 'PlugUpdate' -c 'PlugClean!' -c 'qa'; clear"
+
 # Call this last:
-# install_binary_dependencies()
+install_binary_dependencies()
+
+print_output "Complete!"
 
 task :default

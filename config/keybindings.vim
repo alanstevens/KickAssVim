@@ -23,28 +23,8 @@ nmap <c-f> [s1z=<c-o>
 
 " toggle spell checking
 nn <F7> :set spell! spell? spelllang=en_us<CR>
-" imap <F7> <C-o>:setlocal spell! spelllang=en_us<CR>
-" inoremap <F7> <C-\><C-O>:setlocal spelllang=en_us spell! spell?<CR>
-
-" ;w saves a buffer
-" noremap <Leader>w :w!<CR>
-
-" ;q closes a vim-window
-" noremap <Leader>q :q!<CR>
-
-" ;x saves and closes a vim-window
-" map <Leader>x :x!<CR>
-" noremap <Leader>x :CloseWindow<CR>
-
-" function! CloseWindow()
-"   if winbufnr(2) == -1
-"     " if this window is last on screen quit without warning
-"     quit!
-"   else
-"     hide
-"   endif
-" endfunction
-" command! CloseWindow call CloseWindow()
+" turn off spelling by default
+set nospell
 
 " run rubocop -a on the current file
 " noremap <Leader>rua :!rubocop -a %:p<CR><CR>

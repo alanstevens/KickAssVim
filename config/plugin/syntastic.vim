@@ -1,5 +1,4 @@
 " Syntastic-specific config settings
-
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby' " take the current ruby version specified by rbenv
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
@@ -55,7 +54,8 @@ let g:syntastic_auto_jump=0
 
 " Recommended settings:
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+let g:statline_syntastic = 0 "This stops some startup errors. Don't know what I'm losing, however.
+" set statusline+=%{SyntasticStatuslineFlag()} " Commented due to startup error messages
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1

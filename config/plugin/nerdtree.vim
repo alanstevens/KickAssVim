@@ -27,34 +27,34 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 30
 
-autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-" autocmd FocusGained * call s:UpdateNERDTree()
-
 " If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
-    let explicitDirectory = isdirectory(a:directory)
-    let directory = explicitDirectory || empty(a:directory)
+" function s:CdIfDirectory(directory)
+"     let explicitDirectory = isdirectory(a:directory)
+"     let directory = explicitDirectory || empty(a:directory)
+"
+"     if explicitDirectory
+"         exe "cd " . fnameescape(a:directory)
+"     endif
+"
+"     " Allows reading from stdin
+"     " ex: git diff | mvim -R -
+"     if strlen(a:directory) == 0
+"         return
+"     endif
+"
+"     if directory
+"         NERDTree
+"         wincmd p
+"         bd
+"     endif
+"
+"     if explicitDirectory
+"         wincmd p
+"     endif
+" endfunction
 
-    if explicitDirectory
-        exe "cd " . fnameescape(a:directory)
-    endif
-
-    " Allows reading from stdin
-    " ex: git diff | mvim -R -
-    if strlen(a:directory) == 0
-        return
-    endif
-
-    if directory
-        NERDTree
-        wincmd p
-        bd
-    endif
-
-    if explicitDirectory
-        wincmd p
-    endif
-endfunction
+" autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+" autocmd FocusGained * call s:UpdateNERDTree()
 
 " NERDTree utility function
 " function s:UpdateNERDTree(...)
