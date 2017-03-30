@@ -32,7 +32,6 @@ Plug 'scrooloose/syntastic'                    " syntax error checking
 Plug 'scrooloose/nerdtree'                     " provides a file system tree view
 Plug 'jistr/vim-nerdtree-tabs'                 " NERDTree and tabs together in Vim, painlessly
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
-Plug 'ryanoasis/vim-devicons'                  " Adds file type glyphs/icons to many popular Vim Plugins such as: NERDTree, vim-airline, unite, vim-startify and many more
 Plug 'vim-scripts/tComment'                    " easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
 Plug 'sjl/vitality.vim'                        " Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
 Plug 'ctrlpvim/ctrlp.vim'                      " Full path fuzzy file, buffer, mru, tag, ... finder
@@ -45,16 +44,17 @@ Plug 'Quramy/vim-js-pretty-template'           " highlights JavaScript's Templat
 Plug 'jason0x43/vim-js-indent'                 " Vim indenter for standalone and embedded JavaScript
 Plug 'HerringtonDarkholme/yats.vim'            " The most advanced TypeScript Syntax Highlighting
 
-" Other Plugins require curl
-" if executable('curl')
+" Markdown plugins. Hard to know which is best.
+" ===============================================
+" Plug 'tpope/vim-markdown'                    " Vim Markdown runtime files
+" Plug 'jtratner/vim-flavored-markdown'        " jtratner/vim-flavored-markdown
+" Plug 'plasticboy/vim-markdown'                 " Markdown Vim Mode
+Plug 'gabrielelana/vim-markdown'               " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
+" Plug 'andrewferrier/vim-markdown-preview'      " preview markdown documents in the browser from vim
+Plug 'suan/vim-instant-markdown'               " Instant Markdown previews from VIm!
 
-    " Webapi: Dependency of Gist-vim
-    " Plug 'mattn/webapi-vim'
-    "
-    " Gist: Post text to gist.github
-    " Plug 'mattn/gist-vim'
-" endif
-
+" load this last
+Plug 'ryanoasis/vim-devicons'                  " Adds file type glyphs/icons to many popular Vim Plugins such as: NERDTree, vim-airline, unite, vim-startify and many more
 " filetype Plugin indent on                   " required!
 call plug#end()
 
@@ -72,10 +72,8 @@ call plug#end()
 " Bundle 'Lokaltog/vim-easymotion'                " Vim motions on speed!
 " Bundle 'PeterRincker/vim-argumentative'         " Allows you to change the order of arguments with ease.
 " TODO: sort out which of these markdown Plugins work
-" Bundle 'tpope/vim-markdown'
 " Bundle 'nelstrom/vim-markdown-preview'
 " Bundle 'mkitt/markdown-preview.vim'           " Preview markdown files in the browser from vim (requires redcarpet gem)
-" Bundle 'jtratner/vim-flavored-markdown'
 
 " Bundle 'vim-ruby/vim-ruby'
 " Bundle 'chrisbra/csv.vim'

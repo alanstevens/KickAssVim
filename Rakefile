@@ -12,10 +12,11 @@ end
 
 def install_vimplug
     print_output "Vim plug"
+
     dir = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload"
     FileUtils.mkdir_p(dir) unless File.exists?(dir)
 
-    dir = File.expand_path "#{File.expand_path("../", __FILE__)}/plugin"
+    dir = File.expand_path "#{File.expand_path("../", __FILE__)}/bundle"
     FileUtils.mkdir_p(dir) unless File.exists?(dir)
 
     file_name = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload/plug.vim"
@@ -23,9 +24,7 @@ def install_vimplug
     unless File.exists?(file_name)
         sh "curl -LSso #{file_name} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     end
-
 end
-
 
 def install_binary_dependencies
     cwd = File.expand_path("../", __FILE__)
@@ -34,7 +33,8 @@ def install_binary_dependencies
         print_output "tern_for_vim"
         sh "npm install"
     end
-
+    print_output "instant-markdown"
+    sh "npm -g install instant-markdown-d"
     print_output "jshint"
     sh "npm install -g jshint"
     print_output "eslint"

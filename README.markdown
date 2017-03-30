@@ -2,11 +2,10 @@
 
 ### A kick ass Vim development environment.
 
-install dev tools with  xcode-select --install
-Kick Ass Vim is a turn-key configuration for the [Vim][] editor. It is
-inspired by the Vim configurations by [Duwanis][], [Carlhuda][] and
+Kick Ass Vim is a turn-key configuration for the [Vim][] editor originally inspired by the Vim configurations of [Duwanis][], [Carlhuda][] and
 [Akitaonrails][].
 
+Prerequisites:
 Must have Ruby and rake
 Must have Python 2.7 or higher
 must have node and npm
@@ -19,6 +18,10 @@ Brew install cmake
 
 Install a font from: http://nerdfonts.com/
 My default is hack: https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/Hack.zip
+I just install the regular mono font:  https://github.com/alanstevens/KickAssVim/blob/master/fonts/Hack/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
+
+`set guifont=Knack\ Nerd\ Font:h16`
+Set your terminal font the same to get nerd font support
 
 cd into `~/.vim` and run `rake`.
 
