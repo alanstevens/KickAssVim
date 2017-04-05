@@ -2,15 +2,14 @@
 " does not contain plugin-specific settings,
 " just 'global' ones.
 
-" makes jk leave insert mode (like Esc)
-" inoremap jk <Esc>
-" inoremap kj <Esc>
-inoremap jk <Nop>
-inoremap kj <Nop>
+" hide and show vim in the console:
+"http://askubuntu.com/a/496824
 
-"make <leader>f clear the highlight as well as redraw
-" nnoremap <leader>f :nohls<CR><C-L>
-" inoremap <leader>f <C-O>:nohls<CR>
+" run javascript files
+noremap <F5> :call RunJS() <CR>
+function! RunJS()
+    exec "! node %"
+endfunction
 
 " cycle between tabs
 " Note that S-TAB does not work in certain consoles (i.e. KDE Konsole)
@@ -40,7 +39,7 @@ noremap <Leader>n :bnext<CR>
 noremap <Leader>p :bprevious<CR>
 
 " Toggle auto-wrap with F4
-noremap <F4> :set wrap!<cr>
+noremap <F4> :set wrap!<CR>
 
 " New Tab
 " nnoremap <silent> <C-t> :tabnew<CR>
@@ -99,10 +98,10 @@ noremap <Leader>he :hsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 " imap <Leader>r <Esc> <C-w>r
 
 " Keep lines that do contain the last search term
-nnoremap <leader>v/ :v/<c-r>//d<cr>gg
+nnoremap <leader>v/ :v/<c-r>//d<CR>gg
 
 " Keep lines that do not contain the last search term
-nnoremap <leader>g/ :g/<c-r>//d<cr>gg
+nnoremap <leader>g/ :g/<c-r>//d<CR>gg
 
 " Shortcut to edit vimrc
 if has("win32")
@@ -115,18 +114,18 @@ endif
 nnoremap <silent> <Leader>rv :so $MYVIMRC<CR>
 
 " map function keys for console usage
-map <Esc>OP <F1>
-map <Esc>OQ <F2>
-map <Esc>OR <F3>
-map <Esc>OS <F4>
-map <Esc>[16~ <F5>
-map <Esc>[17~ <F6>
-map <Esc>[18~ <F7>
-map <Esc>[19~ <F8>
-map <Esc>[20~ <F9>
-map <Esc>[21~ <F10>
-map <Esc>[23~ <F11>
-map <Esc>[24~ <F12>
+" map <Esc>OP <F1>
+" map <Esc>OQ <F2>
+" map <Esc>OR <F3>
+" map <Esc>OS <F4>
+" map <Esc>[16~ <F5>
+" map <Esc>[17~ <F6>
+" map <Esc>[18~ <F7>
+" map <Esc>[19~ <F8>
+" map <Esc>[20~ <F9>
+" map <Esc>[21~ <F10>
+" map <Esc>[23~ <F11>
+" map <Esc>[24~ <F12>
 
 " use C-j and C-k to 'bubble' lines (see
 " http://vimcasts.org/episodes/bubbling-text/)
@@ -148,8 +147,8 @@ map <Esc>[24~ <F12>
 "-----------------------------------------------------------------------------------------------
 
 " shortcut for alt-tabbing buffers
-" map <M-`> :b#<cr>
-" imap <M-`> :b#<cr>
+" map <M-`> :b#<CR>
+" imap <M-`> :b#<CR>
 
 " Space will toggle folds!
 " nnoremap <space> za
@@ -193,10 +192,10 @@ map <Esc>[24~ <F12>
 
 " Some helpers to edit mode
 " http://vimcasts.org/e/14
-" nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
-" nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
-" nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
-" nmap <leader>et :tabe <C-R>=expand(':h').'/'<cr>
+" nmap <leader>ew :e <C-R>=expand('%:h').'/'<CR>
+" nmap <leader>es :sp <C-R>=expand('%:h').'/'<CR>
+" nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<CR>
+" nmap <leader>et :tabe <C-R>=expand(':h').'/'<CR>
 
 " Swap two words
 " nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'

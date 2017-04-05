@@ -13,101 +13,119 @@ Plug 'Lokaltog/vim-distinguished'
 Plug 'altercation/vim-colors-solarized'
 
 " Plugins
-Plug 'tpope/vim-sensible'                      " Defaults everyone can agree on
-Plug 'pangloss/vim-javascript'                 " Vastly improved Javascript indentation and syntax support in Vim. provides syntax highlighting and improved indentation
-Plug 'jelera/vim-javascript-syntax'            " Enhanced JavaScript Syntax for Vim
-Plug 'othree/javascript-libraries-syntax.vim'  " Syntax file for JavaScript libraries.
-Plug 'elzr/vim-json'                           " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
-Plug 'ternjs/tern_for_vim'                     " provides Tern-based JavaScript editing support.  It will hook into omni completion to handle autocompletion
-Plug 'burnettk/vim-angular'                    " Some niceties for using Vim with the AngularJS framework
-Plug 'mmalecki/vim-node.js'                    " File type detect Plugin for vim which detects node.js shebang
-Plug 'jimmyhchan/dustjs.vim'                   " dustjs template syntax highlighting and more for vim
-Plug 'Valloric/YouCompleteMe'                  " a fast, as-you-type, fuzzy-search code completion engine
-Plug 'mileszs/ack.vim'                         " like grep but better. Currently used with Ag, if available
-Plug 'vim-airline/vim-airline'                 " lean & mean statusline for vim that's light as air
-Plug 'vim-airline/vim-airline-themes'          " https://github.com/vim-airline/vim-airline/wiki/Screenshots
-Plug 'jeetsukumaran/vim-buffergator'           " list, select and switch between buffers.
-Plug 'duff/vim-bufonly'                        " quickly close all other buffers
-Plug 'scrooloose/syntastic'                    " syntax error checking
-Plug 'scrooloose/nerdtree'                     " provides a file system tree view
-Plug 'jistr/vim-nerdtree-tabs'                 " NERDTree and tabs together in Vim, painlessly
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
-Plug 'vim-scripts/tComment'                    " easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
-Plug 'sjl/vitality.vim'                        " Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
-Plug 'ctrlpvim/ctrlp.vim'                      " Full path fuzzy file, buffer, mru, tag, ... finder
-Plug 'othree/html5.vim'                        " HTML5 omnicomplete and syntax
-Plug 'Chiel92/vim-autoformat'                  " Provides easy code formatting in Vim by integrating existing code formatters.
-Plug 'Raimondi/delimitMate'                    " provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'junegunn/vim-easy-align'                 " Makes those funny alignment issues trivial.
-Plug 'leafgarland/typescript-vim'              " Typescript syntax files for Vim
-Plug 'Quramy/vim-js-pretty-template'           " highlights JavaScript's Template Strings in other FileType syntax rule
-Plug 'jason0x43/vim-js-indent'                 " Vim indenter for standalone and embedded JavaScript
-Plug 'HerringtonDarkholme/yats.vim'            " The most advanced TypeScript Syntax Highlighting
-
+Plug 'tpope/vim-sensible'                       " Defaults everyone can agree on
+Plug 'tpope/vim-dispatch'                       " asynchronous build and test dispatcher
+" Plug 'tpope/vim-fugitive'                     " a Git wrapper so awesome, it should be illegal
+" Plug 'tpope/vim-surround'                     " quoting/parenthesizing made simple
+" Plug 'tpope/vim-rsi'                          " Readline style insertion
+" Plug 'tpope/vim-eunuch'                       " helpers for UNIX
+" Plug 'tpope/vim-git'                          " Vim Git runtime files
+" Plug 'tpope/vim-repeat'                       " enable repeating supported plugin maps with '.'
+" Plug 'tpope/tpope/vim-ragtag'                 "  ghetto HTML/XML mappings
+Plug 'pangloss/vim-javascript'                  " Vastly improved Javascript indentation and syntax support in Vim. provides syntax highlighting and improved indentation
+Plug 'jelera/vim-javascript-syntax'             " Enhanced JavaScript Syntax for Vim
+Plug 'othree/javascript-libraries-syntax.vim'   " Syntax file for JavaScript libraries.
+Plug 'elzr/vim-json'                            " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
+Plug 'mmalecki/vim-node.js'                     " File type detect Plugin for vim which detects node.js shebang
+Plug 'jimmyhchan/dustjs.vim'                    " dustjs template syntax highlighting and more for vim
+" tern and ycm don't support typescript
+" ======================================
+" Plug 'ternjs/tern_for_vim'                      " provides Tern-based JavaScript editing support.  It will hook into omni completion to handle autocompletion
+" Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
+Plug 'mileszs/ack.vim'                          " like grep but better. Currently used with Ag, if available
+Plug 'vim-airline/vim-airline'                  " lean & mean statusline for vim that's light as air
+Plug 'vim-airline/vim-airline-themes'           " https://github.com/vim-airline/vim-airline/wiki/Screenshots
+Plug 'jeetsukumaran/vim-buffergator'            " list, select and switch between buffers.
+Plug 'duff/vim-bufonly'                         " quickly close all other buffers
+Plug 'scrooloose/syntastic'                     " syntax error checking
+Plug 'scrooloose/nerdtree'                      " provides a file system tree view
+Plug 'jistr/vim-nerdtree-tabs'                  " NERDTree and tabs together in Vim, painlessly
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Extra syntax and highlight for nerdtree files
+Plug 'vim-scripts/tComment'                     " easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
+Plug 'sjl/vitality.vim'                         " Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
+Plug 'ctrlpvim/ctrlp.vim'                       " Full path fuzzy file, buffer, mru, tag, ... finder
+Plug 'othree/html5.vim'                         " HTML5 omnicomplete and syntax
+Plug 'Chiel92/vim-autoformat'                   " Provides easy code formatting in Vim by integrating existing code formatters.
+Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'junegunn/vim-easy-align'                  " Makes those funny alignment issues trivial.
+Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
+Plug 'Quramy/vim-js-pretty-template'            " highlights JavaScript's Template Strings in other FileType syntax rule
+Plug 'jason0x43/vim-js-indent'                  " Vim indenter for standalone and embedded JavaScript
+Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files
+" ======================================
+" Typescript/Angular stuff:
+" ======================================
+Plug 'burnettk/vim-angular'                     " Some niceties for using Vim with the AngularJS framework
+Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
+Plug 'Shougo/vimproc.vim'                       " Interactive command execution in Vim. Prereq of tsuquyomi
+Plug 'uramy/tsuquyomi'                          " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
+Plug 'vvakame/dtsm'                             " The .d.ts manager
+Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
+Plug 'angular-cli.vim'                          " a Vim Plugin for angular-cli
+" =============================================
 " Markdown plugins. Hard to know which is best.
-" ===============================================
-" Plug 'tpope/vim-markdown'                    " Vim Markdown runtime files
-" Plug 'jtratner/vim-flavored-markdown'        " jtratner/vim-flavored-markdown
-" Plug 'plasticboy/vim-markdown'                 " Markdown Vim Mode
-Plug 'gabrielelana/vim-markdown'               " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
-" Plug 'andrewferrier/vim-markdown-preview'      " preview markdown documents in the browser from vim
-Plug 'suan/vim-instant-markdown'               " Instant Markdown previews from VIm!
+" =============================================
+" Plug 'mkitt/markdown-preview.vim'             " * opens an html file in the default app which is macvim for me. FAIL! * Preview markdown files in the browser from vim (requires redcarpet gem)
+" Plug 'nelstrom/vim-markdown-preview'          " * Requires running an install.sh. Uses the default app (MacVim) * Preview markdown files in the browser from vim
+" Plug 'maba/vim-markdown-preview'                " * uses default app as above * preview markdown documents in the browser from vim.
+" Plug 'andrewferrier/vim-markdown-preview'     " preview markdown documents in the browser from vim
+" Plug 'iamcco/markdown-preview.vim'            " Real-time markdown preview plugin for vim
+Plug 'tpope/vim-markdown'                     " Vim Markdown runtime files
+" Plug 'jtratner/vim-flavored-markdown'         " jtratner/vim-flavored-markdown
+" Plug 'plasticboy/vim-markdown'                " Markdown Vim Mode
+" Plug 'gabrielelana/vim-markdown'              " Markdown for Vim: a complete environment to create Markdown files with a syntax highlight that doesn't suck!
+Plug 'suan/vim-instant-markdown'              " Instant Markdown previews from VIm!
 
 " load this last
-Plug 'ryanoasis/vim-devicons'                  " Adds file type glyphs/icons to many popular Vim Plugins such as: NERDTree, vim-airline, unite, vim-startify and many more
-" filetype Plugin indent on                   " required!
+Plug 'ryanoasis/vim-devicons'                   " Adds file type glyphs/icons to many popular Vim Plugins such as: NERDTree, vim-airline, unite, vim-startify and many more
 call plug#end()
 
 
 "===========================================================================================================================
-" Bundle 'wookiehangover/jshint.vim'              " syntastic already leverages jshint  JSHint fork of jslint.vim
-" Bundle 'ramitos/jsctags'                        " jsctags generator using tern
-" Bundle 'majutsushi/tagbar'                      " displays a list of ctags in a sidebar
-" Bundle 'sjl/gundo.vim'                          " provides an undo graph window
-" Bundle 'Xuyuanp/nerdtree-git-Plugin'            " A Plugin of NERDTree showing git status flags.
-" Bundle 'tpope/vim-surround'                     " all about 'surroundings': parentheses, brackets, quotes, XML tags, and more.
-" Bundle 'tpope/vim-unimpaired'                   " pairs of handy bracket mappings
-" Bundle 'vim-scripts/YankRing.vim'               " provides a yank buffer history
-" Bundle 'vim-scripts/ZoomWin'                    " enables temporary full screen for a viewport
-" Bundle 'Lokaltog/vim-easymotion'                " Vim motions on speed!
-" Bundle 'PeterRincker/vim-argumentative'         " Allows you to change the order of arguments with ease.
-" TODO: sort out which of these markdown Plugins work
-" Bundle 'nelstrom/vim-markdown-preview'
-" Bundle 'mkitt/markdown-preview.vim'           " Preview markdown files in the browser from vim (requires redcarpet gem)
+" Plug 'wookiehangover/jshint.vim'              " syntastic already leverages jshint  JSHint fork of jslint.vim
+" Plug 'ramitos/jsctags'                        " jsctags generator using tern
+" Plug 'majutsushi/tagbar'                      " displays a list of ctags in a sidebar
+" Plug 'sjl/gundo.vim'                          " provides an undo graph window
+" Plug 'Xuyuanp/nerdtree-git-Plugin'            " A Plugin of NERDTree showing git status flags.
+" Plug 'tpope/vim-surround'                     " all about 'surroundings': parentheses, brackets, quotes, XML tags, and more.
+" Plug 'tpope/vim-unimpaired'                   " pairs of handy bracket mappings
+" Plug 'vim-scripts/YankRing.vim'               " provides a yank buffer history
+" Plug 'vim-scripts/ZoomWin'                    " enables temporary full screen for a viewport
+" Plug 'Lokaltog/vim-easymotion'                " Vim motions on speed!
+" Plug 'PeterRincker/vim-argumentative'         " Allows you to change the order of arguments with ease.
 
-" Bundle 'vim-ruby/vim-ruby'
-" Bundle 'chrisbra/csv.vim'
-" Bundle Shougo/denite.nvim                     " like the fuzzy finder, but it is more generic. (for neovim)
-" Bundle 'helino/vim-json'
-" Bundle 'rking/ag.vim'                         " depricated
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'chrisbra/csv.vim'
+" Plug Shougo/denite.nvim                     " like the fuzzy finder, but it is more generic. (for neovim)
+" Plug 'helino/vim-json'
+" Plug 'rking/ag.vim'                         " depricated
 " Seems to be abandoned: Bundle 'walm/jshint.vim'
-" Bundle 'vim-scripts/ctags.vim'
-" Bundle 'vim-scripts/matchit.zip'
-" Bundle 'MarcWeber/vim-addon-mw-utils'         " (snipmate dependency) interpret a file by function and cache file automatically
-" Bundle 'danro/rename.vim'
-" Bundle 'tpope/vim-repeat'
-" Bundle 'airblade/vim-rooter'
-" Bundle 'godlygeek/tabular'                    " text filtering and alignment
-" Bundle 'maba/vim-markdown-preview'            " can't get this one to work.
+" Plug 'vim-scripts/ctags.vim'
+" Plug 'vim-scripts/matchit.zip'
+" Plug 'MarcWeber/vim-addon-mw-utils'         " (snipmate dependency) interpret a file by function and cache file automatically
+" Plug 'danro/rename.vim'
+" Plug 'tpope/vim-repeat'
+" Plug 'airblade/vim-rooter'
+" Plug 'godlygeek/tabular'                    " text filtering and alignment
 
 " ' sh 'gem install bundle'
 " ' sh 'bundle install'
 
 " tpope Plugins
 " ----------------------------
-" Bundle 'tpope/vim-abolish'                  " easily search for, substitute, and abbreviate multiple variants of a word
-" Bundle 'tpope/vim-commentary'
-" Bundle 'tpope/vim-dispatch'
-" Bundle 'tpope/vim-endwise'
-" Bundle 'tpope/vim-eunuch'
-" Bundle 'tpope/vim-fireplace'
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'tpope/vim-leiningen'
-" Bundle 'tpope/vim-projectionist'
-" Bundle 'tpope/vim-ragtag'
-" Bundle 'tpope/vim-sexp-mappings-for-regular-people'
-" Bundle 'tpope/vim-sleuth'
-" Bundle 'tpope/vim-vinegar'
+" Plug 'tpope/vim-abolish'                  " easily search for, substitute, and abbreviate multiple variants of a word
+" Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-dispatch'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-fireplace'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-leiningen'
+" Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-ragtag'
+" Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-vinegar'
 
 " Javascript Plugins
 " http://oli.me.uk/2015/06/17/wrangling-javascript-with-vim/
@@ -116,173 +134,173 @@ call plug#end()
 
 " Plugins from https://github.com/Olical/dotfiles/blob/9c5f008620287bb495e56452123d6bff76bb4639/vim/.vim/Plugins.vim
 " --------------------------------------
-" Bundle 'FelikZ/ctrlp-py-matcher'
-" Bundle 'Keithbsmiley/tmux.vim'
-" Bundle 'SirVer/ultisnips'
-" Bundle 'Wolfy87/vim-expand'
-" Bundle 'Wolfy87/vim-syntax-expand'
-" Bundle 'adimit/prolog.vim'
-" Bundle 'aklt/plantuml-syntax'
-" Bundle 'andreimaxim/vim-io'
-" Bundle 'derekwyatt/vim-scala'
-" Bundle 'embear/vim-localvimrc'
-" Bundle 'guns/vim-clojure-highlight'
-" Bundle 'guns/vim-clojure-static'
-" Bundle 'guns/vim-sexp'
-" Bundle 'haya14busa/incsearch.vim'
-" Bundle 'haya14busa/vim-asterisk'
-" Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'raymond-w-ko/vim-niji'
-" Bundle 'sevko/vim-nand2tetris-syntax'
-" Bundle 'terryma/vim-multiple-cursors'
+" Plug 'FelikZ/ctrlp-py-matcher'
+" Plug 'Keithbsmiley/tmux.vim'
+" Plug 'SirVer/ultisnips'
+" Plug 'Wolfy87/vim-expand'
+" Plug 'Wolfy87/vim-syntax-expand'
+" Plug 'adimit/prolog.vim'
+" Plug 'aklt/plantuml-syntax'
+" Plug 'andreimaxim/vim-io'
+" Plug 'derekwyatt/vim-scala'
+" Plug 'embear/vim-localvimrc'
+" Plug 'guns/vim-clojure-highlight'
+" Plug 'guns/vim-clojure-static'
+" Plug 'guns/vim-sexp'
+" Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/vim-asterisk'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'raymond-w-ko/vim-niji'
+" Plug 'sevko/vim-nand2tetris-syntax'
+" Plug 'terryma/vim-multiple-cursors'
 
-" Bundle 'tpope/vim-git'
-" Bundle 'nono/vim-handlebars'
-" Bundle 'itspriddle/vim-jquery'
-" Bundle 'groenewege/vim-less'
-" Bundle 'cakebaker/scss-syntax.vim'
-" Bundle 'vim-scripts/Arduino-syntax-file'
-" Bundle 'guns/vim-clojure-static'
-" Bundle 'kchmck/vim-coffee-script'
-" Bundle 'tpope/vim-cucumber'
-" Bundle 'elixir-lang/vim-elixir'
-" Bundle 'jnwhiteh/vim-golang'
-" Bundle 'tpope/vim-haml'
-" Bundle 'wlangstroth/vim-haskell'
-" Bundle 'juvenn/mustache.vim'
-" Bundle 'sunaku/vim-ruby-minitest'           " Vim highlighting & completion for MiniTest.
-" Bundle 'ecomba/vim-ruby-refactoring'      " Refactoring tool for Ruby in vim!
-" Bundle 'ajf/puppet-vim'
-" Bundle 'tpope/vim-rails'
-" Bundle 'tpope/vim-rake'
-" Bundle 'rosstimson/scala-vim-support'
-" Bundle 'timcharper/textile.vim'
-" Bundle 'slim-template/vim-slim'              " slim syntax highlighting for vim
-" Bundle 'nanki/treetop.vim'
-" Bundle 'jimenezrick/vimerl'
+" Plug 'tpope/vim-git'
+" Plug 'nono/vim-handlebars'
+" Plug 'itspriddle/vim-jquery'
+" Plug 'groenewege/vim-less'
+" Plug 'cakebaker/scss-syntax.vim'
+" Plug 'vim-scripts/Arduino-syntax-file'
+" Plug 'guns/vim-clojure-static'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'tpope/vim-cucumber'
+" Plug 'elixir-lang/vim-elixir'
+" Plug 'jnwhiteh/vim-golang'
+" Plug 'tpope/vim-haml'
+" Plug 'wlangstroth/vim-haskell'
+" Plug 'juvenn/mustache.vim'
+" Plug 'sunaku/vim-ruby-minitest'           " Vim highlighting & completion for MiniTest.
+" Plug 'ecomba/vim-ruby-refactoring'      " Refactoring tool for Ruby in vim!
+" Plug 'ajf/puppet-vim'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-rake'
+" Plug 'rosstimson/scala-vim-support'
+" Plug 'timcharper/textile.vim'
+" Plug 'slim-template/vim-slim'              " slim syntax highlighting for vim
+" Plug 'nanki/treetop.vim'
+" Plug 'jimenezrick/vimerl'
 
-" Bundle 'Townk/vim-autoclose'                " automatically closes quotes, parens, brackets, etc
-" Bundle 'bonsaiben/bootstrap-snippets'         " Twitter Bootstrap snippets for vim-snipmate
-" Bundle 'vim-scripts/bufexplorer.zip'
-" Bundle 'tpope/vim-bundler'                    " Lightweight support for Ruby's Bundler
-" Bundle 'vim-scripts/camelcasemotion'
-" Bundle 'vim-scripts/dbext.vim'
-" Bundle 'vim-scripts/greplace.vim'
-" Bundle 'henrik/vim-indexed-search'
-" Bundle 'hallettj/jslint.vim'
+" Plug 'Townk/vim-autoclose'                " automatically closes quotes, parens, brackets, etc
+" Plug 'bonsaiben/bootstrap-snippets'         " Twitter Bootstrap snippets for vim-snipmate
+" Plug 'vim-scripts/bufexplorer.zip'
+" Plug 'tpope/vim-bundler'                    " Lightweight support for Ruby's Bundler
+" Plug 'vim-scripts/camelcasemotion'
+" Plug 'vim-scripts/dbext.vim'
+" Plug 'vim-scripts/greplace.vim'
+" Plug 'henrik/vim-indexed-search'
+" Plug 'hallettj/jslint.vim'
 " REPOSITORY IS GONE Bundle 'tsaleh/vim-matchit'
-" Bundle 'ddollar/nerdcommenter'              " easy syntax appropriate commenting
-" Bundle 'greyblake/vim-preview'
-" Bundle 'tpope/vim-rbenv'
-" Bundle 'drewolson/ruby_focused_unit_test_vim' " run a focused ruby unit test in vim
-" Bundle 'vim-scripts/ruby-matchit'
-" Bundle 'csexton/rvm.vim'
-" Bundle 'vim-scripts/searchfold.vim'
-" Bundle 'vim-scripts/simplefold'
-" Bundle 'hallison/vim-ruby-sinatra'
-" Bundle 'garbas/vim-snipmate'
-" Bundle 'honza/vim-snippets'                   " additional snippits to use with snipmate
+" Plug 'ddollar/nerdcommenter'              " easy syntax appropriate commenting
+" Plug 'greyblake/vim-preview'
+" Plug 'tpope/vim-rbenv'
+" Plug 'drewolson/ruby_focused_unit_test_vim' " run a focused ruby unit test in vim
+" Plug 'vim-scripts/ruby-matchit'
+" Plug 'csexton/rvm.vim'
+" Plug 'vim-scripts/searchfold.vim'
+" Plug 'vim-scripts/simplefold'
+" Plug 'hallison/vim-ruby-sinatra'
+" Plug 'garbas/vim-snipmate'
+" Plug 'honza/vim-snippets'                   " additional snippits to use with snipmate
 " Replaced by YouCompleteMe ' Bundle 'ervandew/supertab'                    " Perform all your vim insert mode completions with Tab
-" Bundle 'vim-scripts/TailMinusF'
-" Bundle 'kana/vim-textobj-user'
-" Bundle 'thinca/vim-textobj-comment'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
-" Bundle 'tomtom/tlib_vim'                      " (snipmate dependency) Some utility functions for VIM
-" Bundle 'SirVer/ultisnips'                   " code snipped engine. ships with some templates
-" Bundle 'Raimondi/vimoutliner'
-" Bundle 'skalnik/vim-vroom'                    " A vim Plugin for running your Ruby tests
-" Bundle 'mattn/zencoding-vim'
+" Plug 'vim-scripts/TailMinusF'
+" Plug 'kana/vim-textobj-user'
+" Plug 'thinca/vim-textobj-comment'
+" Plug 'nelstrom/vim-textobj-rubyblock'
+" Plug 'tomtom/tlib_vim'                      " (snipmate dependency) Some utility functions for VIM
+" Plug 'SirVer/ultisnips'                   " code snipped engine. ships with some templates
+" Plug 'Raimondi/vimoutliner'
+" Plug 'skalnik/vim-vroom'                    " A vim Plugin for running your Ruby tests
+" Plug 'mattn/zencoding-vim'
 
 " Plugins used by Janus:
-" Bundle 'ap/vim-css-color'
-" Bundle 'michaeljsmith/vim-indent-object'
-" Bundle 'rgarver/Kwbd.vim'
-" Bundle 'chrisbra/NrrwRgn'
-" Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'skalnik/vim-vroom'
+" Plug 'ap/vim-css-color'
+" Plug 'michaeljsmith/vim-indent-object'
+" Plug 'rgarver/Kwbd.vim'
+" Plug 'chrisbra/NrrwRgn'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'skalnik/vim-vroom'
 
 " Plugins used by neo:
-" Bundle 'harleypig/vcscommand.vim'
-" Bundle 'vim-scripts/L9'
-" Bundle 'michaeljsmith/vim-indent-object'
-" Bundle 'wavded/vim-stylus'
-" Bundle 'digitaltoad/vim-jade'
-" Bundle 'vim-scripts/VimClojure'
-" Bundle 'skammer/vim-css-color'
+" Plug 'harleypig/vcscommand.vim'
+" Plug 'vim-scripts/L9'
+" Plug 'michaeljsmith/vim-indent-object'
+" Plug 'wavded/vim-stylus'
+" Plug 'digitaltoad/vim-jade'
+" Plug 'vim-scripts/VimClojure'
+" Plug 'skammer/vim-css-color'
 " Use Aaron Baker's Fork to add SASS/SCSS color highlighting
-" Bundle 'bakis2011/vim-css-color'
+" Plug 'bakis2011/vim-css-color'
 
 " Plugins used by spf13:
-" Bundle 'amirh/HTML-AutoCloseTag'            " Automatically closes HTML tags once you finish typing them.
-" Bundle 'hail2u/vim-css3-syntax'             " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
-" Bundle 'godlygeek/csapprox'                 " Make gvim-only colorschemes work transparently in terminal vim
-" Bundle 'briancollins/vim-jst'               " for highlighting and indenting JST/EJS syntax
-" Bundle 'spf13/PIV'                          " PHP Integration environment for Vim
-" Bundle 'arnaud-lb/vim-php-namespace'        " types 'use' statements for you
-" Bundle 'mattn/webapi-vim'
-" Bundle 'vim-scripts/restore_view.vim'       " automatically restoring file's cursor position and folding
-" Bundle 'myusuf3/numbers.vim'                " intelligently toggling line numbers between relative numbering (relativenumber) and absolute numbering (number)
-" Bundle 'airblade/vim-gitgutter'             " shows a git diff in the 'gutter' (sign column). It shows whether each line has been added, modified, and where lines have been removed.
-" Bundle 'vim-scripts/sessionman.vim'         " session manager
+" Plug 'amirh/HTML-AutoCloseTag'            " Automatically closes HTML tags once you finish typing them.
+" Plug 'hail2u/vim-css3-syntax'             " Add CSS3 syntax support to vim's built-in `syntax/css.vim`.
+" Plug 'godlygeek/csapprox'                 " Make gvim-only colorschemes work transparently in terminal vim
+" Plug 'briancollins/vim-jst'               " for highlighting and indenting JST/EJS syntax
+" Plug 'spf13/PIV'                          " PHP Integration environment for Vim
+" Plug 'arnaud-lb/vim-php-namespace'        " types 'use' statements for you
+" Plug 'mattn/webapi-vim'
+" Plug 'vim-scripts/restore_view.vim'       " automatically restoring file's cursor position and folding
+" Plug 'myusuf3/numbers.vim'                " intelligently toggling line numbers between relative numbering (relativenumber) and absolute numbering (number)
+" Plug 'airblade/vim-gitgutter'             " shows a git diff in the 'gutter' (sign column). It shows whether each line has been added, modified, and where lines have been removed.
+" Plug 'vim-scripts/sessionman.vim'         " session manager
 
 " Plugins used by yadr
 " ' Ruby, Rails, Rake...
-" Bundle 'astashov/vim-ruby-debugger'
-" Bundle 'ecomba/vim-ruby-refactoring'
-" Bundle 'skwp/vim-ruby-conque'
-" Bundle 'tpope/vim-rvm'
-" Bundle 'vim-scripts/Specky'
-" Bundle 'ck3g/vim-change-hash-syntax'
+" Plug 'astashov/vim-ruby-debugger'
+" Plug 'ecomba/vim-ruby-refactoring'
+" Plug 'skwp/vim-ruby-conque'
+" Plug 'tpope/vim-rvm'
+" Plug 'vim-scripts/Specky'
+" Plug 'ck3g/vim-change-hash-syntax'
 "
 " ' Html, Xml, Css, Markdown...
-" Bundle 'aaronjensen/vim-sass-status'
-" Bundle 'claco/jasmine.vim'
-" Bundle 'digitaltoad/vim-jade'
-" Bundle 'kogakure/vim-sparkup'
-" Bundle 'skwp/vim-html-escape'
-" Bundle 'wavded/vim-stylus'
+" Plug 'aaronjensen/vim-sass-status'
+" Plug 'claco/jasmine.vim'
+" Plug 'digitaltoad/vim-jade'
+" Plug 'kogakure/vim-sparkup'
+" Plug 'skwp/vim-html-escape'
+" Plug 'wavded/vim-stylus'
 "
 " ' Git related...
-" Bundle 'gregsexton/gitv'
-" Bundle 'mattn/gist-vim'
-" Bundle 'skwp/vim-git-grep-rails-partial'
-" Bundle 'tjennings/git-grep-vim'
+" Plug 'gregsexton/gitv'
+" Plug 'mattn/gist-vim'
+" Plug 'skwp/vim-git-grep-rails-partial'
+" Plug 'tjennings/git-grep-vim'
 "
 " ' General text editing improvements...
-" Bundle 'AndrewRadev/splitjoin.vim'
-" Bundle 'Shougo/neocomplcache'
-" Bundle 'briandoll/change-inside-surroundings.vim'
-" Bundle 'nelstrom/vim-visual-star-search'
-" Bundle 'skwp/vim-easymotion'
-" Bundle 'vim-scripts/IndexedSearch'
-" Bundle 'terryma/vim-multiple-cursors'
+" Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'Shougo/neocomplcache'
+" Plug 'briandoll/change-inside-surroundings.vim'
+" Plug 'nelstrom/vim-visual-star-search'
+" Plug 'skwp/vim-easymotion'
+" Plug 'vim-scripts/IndexedSearch'
+" Plug 'terryma/vim-multiple-cursors'
 "
 " ' General vim improvements
-" Bundle 'bogado/file-line'
-" Bundle 'mattn/webapi-vim'
-" Bundle 'skwp/greplace.vim'
-" Bundle 'skwp/vim-conque'
-" Bundle 'vim-scripts/AnsiEsc.vim'
-" Bundle 'vim-scripts/AutoTag'
-" Bundle 'vim-scripts/lastpos.vim'
-" Bundle 'vim-scripts/sudo.vim'
-" Bundle 'xsunsmile/showmarks'
+" Plug 'bogado/file-line'
+" Plug 'mattn/webapi-vim'
+" Plug 'skwp/greplace.vim'
+" Plug 'skwp/vim-conque'
+" Plug 'vim-scripts/AnsiEsc.vim'
+" Plug 'vim-scripts/AutoTag'
+" Plug 'vim-scripts/lastpos.vim'
+" Plug 'vim-scripts/sudo.vim'
+" Plug 'xsunsmile/showmarks'
 "
 " ' Text objects
-" Bundle 'austintaylor/vim-indentobject'
-" Bundle 'bootleq/vim-textobj-rubysymbol'
-" Bundle 'coderifous/textobj-word-column.vim'
-" Bundle 'kana/vim-textobj-datetime'
-" Bundle 'kana/vim-textobj-entire'
-" Bundle 'kana/vim-textobj-function'
-" Bundle 'kana/vim-textobj-user'
-" Bundle 'lucapette/vim-textobj-underscore'
-" Bundle 'nathanaelkane/vim-indent-guides'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
-" Bundle 'thinca/vim-textobj-function-javascript'
-" Bundle 'vim-scripts/argtextobj.vim'
+" Plug 'austintaylor/vim-indentobject'
+" Plug 'bootleq/vim-textobj-rubysymbol'
+" Plug 'coderifous/textobj-word-column.vim'
+" Plug 'kana/vim-textobj-datetime'
+" Plug 'kana/vim-textobj-entire'
+" Plug 'kana/vim-textobj-function'
+" Plug 'kana/vim-textobj-user'
+" Plug 'lucapette/vim-textobj-underscore'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nelstrom/vim-textobj-rubyblock'
+" Plug 'thinca/vim-textobj-function-javascript'
+" Plug 'vim-scripts/argtextobj.vim'
 "
 " ' Cosmetics, color scheme, Powerline...
-" Bundle 'chrisbra/color_highlight'
-" Bundle 'vim-scripts/TagHighlight'
-" Bundle 'bogado/file-line'
+" Plug 'chrisbra/color_highlight'
+" Plug 'vim-scripts/TagHighlight'
+" Plug 'bogado/file-line'

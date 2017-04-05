@@ -8,7 +8,7 @@
 "
 " Once CtrlP is open:
 "
-" Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+" Press <F5> (mapped F5 to run javascript file) to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
 " Press <c-f> and <c-b> to cycle between modes.
 " Press <c-d> to switch to filename only search instead of full path.
 " Press <c-r> to switch to regexp mode.

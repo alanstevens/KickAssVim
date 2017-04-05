@@ -34,10 +34,6 @@ if $COLORTERM == 'gnome-terminal'
   " colorscheme desert256
 endif
 
-" Switch between light and dark background
-" call togglebg#map("<F5>")
-" noremap <silent> <F5> :ToggleBG
-
 " Rotate Color Scheme <F6>
 let colorlist = ""
 noremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
