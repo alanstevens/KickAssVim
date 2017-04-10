@@ -1,12 +1,5 @@
 " loads display-related options
 
-" fix arrow keys in console mode
-if !(has('gui_running') || has('win32'))
-  if !has('nvim')
-      set term=ansi
-  endif
-endif
-
 set number         " show line numbers
 " set ruler set in sensible.vim         " display coordinates in status bar
 set rulerformat=%=%l/%L " show current line info (current/total)
@@ -27,9 +20,6 @@ let g:CSApprox_loaded = 1
 
 " Smoother redraws
 set ttyfast
-
-" have the mouse enabled all the time
-set mouse=a
 
 " allow lots of tabs
 " set tabpagemax=20 set in sensible.vim

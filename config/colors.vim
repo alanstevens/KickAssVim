@@ -36,8 +36,10 @@ endif
 
 " Rotate Color Scheme <F6>
 let colorlist = ""
-noremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
-noremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
+if has("gui_mac") || has("gui_macvim")
+    noremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
+    noremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
+endif
 
 let themeindex = 0
 
