@@ -1,5 +1,13 @@
 
-call plug#begin('~/.vim/bundle')
+" _  ___      _                        __      ___
+"| |/ (_)    | |        /\             \ \    / (_)
+"| ' / _  ___| | __    /  \   ___ ___   \ \  / / _ _ __ ___
+"|  < | |/ __| |/ /   / /\ \ / __/ __|   \ \/ / | | '_ ` _ \
+"| . \| | (__|   <   / ____ \\__ \__ \    \  /  | | | | | | |
+"|_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
+
+
+call plug#begin('~/.vim/plugins')
 
 " Colors
 Plug 'wgibbs/vim-irblack'
@@ -28,10 +36,11 @@ Plug 'othree/javascript-libraries-syntax.vim'   " Syntax file for JavaScript lib
 Plug 'elzr/vim-json'                            " A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing.
 Plug 'mmalecki/vim-node.js'                     " File type detect Plugin for vim which detects node.js shebang
 Plug 'jimmyhchan/dustjs.vim'                    " dustjs template syntax highlighting and more for vim
-" tern and ycm don't support typescript
+" tern and ycm don't support typescript :-(
 " ======================================
-" Plug 'ternjs/tern_for_vim'                      " provides Tern-based JavaScript editing support.  It will hook into omni completion to handle autocompletion
-" Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
+Plug 'ternjs/tern_for_vim'                      " provides Tern-based JavaScript editing support.  It will hook into omni completion to handle autocompletion
+Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
+Plug 'ramitos/jsctags'                        " jsctags generator using tern
 Plug 'mileszs/ack.vim'                          " like grep but better. Currently used with Ag, if available
 Plug 'vim-airline/vim-airline'                  " lean & mean statusline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes'           " https://github.com/vim-airline/vim-airline/wiki/Screenshots
@@ -43,22 +52,33 @@ Plug 'jistr/vim-nerdtree-tabs'                  " NERDTree and tabs together in 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Extra syntax and highlight for nerdtree files
 Plug 'vim-scripts/tComment'                     " easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
 Plug 'sjl/vitality.vim'                         " Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
-Plug 'ctrlpvim/ctrlp.vim'                       " Full path fuzzy file, buffer, mru, tag, ... finder
+" Plug 'ctrlpvim/ctrlp.vim'                       " Full path fuzzy file, buffer, mru, tag, ... finder
+" Plug 'Shougo/denite.nvim'                       " Can't use until vim typings uses denite.  Dark powered asynchronous unite all interfaces for Neovim/Vim8 like the fuzzy finder, but it is more generic. (for neovim)
+Plug 'Shougo/unite.vim'                         " Unite and create user interfaces. LEGACY package replaced by denite, but required by vim typings
+Plug 'Shougo/neosnippet.vim'                   " neo-snippet plugin contains neocomplcache snippets source
+Plug 'Shougo/neosnippet-snippets'              " default snippits for neosnippet
+Plug 'Shougo/neocomplete.vim'                  " Next generation completion framework after neocomplcache
+Plug 'Shougo/vimproc.vim'                       " Interactive command execution in Vim. Prereq of tsuquyomi
 Plug 'othree/html5.vim'                         " HTML5 omnicomplete and syntax
 Plug 'Chiel92/vim-autoformat'                   " Provides easy code formatting in Vim by integrating existing code formatters.
-Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
+" Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
+" Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'junegunn/vim-easy-align'                  " Makes those funny alignment issues trivial.
-Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
 Plug 'Quramy/vim-js-pretty-template'            " highlights JavaScript's Template Strings in other FileType syntax rule
 Plug 'jason0x43/vim-js-indent'                  " Vim indenter for standalone and embedded JavaScript
-Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files
+"Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files
+"Plug 'garbas/vim-snipmate'                     " a concise vim script that implements some of TextMate's snippets features in Vim
+Plug 'magarcia/vim-angular2-snippets'          " Snipmate snippets for Angular 2 for TypeScript and HTML, based on johnpapa/vscode-angular2-snippets.
+" TODO: figure out how to update ctags with typescript mappings via script.
+Plug 'majutsushi/tagbar'                       " Vim plugin that displays tags in a window, ordered by scope
 " ======================================
 " Typescript/Angular stuff:
 " ======================================
+Plug 'clausreinke/typescript-tools.vim'         " vim plugin for TypeScript support (uses typescript-tools)
+Plug 'mhartington/vim-typings'                  " search for typings in vim!
 Plug 'burnettk/vim-angular'                     " Some niceties for using Vim with the AngularJS framework
 Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
-Plug 'Shougo/vimproc.vim'                       " Interactive command execution in Vim. Prereq of tsuquyomi
-Plug 'uramy/tsuquyomi'                          " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
+Plug 'Quramy/tsuquyomi'                          " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
 Plug 'vvakame/dtsm'                             " The .d.ts manager
 Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
 Plug 'angular-cli.vim'                          " a Vim Plugin for angular-cli
@@ -83,8 +103,6 @@ call plug#end()
 
 "===========================================================================================================================
 " Plug 'wookiehangover/jshint.vim'              " syntastic already leverages jshint  JSHint fork of jslint.vim
-" Plug 'ramitos/jsctags'                        " jsctags generator using tern
-" Plug 'majutsushi/tagbar'                      " displays a list of ctags in a sidebar
 " Plug 'sjl/gundo.vim'                          " provides an undo graph window
 " Plug 'Xuyuanp/nerdtree-git-Plugin'            " A Plugin of NERDTree showing git status flags.
 " Plug 'tpope/vim-surround'                     " all about 'surroundings': parentheses, brackets, quotes, XML tags, and more.
@@ -96,7 +114,6 @@ call plug#end()
 
 " Plug 'vim-ruby/vim-ruby'
 " Plug 'chrisbra/csv.vim'
-" Plug Shougo/denite.nvim                     " like the fuzzy finder, but it is more generic. (for neovim)
 " Plug 'helino/vim-json'
 " Plug 'rking/ag.vim'                         " depricated
 " Seems to be abandoned: Bundle 'walm/jshint.vim'
@@ -268,7 +285,6 @@ call plug#end()
 "
 " ' General text editing improvements...
 " Plug 'AndrewRadev/splitjoin.vim'
-" Plug 'Shougo/neocomplcache'
 " Plug 'briandoll/change-inside-surroundings.vim'
 " Plug 'nelstrom/vim-visual-star-search'
 " Plug 'skwp/vim-easymotion'

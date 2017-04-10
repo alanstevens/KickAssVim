@@ -2,7 +2,9 @@
 
 " fix arrow keys in console mode
 if !(has('gui_running') || has('win32'))
-  set term=ansi
+  if !has('nvim')
+      set term=ansi
+  endif
 endif
 
 set number         " show line numbers

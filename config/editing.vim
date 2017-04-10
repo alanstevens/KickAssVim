@@ -96,7 +96,9 @@ endif
 
 " Enable mouse support in console
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+    set term=ansi
+endif
 
 if $COLORTERM == 'gnome-terminal'
   let g:clipbrdDefaultReg = '+'

@@ -114,18 +114,18 @@ endif
 nnoremap <silent> <Leader>rv :so $MYVIMRC<CR>
 
 " map function keys for console usage
-" map <Esc>OP <F1>
-" map <Esc>OQ <F2>
-" map <Esc>OR <F3>
-" map <Esc>OS <F4>
-" map <Esc>[16~ <F5>
-" map <Esc>[17~ <F6>
-" map <Esc>[18~ <F7>
-" map <Esc>[19~ <F8>
-" map <Esc>[20~ <F9>
-" map <Esc>[21~ <F10>
-" map <Esc>[23~ <F11>
-" map <Esc>[24~ <F12>
+map <Esc>OP <F1>
+map <Esc>OQ <F2>
+map <Esc>OR <F3>
+map <Esc>OS <F4>
+map <Esc>[16~ <F5>
+map <Esc>[17~ <F6>
+map <Esc>[18~ <F7>
+map <Esc>[19~ <F8>
+map <Esc>[20~ <F9>
+map <Esc>[21~ <F10>
+map <Esc>[23~ <F11>
+map <Esc>[24~ <F12>
 
 " use C-j and C-k to 'bubble' lines (see
 " http://vimcasts.org/episodes/bubbling-text/)
