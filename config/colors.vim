@@ -13,25 +13,12 @@ set background=dark
 
 if $COLORTERM == 'gnome-terminal'
   set term=gnome-256color
-  " colorscheme desert256
 endif
-
-try
-    " Default color Scheme
-    colorscheme ir_black
-catch /^Vim\%((\a\+)\)\=:E185/
-    " deal with it
-endtry
 
 " If in diff mode (vimdiff) use the inkpot color scheme
 " that better highlights file differences
 if &diff
   colors inkpot    " Vim Tip #1143
-endif
-
-if $COLORTERM == 'gnome-terminal'
-  " set term=gnome-256color
-  " colorscheme desert256
 endif
 
 " Rotate Color Scheme <F6>
@@ -60,3 +47,9 @@ function! RotateColorTheme(reverse)
   return themename
 endfunction
 command! RotateColorScheme call RotateColorTheme(0)
+
+" Neovim
+if has('nvim')
+    set termguicolors
+    set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+endif

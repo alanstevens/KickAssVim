@@ -1,7 +1,7 @@
 " loads display-related options
 
 set number         " show line numbers
-" set ruler set in sensible.vim         " display coordinates in status bar
+" set ruler " set in sensible.vim         " display coordinates in status bar
 set rulerformat=%=%l/%L " show current line info (current/total)
 set showcmd        " display unfinished commands
 set showmatch      " show matching bracket (briefly jump)
@@ -22,8 +22,8 @@ let g:CSApprox_loaded = 1
 set ttyfast
 
 " allow lots of tabs
-" set tabpagemax=20 set in sensible.vim
-
+" set tabpagemax=20 "set in sensible.vim
+"
 " turn off the error beep
 set vb t_vb=
 
@@ -34,29 +34,10 @@ set visualbell t_vb=
 set linespace=4
 
 " When lines are cropped at the screen bottom, show as much as possible "
-" set display=lastline set in sensible.vim
+" set display=lastline " set in sensible.vim
 
 " Removes dollar signs from end of lines
 set nolist
-
-" I don't know what this does --HAS
-"let g:rct_completion_use_fri = 1
-
-" WTF does this do? --HAS
-"let ScreenShot = {'Icon':0, 'Credits':0, 'force_background':'#FFFFFF'}
-
-"define :HighlightLongLines command to highlight the offending parts of
-"lines that are longer than the specified length (defaulting to 80)
-"command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-"
-"function! s:HighlightLongLines(width)
-"  let targetWidth = a:width != '' ? a:width : 79
-"  if targetWidth > 0
-"    exec 'match Todo /\%>' . (targetWidth) . 'v/'
-"  else
-"    echomsg "Usage: HighlightLongLines [natural number]"
-"  endif
-"endfunction
 
 " shortmess settings:
 " f - use "(3 of 5)" instead of "(file 3 of 5)"
@@ -75,7 +56,7 @@ set nolist
 set shortmess=filmnrxtTI
 
 " status bar
-
+" Do I need any of this since I'm using airline?
 if has("statusline") && !&cp
   " set laststatus=2 set in sensible.vim " always show the status bar
 
@@ -87,13 +68,6 @@ if has("statusline") && !&cp
   "set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''} " rvm status
   "set statusline+=(%l,%c%V)\ %<%P                               " offset
 
-  " Janus default
-  " set statusline=%f\ %m\ %r
-  " set statusline+=Line:%l/%L[%p%%]
-  " set statusline+=Col:%v
-  " set statusline+=Buf:#%n
-  " set statusline+=[%b][0x%B]
-
   set statusline=%f\      "tail of the filename
   "set statusline+=%=     "left/right separator
   set statusline+=%c,     "cursor column
@@ -103,6 +77,11 @@ if has("statusline") && !&cp
 
   " TODO check for Git
   "set statusline+=[%{GitBranch()}]
+
+  " enable narrow cursor in insert mode:
+  if has('nvim')
+      let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+  endif
 
   " augment status line
   function! ETry(function, ...)

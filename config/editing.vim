@@ -13,11 +13,7 @@ set smartindent
 set whichwrap+=<,>,h,l
 
 " Whitespace
-set tabstop=4                     " a tab is four spaces
-set shiftwidth=4                  " an autoindent (with <<) is four spaces
-set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
-set softtabstop=4
 
 " Vim Tip #989: Word wrap without line breaks
 set nowrap                        " don't wrap lines
@@ -30,7 +26,7 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " automatically reload a file if it's changed outside vim
-" set autoread set in sensible.vim
+" set autoread " set in sensible.vim
 
 " Avoid vim complains about not written file when jumping
 " between buffers using ctags
@@ -59,7 +55,7 @@ set formatoptions+=l
 set formatoptions-=o
 
 " % to bounce from do to end etc.
-" runtime! macros/matchit.vim "set in sensible.vim
+" runtime! macros/matchit.vim " set in sensible.vim
 
 "folding settings
 set foldmethod=syntax
@@ -94,7 +90,13 @@ if version >= 700
   " ]s will move the cursor to the next misspelled word. [s will move the cursor back previous misspelled words.
 endif
 
+" toggle spell checking
+nn <F7> :set spell! spell? spelllang=en_us<CR>
+" turn off spelling by default
+set nospell
+
 " Enable mouse support in console
+" This will not work if you have: set term=ansi
 set mouse=a
 
 if $COLORTERM == 'gnome-terminal'
@@ -103,6 +105,12 @@ endif
 
 " Universal clipboard
 set clipboard=unnamed
+
+" Use the system clipboard in Unix
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+" nnoremap <C-p> "+gP
+" vnoremap <C-p> "+gP
 
 " Use modeline overrides
 set modeline

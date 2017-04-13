@@ -64,3 +64,9 @@ let g:syntastic_check_on_open=1 " configure syntastic syntax checking to check o
 let g:syntastic_check_on_wq = 0
 " nuclear option to eliminate hmtltidy for yelling about custom tags
 " let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
+" Use tsuquyomi for typescript syntax checking
+set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']

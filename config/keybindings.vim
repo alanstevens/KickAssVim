@@ -2,9 +2,6 @@
 " does not contain plugin-specific settings,
 " just 'global' ones.
 
-" hide and show vim in the console:
-"http://askubuntu.com/a/496824
-
 " run javascript files
 noremap <F5> :call RunJS() <CR>
 function! RunJS()
@@ -20,14 +17,6 @@ nnoremap <S-Tab> gT
 imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 nmap <c-f> [s1z=<c-o>
 
-" toggle spell checking
-nn <F7> :set spell! spell? spelllang=en_us<CR>
-" turn off spelling by default
-set nospell
-
-" run rubocop -a on the current file
-" noremap <Leader>rua :!rubocop -a %:p<CR><CR>
-
 " navigate viewports with hjkl
 noremap <Leader>h <C-W>h
 noremap <Leader>j <C-W>j
@@ -40,15 +29,6 @@ noremap <Leader>p :bprevious<CR>
 
 " Toggle auto-wrap with F4
 noremap <F4> :set wrap!<CR>
-
-" New Tab
-" nnoremap <silent> <C-t> :tabnew<CR>
-
-" Use the system clipboard in Unix
-nnoremap <C-y> "+y
-vnoremap <C-y> "+y
-" nnoremap <C-p> "+gP
-" vnoremap <C-p> "+gP
 
 " Create Blank Newlines and stay in Normal mode
 nnoremap <Leader>O O<Esc>
@@ -80,13 +60,13 @@ endfunction
 " Normal mode: <Leader>e
 noremap <Leader>e :e <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 
-" Opens a tab edit command with the path of the currently edited file filled in
+" epens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 
 " Opens a split viewport edit command with the path of the currently edited file filled in
 noremap <Leader>ve :vsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
-noremap <Leader>he :hsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
+noremap <Leader>he :split <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 
 " Adjust viewports to the same size
 " noremap <Leader>= <C-w>=
@@ -96,12 +76,6 @@ noremap <Leader>he :hsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
 " <Leader>r is used by vroom
 " noremap <Leader>r <C-w>r
 " imap <Leader>r <Esc> <C-w>r
-
-" Keep lines that do contain the last search term
-nnoremap <leader>v/ :v/<c-r>//d<CR>gg
-
-" Keep lines that do not contain the last search term
-nnoremap <leader>g/ :g/<c-r>//d<CR>gg
 
 " Shortcut to edit vimrc
 if has("win32")
@@ -127,10 +101,6 @@ map <Esc>[21~ <F10>
 map <Esc>[23~ <F11>
 map <Esc>[24~ <F12>
 
-" use C-j and C-k to 'bubble' lines (see
-" http://vimcasts.org/episodes/bubbling-text/)
-" noremap <C-j> ddp
-" noremap <C-k> ddkP
 
 " switch ' and `, because:
 " ' jumps to the start of the line where a mark is
@@ -140,80 +110,8 @@ map <Esc>[24~ <F12>
 " noremap ' `
 " noremap ` '
 
-" Toggle paste mode
-" nnoremap <silent> <F8> :set invpaste<CR>:set paste?<CR>
-" inoremap <silent> <F8> <ESC>:set invpaste<CR>:set paste?<CR>
-
-"-----------------------------------------------------------------------------------------------
-
-" shortcut for alt-tabbing buffers
-" map <M-`> :b#<CR>
-" imap <M-`> :b#<CR>
-
 " Space will toggle folds!
 " nnoremap <space> za
 
-" if has("gui_mac") || has("gui_macvim")
-"   "Key mapping for textmate-like indentation
-"   nmap <D-[> <<
-"   nmap <D-]> >>
-"   vmap <D-[> <gv
-"   vmap <D-]> >gv
-"
-"   " Command-][ to increase/decrease indentation
-"   vmap <D-]> >gv
-"   vmap <D-[> <gv
-"
-"   " Fullscreen takes up entire screen
-"   set fuoptions=maxhorz,maxvert
-"
-"   " Command-Return for fullscreen
-"   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
-" endif
-
-" Inserts the path of the currently edited file into a command
-" Command mode: Ctrl+P
-" cmap <C-P> <C-R>=expand("%:p:h")<CR>
-
-" Force gf to open in new tabs
-" nnoremap gf <C-W>gf
-
-" change the file format to unix
-" map <Leader>nix :setlocal ff=unix<CR> :w!<CR>
-
-" upper/lower word
-" nmap <leader>uc mQviwU`Q
-" nmap <leader>lc mQviwu`Q
-
-" upper/lower first char of word
-" proper-case word
-" nmap <leader>U mQgewvU`Q
-" nmap <leader>L mQgewvu`Q
-
-" Some helpers to edit mode
-" http://vimcasts.org/e/14
-" nmap <leader>ew :e <C-R>=expand('%:h').'/'<CR>
-" nmap <leader>es :sp <C-R>=expand('%:h').'/'<CR>
-" nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<CR>
-" nmap <leader>et :tabe <C-R>=expand(':h').'/'<CR>
-
-" Swap two words
-" nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
-
-" Underline the current line with '='
-" nmap <silent> <leader>ul :t.<CR>Vr=
-
 " find merge conflict markers
 " nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-
-" After whitespace, insert the current directory into a command-line path
-" cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : :"\<C-P>"
-
-"map Q to something useful
-" noremap Q gq
-
-"key mapping for vimgrep result navigation
-" map <A-o> :copen<CR>
-" map <A-q> :cclose<CR>
-" map <A-j> :cnext<CR>
-" map <A-k> :cprevious<CR>

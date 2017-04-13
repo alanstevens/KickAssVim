@@ -15,9 +15,10 @@ endif
 "   set grepprg=ag\ --nogroup\ --nocolor
 "   let g:ackprg="ag --nocolor --nogroup --column"
 " endif
-
+cnoreabbrev Ack Ack!
 " Use <Leader>a to bring up an Ack search prompt.
-noremap <Leader>a :Ack<Space>
+" '!' means don't open the first result by default.
+nnoremap <Leader>a :Ack!<Space>
 
 " The quickfix results window is augmented with these convenience mappings:
 "

@@ -7,13 +7,13 @@
 
 desc "Install all plugins and dependencies and compiles YouCompleteMe"
 task :default => ["plugins", "npm", "tern", "ycm"] do
+    sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
+    sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
     print_output "Complete!"
 end
 
 desc "Installs Vim plugins"
 task:plugins do
-    sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
-    sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
     install_vimplug
     install_plugins
 end
@@ -82,47 +82,45 @@ def install_plugins
     sh "vim -S '~/.vimrc' -c 'PlugUpgrade' -c 'PlugUpdate' -c 'PlugClean!' -c 'qa'; clear"
 end
 
+def npm_install(name)
+    print_output name
+    sh "npm update -g #{name}"
+end
+
 def install_npm_dependencies
 
-    print_output "instant-markdown"
-    sh "npm update -g instant-markdown-d"
+    npm_install "instant-markdown-d"
 
-    print_output "jshint"
-    sh "npm update -g jshint"
+    npm_install "tern"
 
-    print_output "eslint"
-    sh "npm update -g eslint"
+    npm_install "jshint"
 
-    print_output "typescript"
-    sh "npm update -g typescript"
+    npm_install "eslint"
 
-    print_output "tslint"
-    sh "npm update -g tslint"
+    npm_install "typescript"
 
-    print_output "dtsm"
-    sh "npm update -g dtsm"
+    npm_install "tslint"
 
-    print_output "angular-cli"
-    sh "npm update -g @angular/cli"
+    npm_install "dtsm"
 
-    print_output "typescript server"
-    sh "npm update -g ts-server"
+    npm_install "@angular/cli"
 
-    print_output "typescript tools"
-    sh "npm update -g clausreinke/typescript-tools.vim"
+    npm_install "ts-server"
 
-    print_output "typings"
-    sh "npm update -g typings"
+    npm_install "clausreinke/typescript-tools.vim"
 
-    # the next two packages are prerequisites to ng-tsserver integration with angular language service
-    print_output "@angular language service"
-    sh "npm update -g @angular/language-service"
+    npm_install "typings"
 
-    print_output "reflect-metadata"
-    sh "npm update -g reflect-metadata"
+    npm_install "@angular/language-service"
+
+    npm_install "reflect-metadata"
+
+    npm_install "dtsm"
+
+    print_output "jsctags"
+    sh "npm install -g git+https://github.com/ramitos/jsctags.git"
 
     print_output "ng-tsserver"
     sh "curl https://raw.githubusercontent.com/Quramy/ng-tsserver/master/ng-tsserver > ng-tsserver.sh"
-    # sh "bash ng-tsserver.sh ${$(which tsserver)/bin\/tsserver/node_modules\/typescript}" # doesn't work
-    sh "bash ng-tsserver.sh /usr/local/lib/node_modules/typescript"
+    sh "bash ng-tsserver.sh /usr/local/lib/node_modules/typescript; rm ng-tsserver.sh"
 end

@@ -1,4 +1,5 @@
 " GUI-specific settings
+" HAS - I suspect that most of this is unnecessary
 
 " only execute the contents of this file if the GUI is in use.
 if has("gui_running")
@@ -25,20 +26,16 @@ if has("gui_running")
   set guioptions+=b
 
   " scroll the window when we get near the edge
-  set scrolloff=8         "Start scrolling when we're 8 lines away from margins, set to 1 in sensible.vim
+  set scrolloff=8      "Start scrolling when we're 8 lines away from margins, set to 1 in sensible.vim
   set sidescrolloff=15 "set to 5 in sensible.vim
   set sidescroll=1
 
   if has("gui_gnome")
     set term=gnome-256color
-    set guifont=Monospace\ 12
+    set guifont=Monospace\ 16
   endif
 
   if has("gui_mac") || has("gui_macvim")
-    " set guifont=Menlo:h14
-    " set guifont=Hack:h16
-    " Font must come from here to work with plugins: http://nerdfonts.com/
-     set guifont=Knack\ Nerd\ Font:h16
 
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
@@ -55,7 +52,7 @@ if has("gui_running")
   if has("gui_win32") || has("gui_win32s")
     set guifont=hack:h13:cANSI
 
-    " set encoding=utf-8 set in sensible.vim
+    " set encoding=utf-8 " set in sensible.vim
 
     " For Win32 GUI, remove 't' flag from 'guioptions': no tearoff menu entries
     let &guioptions = substitute(&guioptions, "t", "", "g")
