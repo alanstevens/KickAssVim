@@ -3,7 +3,7 @@
 " just 'global' ones.
 
 " run javascript files
-noremap <F5> :call RunJS() <CR>
+noremap <F5> :call RunJS() <cr>
 function! RunJS()
     exec "! node %"
 endfunction
@@ -11,6 +11,8 @@ endfunction
 " Move to the start and end of a line like read line
 nnoremap <c-a> ^
 nnoremap <c-e> $
+imap <c-a> <esc>^i
+imap <c-e> <esc>$i<right>
 
 " cycle between tabs
 " Note that S-TAB does not work in certain consoles (i.e. KDE Konsole)
@@ -18,33 +20,33 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
 " quickly fix spelling errors
-imap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
+imap <c-f> <c-g>u<esc>[s1z=`]a<c-g>u
 nmap <c-f> [s1z=<c-o>
 
 " navigate viewports with hjkl
-noremap <Leader>h <C-W>h
-noremap <Leader>j <C-W>j
-noremap <Leader>k <C-W>k
-noremap <Leader>l <C-W>l
+noremap <leader>h <C-W>h
+noremap <leader>j <C-W>j
+noremap <leader>k <C-W>k
+noremap <leader>l <C-W>l
 
 " navigate around in buffers...
-noremap <Leader>n :bnext<CR>
-noremap <Leader>p :bprevious<CR>
+noremap <leader>n :bnext<cr>
+noremap <leader>p :bprevious<cr>
 
 " Toggle auto-wrap with F4
-noremap <F4> :set wrap!<CR>
+noremap <F4> :set wrap!<cr>
 
 " Create Blank Newlines and stay in Normal mode
-nnoremap <Leader>O O<Esc>
-nnoremap <Leader>o o<Esc>
+nnoremap <leader>O O<esc>
+nnoremap <leader>o o<esc>
 
 " make possible to navigate within wrapped lines
 nnoremap <silent> k gk
 nnoremap <silent> j gj
 nnoremap <silent> <Up> gk
 nnoremap <silent> <Down> gj
-inoremap <silent> <Up> <Esc>gka
-inoremap <silent> <Down> <Esc>gja
+inoremap <silent> <Up> <esc>gka
+inoremap <silent> <Down> <esc>gja
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -52,7 +54,7 @@ noremap N Nzz
 noremap n nzz
 
 " cd to the directory containing the file in the buffer
-nmap <silent> <leader>cd :lcd %:h<CR>
+nmap <silent> <leader>cd :lcd %:h<cr>
 
 " Return a path separator on the current OS
 " Taken from pathogen
@@ -61,49 +63,49 @@ function! ShellSeparator()
 endfunction
 
 " Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-noremap <Leader>e :e <C-R>=expand("%:p:h") . ShellSeparator()<CR>
+" Normal mode: <leader>e
+noremap <leader>e :e <C-R>=expand("%:p:h") . ShellSeparator()<cr>
 
 " epens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . ShellSeparator()<CR>
+" Normal mode: <leader>t
+noremap <leader>te :tabe <C-R>=expand("%:p:h") . ShellSeparator()<cr>
 
 " Opens a split viewport edit command with the path of the currently edited file filled in
-noremap <Leader>ve :vsplit <C-R>=expand("%:p:h") . ShellSeparator()<CR>
-noremap <Leader>he :split <C-R>=expand("%:p:h") . ShellSeparator()<CR>
+noremap <leader>ve :vsplit <C-R>=expand("%:p:h") . ShellSeparator()<cr>
+noremap <leader>he :split <C-R>=expand("%:p:h") . ShellSeparator()<cr>
 
 " Adjust viewports to the same size
-" noremap <Leader>= <C-w>=
-" imap <Leader>= <Esc> <C-w>=
+" noremap <leader>= <C-w>=
+" imap <leader>= <esc> <C-w>=
 
 " rotate viewports
-" <Leader>r is used by vroom
-" noremap <Leader>r <C-w>r
-" imap <Leader>r <Esc> <C-w>r
+" <leader>r is used by vroom
+" noremap <leader>r <C-w>r
+" imap <leader>r <esc> <C-w>r
 
 " Shortcut to edit vimrc
 if has("win32")
-  nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/_vim_files/vimrc<CR>
+  nnoremap <silent> <leader>ev :tabnew<cr>:e ~/_vim_files/vimrc<cr>
 else
-  nnoremap <silent> <Leader>ev :tabnew<CR>:e ~/.vim/vimrc<CR>
+  nnoremap <silent> <leader>ev :tabnew<cr>:e ~/.vim/vimrc<cr>
 endif
 
 " reload vimrc
-nnoremap <silent> <Leader>rv :so $MYVIMRC<CR>
+nnoremap <silent> <leader>rv :so $MYVIMRC<cr>
 
 " map function keys for console usage
-map <Esc>OP <F1>
-map <Esc>OQ <F2>
-map <Esc>OR <F3>
-map <Esc>OS <F4>
-map <Esc>[16~ <F5>
-map <Esc>[17~ <F6>
-map <Esc>[18~ <F7>
-map <Esc>[19~ <F8>
-map <Esc>[20~ <F9>
-map <Esc>[21~ <F10>
-map <Esc>[23~ <F11>
-map <Esc>[24~ <F12>
+map <esc>OP <F1>
+map <esc>OQ <F2>
+map <esc>OR <F3>
+map <esc>OS <F4>
+map <esc>[16~ <F5>
+map <esc>[17~ <F6>
+map <esc>[18~ <F7>
+map <esc>[19~ <F8>
+map <esc>[20~ <F9>
+map <esc>[21~ <F10>
+map <esc>[23~ <F11>
+map <esc>[24~ <F12>
 
 
 " switch ' and `, because:
@@ -118,4 +120,4 @@ map <Esc>[24~ <F12>
 " nnoremap <space> za
 
 " find merge conflict markers
-" nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+" nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<cr>

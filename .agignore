@@ -1,13 +1,11 @@
+plugins/
 bundle
 autoload
 yankring_history_v2.txt
-tmp
 *.DS_Store
-# Logs
 logs
 *.log
 bower_components
 build/Release
 node_modules/
 jspm_packages/
-plugins/

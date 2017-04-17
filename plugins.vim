@@ -70,7 +70,7 @@ Plug 'moll/vim-bbye'                            " Delete buffers and close files
 Plug 'junegunn/fzf.vim'                         " fzf ❤️ vim - Things you can do with fzf and Vim.
 Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
 Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
-Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) Interactive command execution in Vim.
+" Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim) Interactive command execution in Vim.
 Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
 Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
 Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)

@@ -6,10 +6,10 @@
 # |_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
 
 desc "Install all plugins and dependencies and compile YouCompleteMe"
-task :default => ["plugins", "npm", "tern", "ycm"] do
+task :default => ["plugins", "packages", "tern", "ycm"] do
     sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
     sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
-    print_output "Complete!"
+    print_output "Installation", "Complete!"
 end
 
 desc "Install Vim plugins"
@@ -18,9 +18,9 @@ task:plugins do
     install_plugins
 end
 
-desc "Install NPM dependencies"
-task:npm do
-    install_npm_dependencies()
+desc "Install packages"
+task:packages do
+    install_packages()
 end
 
 desc "Build tern runtime and tern for vim"
@@ -56,16 +56,18 @@ end
 def install_vimplug
     print_output "Vim plug"
 
-    dir = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload"
-    FileUtils.mkdir_p(dir) unless File.exists?(dir)
+    cwd = File.expand_path("../", __FILE__)
 
-    dir = File.expand_path "#{File.expand_path("../", __FILE__)}/plugins"
-    FileUtils.mkdir_p(dir) unless File.exists?(dir)
+    autoloaddir = File.expand_path "#{cwd}/autoload"
+    FileUtils.mkdir_p(autoloaddir) unless File.exists?(dir)
 
-    file_name = File.expand_path "#{File.expand_path("../", __FILE__)}/autoload/plug.vim"
+    pluginsdir = File.expand_path "#{cwd}/plugins"
+    FileUtils.mkdir_p(pluginsdir) unless File.exists?(dir)
 
-    unless File.exists?(file_name)
-        sh "curl -LSso #{file_name} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    plug_file = File.expand_path "#{cwd}/autoload/plug.vim"
+
+    unless File.exists?(plug_file)
+        sh "curl -LSso #{plug_file} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     end
 end
 
@@ -74,63 +76,50 @@ def install_plugins
     sh "vim -S '~/.vimrc' -c 'PlugUpgrade' -c 'PlugUpdate' -c 'PlugClean!' -c 'qa'; clear"
 end
 
-def install_npm_dependencies
+def install_packages
+    packages =
+        [
+            "instant-markdown-d",
+            "tern",
+            "jshint",
+            "eslint",
+            "typescript",
+            "tslint",
+            "dtsm",
+            "@angular/cli",
+            "ts-server",
+            "typescript-formatter",
+            "js-beautify",
+            "remark-cli", # formatter for markdown
+            "typings",
+            "instant-markdown-d",
+            "git+https://github.com/ramitos/jsctags.git",
+            "@angular/language-service",# These next two are prereqs for angular language service below
+            "reflect-metadata",
+            "ng-tsserver"
+    ]
+        packages.each do |p|
+            print_output p
+            sh "npm update -g #{p}"
+        end
 
-    npm_install "instant-markdown-d"
+        print_output "sass"
+        sh "gem install sass"
 
-    npm_install "tern"
-
-    npm_install "jshint"
-
-    npm_install "eslint"
-
-    npm_install "typescript"
-
-    npm_install "tslint"
-
-    npm_install "dtsm"
-
-    npm_install "@angular/cli"
-
-    npm_install "ts-server"
-
-    npm_install "typescript-formatter"
-
-    npm_install "js-beautify"
-
-    npm_install "remark-cli" # formatter for markdown
-
-    # npm_install "clausreinke/typescript-tools.vim"
-
-    npm_install "typings"
-
-    # yes, I know gems are not npm packages :-P
-    print_output "sass"
-    sh "gem install sass"
-
-    print_output "jsctags"
-    sh "npm update -g git+https://github.com/ramitos/jsctags.git"
-
-    # These next two are prereqs for angular language service below
-    npm_install "@angular/language-service"
-
-    npm_install "reflect-metadata"
-
-    print_output "ng-tsserver"
-    # Integration Angular language-service with TypeScript's tsserver
-    sh "curl https://raw.githubusercontent.com/Quramy/ng-tsserver/master/ng-tsserver > ng-tsserver.sh"
-    sh "bash ng-tsserver.sh /usr/local/lib/node_modules/typescript; rm ng-tsserver.sh"
+        # Integration Angular language-service with TypeScript's tsserver
+        print_output "Angular Language Service"
+        sh "curl https://raw.githubusercontent.com/Quramy/ng-tsserver/master/ng-tsserver > ng-tsserver.sh"
+        sh "bash ng-tsserver.sh /usr/local/lib/node_modules/typescript; rm ng-tsserver.sh"
 end
 
-def npm_install(name)
-    print_output name
-    sh "npm update -g #{name}"
-end
-
-def print_output(name)
+def print_output(verb, name = nil)
+    if !name
+        name = verb
+        verb = "Installing"
+    end
     puts
     puts "*" * 42
-    puts "*#{"Installing #{name}".center(40)}*"
+    puts "*#{"#{verb} #{name}".center(40)}*"
     puts "*" * 42
     puts
 end
