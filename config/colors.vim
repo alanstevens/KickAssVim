@@ -31,7 +31,7 @@ endif
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-  let colorlist = ["ir_black","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","distinguished","pyte","github","mac_classic"]
+  let colorlist = ["ir_black", "badwolf","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","distinguished","pyte","github","mac_classic"]
   if a:reverse
     let g:themeindex -= 1
   else

@@ -44,7 +44,7 @@ if has("gui_running")
     set invmmta
 
     try
-      set transparency=8
+      set transparency=30
     catch
     endtry
   endif

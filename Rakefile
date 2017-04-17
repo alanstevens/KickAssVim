@@ -5,25 +5,25 @@
 # | . \| | (__|   <   / ____ \\__ \__ \    \  /  | | | | | | |
 # |_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
 
-desc "Install all plugins and dependencies and compiles YouCompleteMe"
+desc "Install all plugins and dependencies and compile YouCompleteMe"
 task :default => ["plugins", "npm", "tern", "ycm"] do
     sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
     sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
     print_output "Complete!"
 end
 
-desc "Installs Vim plugins"
+desc "Install Vim plugins"
 task:plugins do
     install_vimplug
     install_plugins
 end
 
-desc "Installs NPM dependencies"
+desc "Install NPM dependencies"
 task:npm do
     install_npm_dependencies()
 end
 
-desc "Builds tern runtime and tern for vim"
+desc "Build tern runtime and tern for vim"
 task :tern do
     cwd = File.expand_path("../", __FILE__)
 
@@ -35,7 +35,7 @@ task :tern do
     end
 end
 
-desc "Compiles YouCompleteMe"
+desc "Compile YouCompleteMe"
 task :ycm do
     cwd = File.expand_path("../", __FILE__)
 
@@ -51,14 +51,6 @@ task :ycm do
         # TODO: only compile when no binary. Where is it?
         sh "./install.py --tern-completer" # this takes an eTERNity
     end
-end
-
-def print_output(name)
-    puts
-    puts "*" * 42
-    puts "*#{"Installing #{name}".center(40)}*"
-    puts "*" * 42
-    puts
 end
 
 def install_vimplug
@@ -82,11 +74,6 @@ def install_plugins
     sh "vim -S '~/.vimrc' -c 'PlugUpgrade' -c 'PlugUpdate' -c 'PlugClean!' -c 'qa'; clear"
 end
 
-def npm_install(name)
-    print_output name
-    sh "npm update -g #{name}"
-end
-
 def install_npm_dependencies
 
     npm_install "instant-markdown-d"
@@ -107,20 +94,43 @@ def install_npm_dependencies
 
     npm_install "ts-server"
 
-    npm_install "clausreinke/typescript-tools.vim"
+    npm_install "typescript-formatter"
+
+    npm_install "js-beautify"
+
+    npm_install "remark-cli" # formatter for markdown
+
+    # npm_install "clausreinke/typescript-tools.vim"
 
     npm_install "typings"
 
+    # yes, I know gems are not npm packages :-P
+    print_output "sass"
+    sh "gem install sass"
+
+    print_output "jsctags"
+    sh "npm update -g git+https://github.com/ramitos/jsctags.git"
+
+    # These next two are prereqs for angular language service below
     npm_install "@angular/language-service"
 
     npm_install "reflect-metadata"
 
-    npm_install "dtsm"
-
-    print_output "jsctags"
-    sh "npm install -g git+https://github.com/ramitos/jsctags.git"
-
     print_output "ng-tsserver"
+    # Integration Angular language-service with TypeScript's tsserver
     sh "curl https://raw.githubusercontent.com/Quramy/ng-tsserver/master/ng-tsserver > ng-tsserver.sh"
     sh "bash ng-tsserver.sh /usr/local/lib/node_modules/typescript; rm ng-tsserver.sh"
+end
+
+def npm_install(name)
+    print_output name
+    sh "npm update -g #{name}"
+end
+
+def print_output(name)
+    puts
+    puts "*" * 42
+    puts "*#{"Installing #{name}".center(40)}*"
+    puts "*" * 42
+    puts
 end

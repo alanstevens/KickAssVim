@@ -30,7 +30,7 @@ let g:NERDTreeWinSize = 30
 autocmd FocusGained * call s:UpdateNERDTree()
 
 " NERDTree utility function
-function s:UpdateNERDTree(...)
+function! s:UpdateNERDTree(...)
   let stay = 0
 
   if(exists("a:1"))

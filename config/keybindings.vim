@@ -8,6 +8,10 @@ function! RunJS()
     exec "! node %"
 endfunction
 
+" Move to the start and end of a line like read line
+nnoremap <c-a> ^
+nnoremap <c-e> $
+
 " cycle between tabs
 " Note that S-TAB does not work in certain consoles (i.e. KDE Konsole)
 nnoremap <Tab> gt

@@ -19,6 +19,22 @@ Prerequisites:
 * node and npm
 * ctags: `brew install ctags`
 * cmake: ` brew install cmake`
+* Vim: `brew install vim`
+* NeoVim: `brew install neovim/neovim/neovim`
+* Add python 2.7+ support `pip2 install neovim`
+* MacVim: `brew cask install macvim`
+* install fuzzy finder (fzf):
+
+`git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf`
+
+`cd ~/.fzf`
+
+`git fetch --tags`
+
+`git checkout tags/0.16.4`
+
+`./install --all`
+
 * For typescript ctags support, edit or create `~/.ctags` and add the values here:
   https://github.com/majutsushi/tagbar/wiki#typescript
 
@@ -27,14 +43,6 @@ Installation:
 
 2. Install all plugins and dependencies: cd into `~/.vim` and run `rake`.
 
-3. Install a font from [NerdFonts][] My default is [hack][] I just install the regular [mono font][].
-
-6. The most common customizations (leader, font, colors, indenting) are in vimrc.
+3. The most common customizations (leader, font, colors, indenting) are in vimrc.
 
 [Vim]: http://www.vim.org
-[Duwanis]: https://github.com/duwanis/vim_config
-[Carlhuda]: http://github.com/carlhuda/janus
-[Akitaonrails]: https://github.com/akitaonrails/vimfiles
-[NerdFonts]: http://nerdfonts.com/
-[hack]: https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/Hack.zip
-[mono font]: https://github.com/alanstevens/KickAssVim/blob/master/fonts/Hack/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf

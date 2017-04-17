@@ -7,24 +7,27 @@
 " 'r' - recover the changes.
 autocmd  SwapExists  *  :let v:swapchoice = 'e'
 
+set backup
+set writebackup
 
 " Backup and swap files
 if has("win32")
-  set backupdir=$TEMP
-  set directory=$TEMP
+    set backupdir=$TEMP
+    set directory=$TEMP
 else
-  " where to put backup files.
-  set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  " where to put swap files.
-  set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+    " where to put backup files.
+    set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+    " where to put swap files.
+    set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+    set backupskip=/tmp/*,/private/tmp/*
 endif
 
 " Configure undo files (if we're in vim 7.3 and +persistent_undo has been compiled)
 if has("persistent_undo")
-  if has("win32")
-    set undodir=$TEMP
-  else
-    set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  endif
-  set undofile
+    if has("win32")
+        set undodir=$TEMP
+    else
+        set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+    endif
+    set undofile
 endif

@@ -7,6 +7,7 @@ set showcmd        " display unfinished commands
 set showmatch      " show matching bracket (briefly jump)
 set showmode       " display the current mode in the status bar
 set title          " show file in titlebar
+set cursorline     " highlight current line
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow

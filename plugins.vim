@@ -19,6 +19,7 @@ Plug 'vim-scripts/Colour-Sampler-Pack'
 Plug 'chriskempson/base16-vim'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'altercation/vim-colors-solarized'
+Plug 'sjl/badwolf'
 
 " Plugins
 Plug 'tpope/vim-sensible'                       " Defaults everyone can agree on
@@ -52,6 +53,8 @@ Plug 'ctrlpvim/ctrlp.vim'                       " Full path fuzzy file, buffer, 
 Plug 'vim-scripts/ZoomWin'                      " enables temporary full screen for a viewport
 Plug 'airblade/vim-rooter'                      " Changes Vim working directory to project root (identified by presence of known directory or file).
 Plug 'othree/html5.vim'                         " HTML5 omnicomplete and syntax
+Plug 'vim-css-color'                            " Preview colours in source code while editing
+Plug 'akebaker/scss-syntax.vim'                 " Vim syntax file for scss (Sassy CSS)
 Plug 'Chiel92/vim-autoformat'                   " Provides easy code formatting in Vim by integrating existing code formatters.
 Plug 'junegunn/vim-easy-align'                  " Makes those funny alignment issues trivial.
 Plug 'Quramy/vim-js-pretty-template'            " highlights JavaScript's Template Strings in other FileType syntax rule
@@ -61,16 +64,21 @@ Plug 'tomtom/tlib_vim'                          " (dependency of snipmate) Some 
 Plug 'garbas/vim-snipmate'                      " snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim.
 Plug 'magarcia/vim-angular2-snippets'           " Snipmate snippets for Angular 2 for TypeScript and HTML, based on johnpapa/vscode-angular2-snippets.
 Plug 'majutsushi/tagbar'                        " Vim plugin that displays tags in a window, ordered by scope
-Plug 'clausreinke/typescript-tools.vim'         " vim plugin for TypeScript support (uses typescript-tools)
+Plug 'sjl/gundo.vim'                            " Vim plugin to visualize your Vim undo tree.
+Plug 'moll/vim-bbye'                            " Delete buffers and close files in Vim without closing your windows or messing up your layout.
+" Plug 'clausreinke/typescript-tools.vim'         " (obsolited by tsuquyomi) vim plugin for TypeScript support (uses typescript-tools)
+Plug 'junegunn/fzf.vim'                         " fzf ❤️ vim - Things you can do with fzf and Vim.
 Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
 Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
 Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) Interactive command execution in Vim.
+Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
+Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
 Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
 Plug 'vvakame/dtsm'                             " depends on unite! The .d.ts manager
 Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
 Plug 'angular-cli.vim'                          " a Vim Plugin for angular-cli
-" Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
- Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
+Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
+" Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
 " Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files
 " =============================================
 " Markdown plugins. Hard to know which is best.
