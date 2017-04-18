@@ -59,10 +59,10 @@ def install_vimplug
     cwd = File.expand_path("../", __FILE__)
 
     autoloaddir = File.expand_path "#{cwd}/autoload"
-    FileUtils.mkdir_p(autoloaddir) unless File.exists?(dir)
+    FileUtils.mkdir_p(autoloaddir) unless File.exists?(autoloaddir)
 
     pluginsdir = File.expand_path "#{cwd}/plugins"
-    FileUtils.mkdir_p(pluginsdir) unless File.exists?(dir)
+    FileUtils.mkdir_p(pluginsdir) unless File.exists?(pluginsdir)
 
     plug_file = File.expand_path "#{cwd}/autoload/plug.vim"
 
