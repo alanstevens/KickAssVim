@@ -20,6 +20,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'Lokaltog/vim-distinguished'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
+Plug 'morhetz/gruvbox'
 
 " Plugins
 Plug 'tpope/vim-sensible'                       " Defaults everyone can agree on
@@ -70,13 +71,13 @@ Plug 'moll/vim-bbye'                            " Delete buffers and close files
 Plug 'junegunn/fzf.vim'                         " fzf ❤️ vim - Things you can do with fzf and Vim.
 Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
 Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
-" Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim) Interactive command execution in Vim.
+Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim, actually, neovim requires it) Interactive command execution in Vim.
 Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
 Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
 Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
 Plug 'vvakame/dtsm'                             " depends on unite! The .d.ts manager
 Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
-Plug 'angular-cli.vim'                          " a Vim Plugin for angular-cli
+Plug 'bdauria/angular-cli.vim'                  " a Vim Plugin for angular-cli
 Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
 " Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
 " Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files
