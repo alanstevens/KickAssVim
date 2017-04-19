@@ -6,9 +6,6 @@
 "
 "   set lines=60
 "   set columns=180
-"
-"   " tell the term has 256 colors
-"   set t_Co=256
 "   "
 "   " don't blink the cursor
 "   set guicursor=a:blinkon0

@@ -8,9 +8,6 @@
 " adjust highlight color
 highlight CursorLine term=none cterm=none ctermbg=3
 
-" we plan to use a dark background
-set background=dark
-
 if $COLORTERM == 'gnome-terminal'
   set term=gnome-256color
 endif
@@ -31,7 +28,7 @@ endif
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-  let colorlist = ["ir_black", "badwolf","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","distinguished","pyte","github","mac_classic"]
+  let colorlist = ["ir_black","gruvbox","badwolf","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","distinguished","pyte","github","mac_classic"]
   if a:reverse
     let g:themeindex -= 1
   else

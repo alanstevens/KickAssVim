@@ -14,6 +14,7 @@ Kick Ass Vim is a turn-key configuration for the [Vim][] editor.
 Kick Ass Vim is currently only tested on MacOS.
 
 Prerequisites:
+* xCode command line tools `xcode-select --install`
 * Homebrew: brew.sh
 * Ruby and rake
 * node and npm
@@ -24,16 +25,13 @@ Prerequisites:
 * Add python 2.7+ support `pip2 install neovim`
 * MacVim: `brew cask install macvim`
 * install fuzzy finder (fzf):
-
-`git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf`
-
-`cd ~/.fzf`
-
-`git fetch --tags`
-
-`git checkout tags/0.16.4`
-
-`./install --all`
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+cd ~/.fzf
+git fetch --tags
+git checkout tags/0.16.4
+./install --all
+```
 
 * For typescript ctags support, edit or create `~/.ctags` and add the values here:
   https://github.com/majutsushi/tagbar/wiki#typescript
