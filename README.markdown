@@ -22,19 +22,9 @@ Prerequisites:
 * cmake: ` brew install cmake`
 * Vim: `brew install vim`
 * NeoVim: `brew install neovim/neovim/neovim`
-* Add python 2.7+ support `pip2 install neovim`
+* Add python 2.7+ support for  NeoVim `pip2 install neovim`
 * MacVim: `brew cask install macvim`
-* install fuzzy finder (fzf):
-```
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-cd ~/.fzf
-git fetch --tags
-git checkout tags/0.16.4
-./install --all
-```
-
-* For typescript ctags support, edit or create `~/.ctags` and add the values here:
-  https://github.com/majutsushi/tagbar/wiki#typescript
+* Install a font from http://nerdfonts.com/ (I use [Hack][] )
 
 Installation:
 1. Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git ~/.vim`
@@ -44,3 +34,4 @@ Installation:
 3. The most common customizations (leader, font, colors, indenting) are in vimrc.
 
 [Vim]: http://www.vim.org
+[Hack]: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Knack%20Regular%20Nerd%20Font%20Complete.ttf

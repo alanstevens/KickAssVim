@@ -20,15 +20,18 @@ set shiftwidth=4  " an autoindent (with <<) is four spaces
 set expandtab     " use spaces, not tabs
 set softtabstop=4 " The number of columns vim uses when you hit Tab in insert mode.
 
-" find more at http://vimcolors.com/
-colorscheme ir_black " Set your terminal theme the same.
+try " the first time vim is run, the colorscheme is not installed.
+    " find more color schemes at http://vimcolors.com/
+    colorscheme ir_black " Set your terminal theme the same.
+catch
+endtry
 
-" Fonts must come from http://nerdfonts.com/
+" Fonts must come from http://nerdfonts.com/. I use Hack.
 set guifont=Knack\ Nerd\ Font:h16 " Set your terminal font the same
 " -------------------------------------------------------------------------------
 
 runtime! config/**/* " load all config files
 
 if has('win32')
-  source $VIMRUNTIME/mswin.vim
+    source $VIMRUNTIME/mswin.vim
 endif

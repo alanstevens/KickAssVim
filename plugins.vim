@@ -48,14 +48,14 @@ Plug 'scrooloose/syntastic'                     " syntax error checking
 Plug 'scrooloose/nerdtree'                      " provides a file system tree view
 Plug 'jistr/vim-nerdtree-tabs'                  " NERDTree and tabs together in Vim, painlessly
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Extra syntax and highlight for nerdtree files
-Plug 'tomtom/tcomment_vim'                     " easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
+Plug 'tomtom/tcomment_vim'                      " easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
 Plug 'sjl/vitality.vim'                         " Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
 Plug 'ctrlpvim/ctrlp.vim'                       " Full path fuzzy file, buffer, mru, tag, ... finder
 Plug 'vim-scripts/ZoomWin'                      " enables temporary full screen for a viewport
 Plug 'airblade/vim-rooter'                      " Changes Vim working directory to project root (identified by presence of known directory or file).
 Plug 'othree/html5.vim'                         " HTML5 omnicomplete and syntax
-Plug 'vim-css-color'                            " Preview colours in source code while editing
-Plug 'akebaker/scss-syntax.vim'                 " Vim syntax file for scss (Sassy CSS)
+Plug 'ap/vim-css-color'                         " Preview colours in source code while editing
+Plug 'cakebaker/scss-syntax.vim'                " Vim syntax file for scss (Sassy CSS)
 Plug 'Chiel92/vim-autoformat'                   " Provides easy code formatting in Vim by integrating existing code formatters.
 Plug 'junegunn/vim-easy-align'                  " Makes those funny alignment issues trivial.
 Plug 'Quramy/vim-js-pretty-template'            " highlights JavaScript's Template Strings in other FileType syntax rule
