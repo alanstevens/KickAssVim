@@ -6,6 +6,7 @@
      |_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
 
 <!-- # Kick Ass Vim -->
+<img src="https://github.com/alanstevens/KickAssVim/raw/master/KickAssVim-logo.png" width=200>
 
 ### A kick ass Vim development environment.
 
