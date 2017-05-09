@@ -74,6 +74,7 @@ Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-sea
 Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim, actually, neovim requires it) Interactive command execution in Vim.
 Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
 Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
+Plug 'mhartington/vim-typings'                  " search for typings in vim! (relies on Unite)
 Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
 Plug 'vvakame/dtsm'                             " depends on unite! The .d.ts manager
 Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim

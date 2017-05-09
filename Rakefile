@@ -95,7 +95,7 @@ def install_packages
             "remark-cli", # formatter for markdown
             "typings",
             "instant-markdown-d",
-            "git+https://github.com/ramitos/jsctags.git",
+            "git+https://github.com/ramitos/jsctags.git"
     ]
         packages.each do |p|
             print_output p

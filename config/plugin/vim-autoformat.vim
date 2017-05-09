@@ -2,7 +2,7 @@
 
 " format the entire file
 nnoremap <silent> <leader>kd :Autoformat<CR>
-noremap <F3> :Autoformat<CR>
+noremap <c-k><c-d> :Autoformat<CR>
 " au BufWrite * :Autoformat
 
 " To disable the fallback to vim's indent file, set the following variables to 0.

@@ -29,7 +29,8 @@ nnoremap <m-d> :TsuReferences
 
 " Use the command :TsuRenameSymbol to rename the identifier under the cursor.
 " This feature does not have a default key mapping. You can use this example:
-autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+" this conflicts with my default keymap for <leader>e to edit a file
+" autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
 
 " If you want to rename identifiers including in comments, you can use :TsuRenameSymbolC command.
 autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)

@@ -8,7 +8,7 @@
 "
 " Once CtrlP is open:
 "
-" Press <F5> (mapped F5 to run javascript file) to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+" Press <F5> (I mapped F5 to run javascript file) to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
 " Press <c-f> and <c-b> to cycle between modes.
 " Press <c-d> to switch to filename only search instead of full path.
 " Press <c-r> to switch to regexp mode.
@@ -21,14 +21,20 @@
 "
 " Submit two or more dots .. to go up the directory tree by one or multiple levels.
 " End the input string with a colon : followed by a command to execute it on the opening file(s): Use :25 to jump to line 25. Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
-" Basic Options
-let g:ctrlp_map = '<c-p>' " I have no idea why these defaults don't work for me
-let g:ctrlp_cmd = 'CtrlP'
-noremap <C-P> :CtrlP<CR>
-inoremap <C-P> :CtrlP<CR>
+" Basic Options defaults:
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+
+" can't seem to override the default print action of cmd+p
+" noremap <D-p> :CtrlP<CR>
+" inoremap <D-p> :CtrlP<CR>
+" command t opens a new tab :-(
+" noremap <d-t> :CtrlP<CR>
+" inoremap <d-v> :CtrlP<CR>
 noremap <Leader>p :CtrlP<CR>
 inoremap <Leader>p :CtrlP<CR>
-
+noremap <Leader>m :CtrlPMRU<CR>
+inoremap <Leader>m :CtrlPMRU<CR>
 " let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 
