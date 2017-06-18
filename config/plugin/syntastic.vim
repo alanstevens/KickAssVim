@@ -8,7 +8,7 @@ if has('signs')
   let g:syntastic_enable_signs = 1
 endif
 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_checkers = ['eslint']
 " silence complaints about angular attributes
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute \"ng-"]
