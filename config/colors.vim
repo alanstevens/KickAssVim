@@ -20,7 +20,8 @@ endif
 
 " Rotate Color Scheme <F6>
 let colorlist = ""
-if has("gui_mac") || has("gui_macvim")
+"if has("gui_mac") || has("gui_macvim")
+if has("gui_running")
     noremap <silent> <F6> :let newtheme = RotateColorTheme(0)<CR> :echo newtheme<CR>
     noremap <silent> <S-F6> :let newtheme = RotateColorTheme(1)<CR> :echo newtheme<CR>
 endif
@@ -28,7 +29,7 @@ endif
 let themeindex = 0
 
 function! RotateColorTheme(reverse)
-  let colorlist = ["ir_black","gruvbox","badwolf","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","distinguished","pyte","github","mac_classic"]
+  let colorlist = ["ir_black","gruvbox","badwolf","solarized","zmrok","jellybeans","base16-default","twilight","rootwater","moria","wombat","camo","freya","darkspectrum","liquidcarbon","pyte","github","mac_classic"]
   if a:reverse
     let g:themeindex -= 1
   else

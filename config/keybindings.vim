@@ -84,8 +84,8 @@ noremap <leader>he :split <C-R>=expand("%:p:h") . ShellSeparator()<cr>
 " imap <leader>r <esc> <C-w>r
 
 " Shortcut to edit vimrc
-if has("win32")
-  nnoremap <silent> <leader>ev :tabnew<cr>:e ~/_vim_files/vimrc<cr>
+if has('win32') || has ('win64')
+  nnoremap <silent> <leader>ev :tabnew<cr>:e ~/vimfiles/vimrc<cr>
 else
   nnoremap <silent> <leader>ev :tabnew<cr>:e ~/.vim/vimrc<cr>
 endif

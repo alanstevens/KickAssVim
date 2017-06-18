@@ -46,14 +46,13 @@
 "     endtry
 "   endif
 "
-"   if has("gui_win32") || has("gui_win32s")
-"     set guifont=hack:h13:cANSI
-"
-"     " set encoding=utf-8 " set in sensible.vim
-"
-"     " For Win32 GUI, remove 't' flag from 'guioptions': no tearoff menu entries
-"     let &guioptions = substitute(&guioptions, "t", "", "g")
-"   endif
+   if has("gui_win32") || has("gui_win32s")
+     set guioptions-=T  "remove toolbar
+     set showtabline=2  "always show the tab bar
+      "set encoding=utf-8 " set in sensible.vim
+     " For Win32 GUI, remove 't' flag from 'guioptions': no tearoff menu entries
+     let &guioptions = substitute(&guioptions, "t", "", "g")
+   endif
 "
 "   "set guitablabel=%M%t
 "   set guitablabel=%{GuiTabLabel()}

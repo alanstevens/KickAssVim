@@ -6,8 +6,11 @@
 "| . \| | (__|   <   / ____ \\__ \__ \    \  /  | | | | | | |
 "|_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
 
-
-call plug#begin('~/.vim/plugins')
+if has('win32') || has ('win64')
+    call plug#begin('~/vimfiles/plugins')
+else
+    call plug#begin('~/.vim/plugins')
+endif
 
 " Colors
 Plug 'wgibbs/vim-irblack'
@@ -17,10 +20,10 @@ Plug 'nelstrom/vim-mac-classic-theme'
 Plug 'vim-scripts/pyte'
 Plug 'vim-scripts/Colour-Sampler-Pack'
 Plug 'chriskempson/base16-vim'
-Plug 'Lokaltog/vim-distinguished'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 
 " Plugins
 Plug 'tpope/vim-sensible'                       " Defaults everyone can agree on
@@ -67,21 +70,20 @@ Plug 'magarcia/vim-angular2-snippets'           " Snipmate snippets for Angular 
 Plug 'majutsushi/tagbar'                        " Vim plugin that displays tags in a window, ordered by scope
 Plug 'sjl/gundo.vim'                            " Vim plugin to visualize your Vim undo tree.
 Plug 'moll/vim-bbye'                            " Delete buffers and close files in Vim without closing your windows or messing up your layout.
-" Plug 'clausreinke/typescript-tools.vim'         " (obsolited by tsuquyomi) vim plugin for TypeScript support (uses typescript-tools)
 Plug 'junegunn/fzf.vim'                         " fzf ❤️ vim - Things you can do with fzf and Vim.
-Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
-Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
+" if !has('win32') && !has ('win64')              " YouCompleteMe is a total fail on Windows, at least for me
+    Plug 'Valloric/YouCompleteMe'               " a fast, as-you-type, fuzzy-search code completion engine
+" endif
 Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim, actually, neovim requires it) Interactive command execution in Vim.
 Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
 Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
 Plug 'mhartington/vim-typings'                  " search for typings in vim! (relies on Unite)
 Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
 Plug 'vvakame/dtsm'                             " depends on unite! The .d.ts manager
-Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
+" Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
+Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
 Plug 'bdauria/angular-cli.vim'                  " a Vim Plugin for angular-cli
 Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
-" Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
-" Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files
 " =============================================
 " Markdown plugins. Hard to know which is best.
 " =============================================
@@ -103,3 +105,5 @@ call plug#end()
 
 " Plug 'terryma/vim-multiple-cursors'             " True Sublime Text style multiple selections for em
 " Plug 'severin-lemaignan/vim-minimap'            " A Sublime-like minimap for VIM, based on the Drawille console-based drawing library
+" Plug 'jiangmiao/auto-pairs'                     " Vim plugin, insert or delete brackets, parens, quotes in pair
+" Plug 'ericpruitt/tmux.vim'                      " Vim syntax file for tmux configuration files

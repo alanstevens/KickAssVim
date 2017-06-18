@@ -9,7 +9,11 @@ set nocompatible " Use vim, no vi defaults
 
 set shm+=atmI " No startup messages
 
-source $HOME/.vim/plugins.vim " add all plugins to the runtime path
+if has('win32') || has ('win64')
+    source $HOME/vimfiles/plugins.vim " add all plugins to the runtime path
+else
+    source $HOME/.vim/plugins.vim " add all plugins to the runtime path
+endif
 
 " Common customizations:
 " -------------------------------------------------------------------------------
@@ -27,11 +31,16 @@ catch
 endtry
 
 " Fonts must come from http://nerdfonts.com/. I use Hack.
-set guifont=Knack\ Nerd\ Font:h16 " Set your terminal font the same
+if has('win32') || has ('win64')
+    "set guifont=Hack:h12 " Set your terminal font the same
+    set guifont=Knack\ NF:h12 " Set your terminal font the same
+else
+    set guifont=Knack\ Nerd\ Font:h16 " Set your terminal font the same
+endif
 " -------------------------------------------------------------------------------
 
 runtime! config/**/* " load all config files
 
-if has('win32')
+if has('win32') || has ('win64')
     source $VIMRUNTIME/mswin.vim
 endif

@@ -6,12 +6,26 @@
 # |_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
 
 @cwd = File.expand_path("../", __FILE__)
+@windows = (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
 
 desc "Install all plugins and dependencies and compile YouCompleteMe"
-task :default => ["plugins", "packages", "tern", "ycm"] do
-    sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
-    sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
+task :default => ["config_files", "plugins", "packages", "tern", "ycm"] do
     print_output "Installation", "Complete!"
+end
+
+desc "create config files"
+task:config_files do
+    if @windows
+        home_dir = Dir.home
+        vimrc = "#{home_dir}/vimfiles/vimrc"
+        gvimrc = "#{home_dir}/vimfiles/gvimrc"
+
+        sh "echo source " + vimrc + " > #{home_dir}/_vimrc" 
+        sh "echo source " + gvimrc + " > #{home_dir}/_gvimrc" 
+    else
+        sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
+        sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
+    end
 end
 
 desc "Install Vim plugins"
@@ -47,7 +61,11 @@ task :ycm do
     dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe")
     Dir.chdir dir do
         # TODO: only compile when no binary. Where is it?
-        sh "./install.py --tern-completer" # this takes an eTERNity
+        if @windows
+            sh "python install.py --tern-completer" # this takes an eTERNity
+        else
+            sh "./install.py --tern-completer" # this takes an eTERNity
+        end
     end
 end
 
@@ -63,13 +81,18 @@ def install_vimplug
     plug_file = File.expand_path "#{@cwd}/autoload/plug.vim"
 
     unless File.exists?(plug_file)
-        sh "curl -LSso #{plug_file} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        sh "curl -LSsok #{plug_file} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     end
 end
 
 def install_plugins
     print_output "/ updating Vim plugins"
-    sh "vim -S '~/.vimrc' -c 'PlugUpgrade' -c 'PlugUpdate' -c 'PlugClean!' -c 'qa'; clear"
+
+    vim_config = '~/.vimrc'
+    if @windows
+        vim_config = "#{Dir.home}/_vimrc"
+    end
+    sh "vim -S #{vim_config} -c PlugUpgrade -c PlugUpdate -c PlugClean! -c qa" #; clear"
 
     print_output "VimProc"
     dir = File.expand_path("#{@cwd}/plugins/vimproc.vim")
@@ -82,7 +105,6 @@ def install_packages
     packages =
         [
             "instant-markdown-d",
-            "tern",
             "jshint",
             "eslint",
             "typescript",
@@ -93,7 +115,6 @@ def install_packages
             "typescript-formatter",
             "js-beautify",
             "remark-cli", # formatter for markdown
-            "typings",
             "instant-markdown-d",
             "git+https://github.com/ramitos/jsctags.git"
     ]
