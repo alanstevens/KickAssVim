@@ -25,6 +25,9 @@ task:config_files do
     else
         sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
         sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
+        # neovim
+        sh 'ln -s ~/.vim ~/.config/nvim'
+        sh 'ln -s ~/.vimrc ~/.config/nvim/init.vim'
     end
 end
 
