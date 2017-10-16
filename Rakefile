@@ -23,11 +23,11 @@ task:config_files do
         sh "echo source " + vimrc + " > #{home_dir}/_vimrc" 
         sh "echo source " + gvimrc + " > #{home_dir}/_gvimrc" 
     else
-        sh 'echo "source ~/.vim/vimrc" > ~/.vimrc'
-        sh 'echo "source ~/.vim/gvimrc" > ~/.gvimrc'
+        sh "echo "source ~/.vim/vimrc" > ~/.vimrc"
+        sh "echo "source ~/.vim/gvimrc" > ~/.gvimrc"
         # neovim
-        sh 'ln -s ~/.vim ~/.config/nvim'
-        sh 'ln -s ~/.vimrc ~/.config/nvim/init.vim'
+        sh "ln -s ~/.vim ~/.config/nvim"
+        sh "ln -s ~/.vimrc ~/.config/nvim/init.vim"
     end
 end
 
@@ -91,7 +91,7 @@ end
 def install_plugins
     print_output "/ updating Vim plugins"
 
-    vim_config = '~/.vimrc'
+    vim_config = "~/.vimrc"
     if @windows
         vim_config = "#{Dir.home}/_vimrc"
     end
@@ -125,6 +125,8 @@ def install_packages
             print_output p
             sh "npm install -g #{p}"
         end
+
+        sh "npm update -g"
 
         print_output "sass"
         sh "gem install sass"
