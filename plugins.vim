@@ -34,7 +34,8 @@ Plug 'tpope/vim-dispatch'                       " asynchronous build and test di
 " Plug 'tpope/vim-eunuch'                       " helpers for UNIX
 " Plug 'tpope/vim-git'                          " Vim Git runtime files
 " Plug 'tpope/vim-repeat'                       " enable repeating supported plugin maps with '.'
-" Plug 'tpope/tpope/vim-ragtag'                 "  ghetto HTML/XML mappings
+" Plug 'tpope/tpope/vim-ragtag'                 " ghetto HTML/XML mappings
+Plug 'pbrisbin/vim-mkdir'                       " Automatically create any non-existent directories before writing the buffer.
 Plug 'pangloss/vim-javascript'                  " Vastly improved Javascript indentation and syntax support in Vim. provides syntax highlighting and improved indentation
 Plug 'jelera/vim-javascript-syntax'             " Enhanced JavaScript Syntax for Vim
 Plug 'othree/javascript-libraries-syntax.vim'   " Syntax file for JavaScript libraries.
@@ -55,7 +56,7 @@ Plug 'tomtom/tcomment_vim'                      " easy to use, file-type sensibl
 Plug 'sjl/vitality.vim'                         " Make Vim play nicely with iTerm 2 and tmux. Enables a thin cursor while in insert mode in console vim
 Plug 'ctrlpvim/ctrlp.vim'                       " Full path fuzzy file, buffer, mru, tag, ... finder
 Plug 'vim-scripts/ZoomWin'                      " enables temporary full screen for a viewport
-Plug 'airblade/vim-rooter'                      " Changes Vim working directory to project root (identified by presence of known directory or file).
+" Plug 'airblade/vim-rooter'                      " Changes Vim working directory to project root (identified by presence of known directory or file).
 Plug 'othree/html5.vim'                         " HTML5 omnicomplete and syntax
 Plug 'ap/vim-css-color'                         " Preview colours in source code while editing
 Plug 'cakebaker/scss-syntax.vim'                " Vim syntax file for scss (Sassy CSS)

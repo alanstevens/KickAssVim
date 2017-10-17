@@ -9,12 +9,13 @@
 "   endif
 " endif
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --nogroup --nocolor --column' "'ag --vimgrep'
 endif
 " if executable("ag")
 "   set grepprg=ag\ --nogroup\ --nocolor
 "   let g:ackprg="ag --nocolor --nogroup --column"
 " endif
+" don't jump to the first result:
 cnoreabbrev Ack Ack!
 " Use <Leader>a to bring up an Ack search prompt.
 " '!' means don't open the first result by default.
@@ -35,9 +36,7 @@ nnoremap <Leader>a :Ack!<Space>
 " q    to close the quickfix window
 "
 "FAQ: I don't want to jump to the first result automatically.
-
 " Use :Ack!, with bang. If you want this behavior most of the time, you might like an abbreviation or mapping in your personal config, something like these:
-"
 " cnoreabbrev Ack Ack!
 " nnoremap <Leader>a :Ack!<Space>
 " Most of the :[L]Ack* commands support this.

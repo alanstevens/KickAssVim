@@ -20,14 +20,15 @@ task:config_files do
         vimrc = "#{home_dir}/vimfiles/vimrc"
         gvimrc = "#{home_dir}/vimfiles/gvimrc"
 
-        sh "echo source " + vimrc + " > #{home_dir}/_vimrc" 
-        sh "echo source " + gvimrc + " > #{home_dir}/_gvimrc" 
+        sh "echo source " + vimrc + " > #{home_dir}/_vimrc"
+        sh "echo source " + gvimrc + " > #{home_dir}/_gvimrc"
     else
-        sh "echo "source ~/.vim/vimrc" > ~/.vimrc"
-        sh "echo "source ~/.vim/gvimrc" > ~/.gvimrc"
+        sh "echo source ~/.vim/vimrc > ~/.vimrc"
+        sh "echo source ~/.vim/gvimrc > ~/.gvimrc"
         # neovim
-        sh "ln -s ~/.vim ~/.config/nvim"
-        sh "ln -s ~/.vimrc ~/.config/nvim/init.vim"
+        FileUtils.mkdir_p("~/.config") unless File.exists?("~/.config")
+        FileUtils.mkdir_p("~/.config/nvim") unless File.exists?("~/.config/nvim")
+        sh "ln -sf ~/.vimrc ~/.config/nvim/init.vim"
     end
 end
 
