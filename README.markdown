@@ -1,14 +1,16 @@
+```
       _  ___      _                        __      ___
      | |/ (_)    | |        /\             \ \    / (_)
      | ' / _  ___| | __    /  \   ___ ___   \ \  / / _ _ __ ___
      |  < | |/ __| |/ /   / /\ \ / __/ __|   \ \/ / | | '_ ` _ \
      | . \| | (__|   <   / ____ \\__ \__ \    \  /  | | | | | | |
      |_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
+```
 
 <!-- # Kick Ass Vim -->
 <img src="https://github.com/alanstevens/KickAssVim/raw/master/KickAssVim-logo.png" width=200>
 
-### A kick ass Vim development environment.
+# A Kick Ass Vim Development Environment.
 
 Kick Ass Vim is a turn-key configuration for the [Vim](http://www.vim.org) editor which runs on Windows and macOS.
 
@@ -30,12 +32,12 @@ All commands should be run in an administrator console. You will need to restart
 * Python2 `choco install python2`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 * .NET Framework 3.5 `choco install dotnet3.5`
-* A font from [Nerd Fonts](http://nerdfonts.com/). I use [Hack](https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/Hack.zip).
-* Download [gtools](http://www.p-nand-q.com/download/gtools/gtools-current.exe) 
-* Run the gtools installer as *administrator* 
+* Grab a font from [Nerd Fonts](http://nerdfonts.com/). I use [Hack](https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/Hack.zip).
 
 ### Adjust Paths
 
+* Download [gtools](http://www.p-nand-q.com/download/gtools/gtools-current.exe) 
+* Run the gtools installer as *administrator* 
 * use pathed to add pathed to your path. (Oooh, recursion): `"C:\Program Files (x86)\p-nand-q.com\GTools\pathed.exe" /append "C:\Program Files (x86)\p-nand-q.com\GTools" /user` (Restart your console.)
 * cmake: `pathed /append "C:\Program Files\CMake\bin" /user`
 * tsserver: `pathed /append %userprofile%\AppData\Roaming\npm /user`
@@ -70,7 +72,7 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * `brew install neovim`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 * `brew cask install macvim`
-* Install a font from [Nerd Fonts](http://nerdfonts.com/)  (I use [Hack](https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/Hack.zip))
+* Grab a font from [Nerd Fonts](http://nerdfonts.com/)  (I use [Hack](https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/Hack.zip))
 
 ### Install
 
