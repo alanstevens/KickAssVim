@@ -35,7 +35,7 @@ endtry
 if has('win32') || has ('win64')
     set guifont=Hack\ NF:h12 " Set your terminal font the same
 else
-    set guifont=Knack\ Nerd\ Font:h14 " Set your terminal font the same
+    set guifont=Hack:h14 " Set your terminal font the same
 endif
 " -------------------------------------------------------------------------------
 
