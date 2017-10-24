@@ -9,7 +9,7 @@
 @windows = (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
 
 desc "Install all plugins and dependencies and compile YouCompleteMe"
-task :default => ["config_files", "plugins", "packages", "tern", "ycm"] do
+task :default => ["config_files", "vimplug", "plugins", "packages", "ycm"] do
     print_output "Installation", "Complete!"
 end
 
@@ -32,48 +32,9 @@ task:config_files do
     end
 end
 
-desc "Install Vim plugins"
-task:plugins do
-    install_vimplug
-    install_plugins
-end
 
-desc "Install packages"
-task:packages do
-    install_packages()
-end
-
-desc "Build tern runtime and tern for vim"
-task :tern do
-    print_output "tern for Vim"
-    dir = File.expand_path("#{@cwd}/plugins/tern_for_vim")
-    Dir.chdir dir do
-        print_output "tern_for_vim dependencies"
-        sh "npm install"
-    end
-end
-
-desc "Compile YouCompleteMe"
-task :ycm do
-    print_output "tern runtime"
-    dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe/third_party/ycmd/third_party/tern_runtime")
-    Dir.chdir dir do
-        sh "npm install --production"
-    end
-
-    print_output "/ Compiling YouCompleteMe"
-    dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe")
-    Dir.chdir dir do
-        # TODO: only compile when no binary. Where is it?
-        if @windows
-            sh "python install.py --tern-completer" # this takes an eTERNity
-        else
-            sh "./install.py --tern-completer" # this takes an eTERNity
-        end
-    end
-end
-
-def install_vimplug
+desc "Install Vim plug."
+task:vimplug do
     print_output "Vim plug"
 
     autoloaddir = File.expand_path "#{@cwd}/autoload"
@@ -85,11 +46,13 @@ def install_vimplug
     plug_file = File.expand_path "#{@cwd}/autoload/plug.vim"
 
     unless File.exists?(plug_file)
-        sh "curl -LSsok #{plug_file} https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        # This is the only way I could get this working on Windows
+        sh "curl -fLk --insecure https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > #{plug_file}"
     end
 end
 
-def install_plugins
+desc "Install Vim plugins."
+task:plugins do
     print_output "/ updating Vim plugins"
 
     vim_config = "~/.vimrc"
@@ -105,7 +68,9 @@ def install_plugins
     end
 end
 
-def install_packages
+
+desc "Install packages"
+task:packages do
     packages =
         [
             "instant-markdown-d",
@@ -131,6 +96,26 @@ def install_packages
 
         print_output "sass"
         sh "gem install sass"
+end
+
+desc "Compile YouCompleteMe"
+task :ycm do
+    print_output "tern runtime"
+    dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe/third_party/ycmd/third_party/tern_runtime")
+    Dir.chdir dir do
+        sh "npm install --production"
+    end
+
+    print_output "/ Compiling YouCompleteMe"
+    dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe")
+    Dir.chdir dir do
+        # TODO: only compile when no binary. Where is it?
+        if @windows
+            sh "python install.py --cs-completer --js-completer" # this takes an eTERNity
+        else
+            sh "./install.py --cs-completer --js-completer" # this takes an eTERNity
+        end
+    end
 end
 
 def print_output(verb, name = nil)

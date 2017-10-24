@@ -5,6 +5,7 @@
 " | . \| | (__|   <   / ____ \\__ \__ \    \  /  | | | | | | |
 " |_|\_\_|\___|_|\_\ /_/    \_\___/___/     \/   |_|_| |_| |_|
 
+set encoding=utf-8
 set nocompatible " Use vim, no vi defaults
 
 set shm+=atmI " No startup messages
@@ -32,8 +33,7 @@ endtry
 
 " Fonts must come from http://nerdfonts.com/. I use Hack.
 if has('win32') || has ('win64')
-    "set guifont=Hack:h12 " Set your terminal font the same
-    set guifont=Knack\ NF:h12 " Set your terminal font the same
+    set guifont=Hack\ NF:h12 " Set your terminal font the same
 else
     set guifont=Knack\ Nerd\ Font:h14 " Set your terminal font the same
 endif
