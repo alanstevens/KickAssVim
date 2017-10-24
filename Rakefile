@@ -20,8 +20,11 @@ task:config_files do
         vimrc = "#{home_dir}/vimfiles/vimrc"
         gvimrc = "#{home_dir}/vimfiles/gvimrc"
 
-        sh "echo source " + vimrc + " > #{home_dir}/_vimrc"
-        sh "echo source " + gvimrc + " > #{home_dir}/_gvimrc"
+        sh "echo source #{vimrc} > #{home_dir}/_vimrc"
+        sh "echo source #{gvimrc} > #{home_dir}/_gvimrc"
+        # neovim
+        FileUtils.mkdir_p("%userprofile%\AppData\Local\nvim") unless File.exists?("%userprofile%\AppData\Local\nvim")
+        sh "cp -n #{vimrc} %userprofile%\AppData\Local\nvim\init.vim"
     else
         sh "echo source ~/.vim/vimrc > ~/.vimrc"
         sh "echo source ~/.vim/gvimrc > ~/.gvimrc"

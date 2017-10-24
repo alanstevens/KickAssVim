@@ -72,9 +72,7 @@ Plug 'majutsushi/tagbar'                        " Vim plugin that displays tags 
 Plug 'sjl/gundo.vim'                            " Vim plugin to visualize your Vim undo tree.
 Plug 'moll/vim-bbye'                            " Delete buffers and close files in Vim without closing your windows or messing up your layout.
 Plug 'junegunn/fzf.vim'                         " fzf ❤️ vim - Things you can do with fzf and Vim.
-" if !has('win32') && !has ('win64')              " YouCompleteMe is a total fail on Windows, at least for me
-    Plug 'Valloric/YouCompleteMe'               " a fast, as-you-type, fuzzy-search code completion engine
-" endif
+Plug 'Valloric/YouCompleteMe'               " a fast, as-you-type, fuzzy-search code completion engine
 Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim, actually, neovim requires it) Interactive command execution in Vim.
 Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
 Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim

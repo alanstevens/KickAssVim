@@ -14,6 +14,8 @@
 
 Kick Ass Vim is a turn-key configuration for the [Vim](http://www.vim.org) editor which runs on Windows and macOS.
 
+# Installation:
+
 ## Windows:
 
 All commands should be run in an administrator console. You will need to restart your shell for new paths to take effect.
@@ -38,7 +40,7 @@ All commands should be run in an administrator console. You will need to restart
 
 * Download [gtools](http://www.p-nand-q.com/download/gtools/gtools-current.exe) 
 * Run the gtools installer as *administrator* 
-* use pathed to add pathed to your path. (Oooh, recursion): `"C:\Program Files (x86)\p-nand-q.com\GTools\pathed.exe" /append "C:\Program Files (x86)\p-nand-q.com\GTools" /user` (Restart your console.)
+* use pathed to add pathed to your path. (Oooh, recursive): `"C:\Program Files (x86)\p-nand-q.com\GTools\pathed.exe" /append "C:\Program Files (x86)\p-nand-q.com\GTools" /user` (Restart your console.)
 * cmake: `pathed /append "C:\Program Files\CMake\bin" /user`
 * tsserver: `pathed /append %userprofile%\AppData\Roaming\npm /user`
 * MSBuild: `pathed /append "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin" /user`
@@ -53,7 +55,7 @@ The most common customizations (leader, font, colors, indenting) are in `%userpr
 
 ***
 
-## Mac
+## Mac:
 
 Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot/laptop)
 
