@@ -42,7 +42,6 @@ All commands should be run in an administrator console. You will need to restart
 * cmake: `pathed /append "C:\Program Files\CMake\bin" /user`
 * tsserver: `pathed /append %userprofile%\AppData\Roaming\npm /user`
 * MSBuild: `pathed /append "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin" /user`
-* ctags: `pathed /append C:\ProgramData\chocolatey\bin /user`
 * restart your shell as administrator
 
 ### Install
