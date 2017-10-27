@@ -15,7 +15,7 @@ For best compatability, grab a font from [Nerd Fonts](http://nerdfonts.com/). I 
 
 ## Windows:
 
-All commands should be run in an administrator console. You will need to restart your shell for new paths to take effect.
+All commands should be run in an administrator shell. You will need to restart your shell for new paths to take effect.
 
 ### Prerequisites
 
@@ -27,6 +27,7 @@ All commands should be run in an administrator console. You will need to restart
 * rake: `gem install rake`
 * Vim: `choco install vim`
 * neovim: `choco install neovim`
+* cmake: `choco install make`
 * cmake: `choco install cmake`
 * ctags: `choco install ctags`
 * Python2: `choco install python2`
