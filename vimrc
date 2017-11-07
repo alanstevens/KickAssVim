@@ -36,9 +36,7 @@ set guifont=Hack:h12 " Set your terminal font the same
 " -------------------------------------------------------------------------------
 
 runtime! config/**/* " load all config files
+
 if has('win32')
-    "runtime! $HOME/vimfiles/config/**/* " load all config files
     source $VIMRUNTIME/mswin.vim
-else
-    "runtime! $HOME/.vim/config/**/* " load all config files
 endif

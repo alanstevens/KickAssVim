@@ -7,6 +7,7 @@
 
 @cwd = File.expand_path("../", __FILE__)
 @windows = (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+# Gem.win_platform?
 
 desc "Install all plugins and dependencies and compile YouCompleteMe"
 task :default => ["config_files", "vimplug", "plugins", "packages", "ycm"] do
@@ -70,7 +71,6 @@ task:plugins do
         sh "make"
     end
 end
-
 
 desc "Install packages"
 task:packages do
