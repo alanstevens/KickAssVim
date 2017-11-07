@@ -24,6 +24,7 @@ All commands should be run in an administrator shell. You will need to restart y
 * Install [Chocolatey](https://chocolatey.org/) and restart your shell (as administrator).
 * Ruby: `choco install ruby`
 * Node: `choco install nodejs`
+* Typescript: `npm install -g typescript`
 * rake: `gem install rake`
 * Vim: `choco install vim`
 * neovim: `choco install neovim`

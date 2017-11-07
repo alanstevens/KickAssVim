@@ -10,7 +10,7 @@ set nocompatible " Use vim, no vi defaults
 
 set shm+=atmI " No startup messages
 
-if has('win32') || has ('win64')
+if has('win32')
     source $HOME/vimfiles/plugins.vim " add all plugins to the runtime path
 else
     source $HOME/.vim/plugins.vim " add all plugins to the runtime path
@@ -31,16 +31,14 @@ try " the first time vim is run, the colorscheme is not installed.
 catch
 endtry
 
-" Fonts must come from http://nerdfonts.com/. I use Hack.
-if has('win32') || has ('win64')
-    set guifont=Hack\ NF:h12 " Set your terminal font the same
-else
-    set guifont=Hack:h14 " Set your terminal font the same
-endif
+" Fonts must come from http://nerdfonts.com/.
+set guifont=Hack:h12 " Set your terminal font the same
 " -------------------------------------------------------------------------------
 
 runtime! config/**/* " load all config files
-
-if has('win32') || has ('win64')
+if has('win32')
+    "runtime! $HOME/vimfiles/config/**/* " load all config files
     source $VIMRUNTIME/mswin.vim
+else
+    "runtime! $HOME/.vim/config/**/* " load all config files
 endif
