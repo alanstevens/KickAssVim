@@ -32,7 +32,22 @@ catch
 endtry
 
 " Fonts must come from http://nerdfonts.com/.
-set guifont=Hack:h12 " Set your terminal font the same
+" Set your terminal font the same
+if has("gui_running")
+    if has("win32")
+        let os = "Windows"
+    else
+        let os = substitute(system('uname'), '\n', '', '')
+    endif
+    if os == "Darwin"
+        set guifont=Hack:h12
+    elseif os == "Linux"
+        set guifont=Hack\ Nerd\ Font\ Mono\ 12
+    elseif os == "Windows"
+        set guifont=Hack\ NF:h12
+        "set guifont=Knack\ Nerd\ Font:h12
+    endif
+endif
 " -------------------------------------------------------------------------------
 
 runtime! config/**/* " load all config files

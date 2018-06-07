@@ -31,8 +31,8 @@ task:config_files do
         sh "echo source ~/.vim/gvimrc > ~/.gvimrc"
         # neovim
         FileUtils.mkdir_p("~/.config") unless File.exists?("~/.config")
-        FileUtils.mkdir_p("~/.config/nvim") unless File.exists?("~/.config/nvim")
-        sh "ln -sf ~/.vimrc ~/.config/nvim/init.vim"
+        #FileUtils.mkdir_p("~/.config/nvim") unless File.exists?("~/.config/nvim")
+        #sh "ln -s ~/.vimrc ~/.config/nvim/init.vim"
     end
 end
 
@@ -87,8 +87,8 @@ task:packages do
             "typescript-formatter",
             "js-beautify",
             "remark-cli", # formatter for markdown
-            "instant-markdown-d",
-            "git+https://github.com/ramitos/jsctags.git"
+            "instant-markdown-d"#,
+            #"git+https://github.com/ramitos/jsctags.git"
     ]
         packages.each do |p|
             print_output p
