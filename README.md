@@ -80,3 +80,32 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * Install all plugins and dependencies: `cd ~/.vim` and run `rake`
 
 The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
+***
+## Ubuntu Linux
+#### Ubuntu support should be considered experimental. See issues below.
+### Prerequisites
+* gvim: `sudo apt install gvim`
+* neovim-qt: `sudo apt install neovim-qt`
+* [Mono](https://www.mono-project.com/download/stable/)
+* ruby: `sudo apt install ruby-all-dev`
+* The Silver Searcher: `sudo apt install silversearcher-ag`
+* nodejs: `sudo apt install nodejs`
+* npm: `sudo apt install npm`
+* curl: `sudo apt install curl`
+* yarn: `sudo npm install -g yarn`
+* Ruby file utils: `gem install file-utils`
+* Pip package manager: `sudo apt install python-pip`
+* Python for neovim: `pip2 install neovim`
+* Cmake: `sudo apt install cmake`
+* Ctags: `sudo apt install ctags`
+* Rake: `sudo gem install rake`
+### Install
+
+* Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git ~/.vim`
+* Install all plugins and dependencies: `cd ~/.vim` and run `rake`
+
+The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
+### Issues
+* creating the neovim symlink in the rakefile fails
+* jsctags fails
+* tslint is missing typescript
