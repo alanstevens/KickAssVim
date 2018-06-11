@@ -4,8 +4,8 @@
 <img src="https://github.com/alanstevens/KickAssVim/raw/master/KickAssVim-logo.png" width=200>
 
 Kick Ass Vim is a turn-key configuration for the [Vim](http://www.vim.org) editor. KickAssVim runs on all major platforms:
-* [Windows](#Windows)
-* [Mac](#Mac)
+* [Windows](#windows)
+* [Mac](#mac)
 * [Linux](#ubuntu-linux)
 
 See the list of included [plugins](https://github.com/alanstevens/KickAssVim/blob/master/plugins.vim).
