@@ -3,7 +3,10 @@
 
 <img src="https://github.com/alanstevens/KickAssVim/raw/master/KickAssVim-logo.png" width=200>
 
-Kick Ass Vim is a turn-key configuration for the [Vim](http://www.vim.org) editor that runs on Windows and macOS.
+Kick Ass Vim is a turn-key configuration for the [Vim](http://www.vim.org) editor. KickAssVim runs on all major platforms:
+* [Windows](#Windows)
+* [Mac](#Mac)
+* [Linux](#ubuntu-linux)
 
 See the list of included [plugins](https://github.com/alanstevens/KickAssVim/blob/master/plugins.vim).
 
@@ -13,12 +16,14 @@ For best compatability, grab a font from [Nerd Fonts](http://nerdfonts.com/). I 
 
 # Installation:
 
-## Windows:
+## Windows
 
 All commands should be run in an administrator shell. You will need to restart your shell for new paths to take effect.
 
 ### Prerequisites
 
+* Vim: `choco install vim`
+* neovim: `choco install neovim`
 * Visual Studio 2017: [Download](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Professional&rel=15) and run the installer.
   * Include *C++ for desktop development* to get the compiler tools.
 * Install [Chocolatey](https://chocolatey.org/) and restart your shell (as administrator).
@@ -26,8 +31,6 @@ All commands should be run in an administrator shell. You will need to restart y
 * Node: `choco install nodejs`
 * Typescript: `npm install -g typescript`
 * rake: `gem install rake`
-* Vim: `choco install vim`
-* neovim: `choco install neovim`
 * make: `choco install make`
 * cmake: `choco install cmake`
 * ctags: `choco install ctags`
@@ -54,12 +57,14 @@ The most common customizations (leader, font, colors, indenting) are in `%userpr
 
 ***
 
-## Mac:
+## Mac
 
 Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot/laptop)
 
 ### Prerequisites
 
+* Vim: `brew install vim`
+* NeoVim: `brew install neovim`
 * xCode command line tools: `xcode-select --install`
 * [Homebrew](https://brew.sh/)
 * [Homebrew Cask](https://caskroom.github.io/)
@@ -69,8 +74,6 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * [Mono](http://www.mono-project.com/): `brew install mono` (*for c# autocompletion*)
 * ctags: `brew install ctags`
 * cmake: `brew install cmake`
-* Vim: `brew install vim`
-* NeoVim: `brew install neovim`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 * MacVim: `brew cask install macvim`
 
@@ -82,11 +85,11 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
 ***
 ## Ubuntu Linux
-#### Ubuntu support should be considered experimental. See issues below.
+#### Ubuntu support should be considered experimental. See [issues](#Issues) below.
 ### Prerequisites
 * gvim: `sudo apt install gvim`
 * neovim-qt: `sudo apt install neovim-qt`
-* [Mono](https://www.mono-project.com/download/stable/)
+* [Mono](https://www.mono-project.com/download/stable/) (for C# autocompletion)
 * ruby: `sudo apt install ruby-all-dev`
 * The Silver Searcher: `sudo apt install silversearcher-ag`
 * nodejs: `sudo apt install nodejs`
@@ -95,7 +98,7 @@ The most common customizations (leader, font, colors, indenting) are in `~/.vim/
 * yarn: `sudo npm install -g yarn`
 * Ruby file utils: `gem install file-utils`
 * Pip package manager: `sudo apt install python-pip`
-* Python for neovim: `pip2 install neovim`
+* Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 * Cmake: `sudo apt install cmake`
 * Ctags: `sudo apt install ctags`
 * Rake: `sudo gem install rake`
