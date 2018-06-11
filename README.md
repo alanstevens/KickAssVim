@@ -24,18 +24,19 @@ All commands should be run in an administrator shell. You will need to restart y
 
 * Vim: `choco install vim`
 * neovim: `choco install neovim`
-* Visual Studio 2017: [Download](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Professional&rel=15) and run the installer.
+* Visual Studio 2017: [Community Edition](https://www.visualstudio.com/free-developer-offers/) is free.
   * Include *C++ for desktop development* to get the compiler tools.
 * Install [Chocolatey](https://chocolatey.org/) and restart your shell (as administrator).
 * Ruby: `choco install ruby`
 * Node: `choco install nodejs`
-* Typescript: `npm install -g typescript`
 * rake: `gem install rake`
-* make: `choco install make`
+* The Silver Searcher `choco install ag`
 * cmake: `choco install cmake`
+* make: `choco install make`
 * ctags: `choco install ctags`
 * Python2: `choco install python2`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
+* curl: `choco install curl`
 * .NET Framework 3.5: `choco install dotnet3.5`
 
 ### Adjust Paths
@@ -65,6 +66,7 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 
 * Vim: `brew install vim`
 * NeoVim: `brew install neovim`
+* MacVim: `brew cask install macvim`
 * xCode command line tools: `xcode-select --install`
 * [Homebrew](https://brew.sh/)
 * [Homebrew Cask](https://caskroom.github.io/)
@@ -74,8 +76,9 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * [Mono](http://www.mono-project.com/): `brew install mono` (*for c# autocompletion*)
 * ctags: `brew install ctags`
 * cmake: `brew install cmake`
+* python headers: `sudo apt-get install python-dev python3-dev`
+* curl: `brew install curl`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
-* MacVim: `brew cask install macvim`
 
 ### Install
 
@@ -85,30 +88,23 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
 ***
 ## Ubuntu Linux
-#### Ubuntu support should be considered experimental. See [issues](#Issues) below.
 ### Prerequisites
 * gvim: `sudo apt install gvim`
-* neovim-qt: `sudo apt install neovim-qt`
+* neovim: `sudo apt install neovim-qt`
 * [Mono](https://www.mono-project.com/download/stable/) (for C# autocompletion)
 * ruby: `sudo apt install ruby-all-dev`
 * The Silver Searcher: `sudo apt install silversearcher-ag`
 * nodejs: `sudo apt install nodejs`
-* npm: `sudo apt install npm`
 * curl: `sudo apt install curl`
-* yarn: `sudo npm install -g yarn`
 * Ruby file utils: `gem install file-utils`
 * Pip package manager: `sudo apt install python-pip`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
-* Cmake: `sudo apt install cmake`
+* Cmake: `sudo apt-get install build-essential cmake`
 * Ctags: `sudo apt install ctags`
 * Rake: `sudo gem install rake`
 ### Install
 
 * Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git ~/.vim`
-* Install all plugins and dependencies: `cd ~/.vim` and run `rake`
+* Install all plugins and dependencies: `cd ~/.vim` and run `sudo rake`
 
 The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
-### Issues
-* creating the neovim symlink in the rakefile fails
-* jsctags fails
-* tslint is missing typescript

@@ -10,7 +10,18 @@
 # Gem.win_platform?
 
 desc "Install all plugins and dependencies and compile YouCompleteMe"
-task :default => ["config_files", "vimplug", "plugins", "packages", "ycm"] do
+task :default =>
+[
+    :config_files,
+    :vimplug,
+    :plugins,
+    :packages,
+    :ycm,
+    :print_complete
+]
+
+desc "print complete message"
+task :print_complete do
     print_output "Installation", "Complete!"
 end
 
@@ -87,36 +98,31 @@ task:packages do
             "typescript-formatter",
             "js-beautify",
             "remark-cli", # formatter for markdown
-            "instant-markdown-d"#,
-            #"git+https://github.com/ramitos/jsctags.git"
+            "instant-markdown-d",
+            "tern",
+            "tern-jsx",
+            "git+https://github.com/ramitos/jsctags.git"
     ]
-        packages.each do |p|
-            print_output p
-            sh "npm install -g #{p}"
-        end
+    packages.each do |p|
+        print_output p
+        sh "npm install -g --production #{p}"
+    end
 
-        sh "npm update -g"
+    sh "npm update -g"
 
-        print_output "sass"
-        sh "gem install sass"
+    print_output "sass"
+    sh "gem install sass"
 end
 
 desc "Compile YouCompleteMe"
 task :ycm do
-    print_output "tern runtime"
-    dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe/third_party/ycmd/third_party/tern_runtime")
-    Dir.chdir dir do
-        sh "npm install --production"
-    end
-
     print_output "/ Compiling YouCompleteMe"
     dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe")
     Dir.chdir dir do
-        # TODO: only compile when no binary. Where is it?
         if @windows
-            sh "python install.py --cs-completer --js-completer" # this takes an eTERNity
+            sh "python install.py --cs-completer --js-completer"
         else
-            sh "./install.py --cs-completer --js-completer" # this takes an eTERNity
+            sh "./install.py --cs-completer --js-completer"
         end
     end
 end
