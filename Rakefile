@@ -35,13 +35,13 @@ task:config_files do
         sh "echo source #{vimrc} > #{home_dir}/_vimrc"
         sh "echo source #{gvimrc} > #{home_dir}/_gvimrc"
         # neovim
-        FileUtils.mkdir_p("#{home_dir}/AppData/Local/nvim") unless File.exists?("#{home_dir}/AppData/Local/nvim")
-        sh "cp -n #{vimrc} #{home_dir}/AppData/Local/nvim/init.vim"
+        #FileUtils.mkdir_p("#{home_dir}/AppData/Local/nvim") unless File.exists?("#{home_dir}/AppData/Local/nvim")
+        #sh "cp -n #{vimrc} #{home_dir}/AppData/Local/nvim/init.vim"
     else
         sh "echo source ~/.vim/vimrc > ~/.vimrc"
         sh "echo source ~/.vim/gvimrc > ~/.gvimrc"
         # neovim
-        FileUtils.mkdir_p("~/.config") unless File.exists?("~/.config")
+        #FileUtils.mkdir_p("~/.config") unless File.exists?("~/.config")
         #FileUtils.mkdir_p("~/.config/nvim") unless File.exists?("~/.config/nvim")
         #sh "ln -s ~/.vimrc ~/.config/nvim/init.vim"
     end

@@ -22,22 +22,23 @@ All commands should be run in an administrator shell. You will need to restart y
 
 ### Prerequisites
 
-* Vim: `choco install vim`
-* neovim: `choco install neovim`
+
 * Visual Studio 2017: [Community Edition](https://www.visualstudio.com/free-developer-offers/) is free.
   * Include *C++ for desktop development* to get the compiler tools.
 * Install [Chocolatey](https://chocolatey.org/) and restart your shell (as administrator).
+* Vim: `choco install vim`
+* neovim: `choco install neovim`
 * Ruby: `choco install ruby`
 * Node: `choco install nodejs`
-* rake: `gem install rake`
 * The Silver Searcher `choco install ag`
 * cmake: `choco install cmake`
 * make: `choco install make`
 * ctags: `choco install ctags`
 * Python2: `choco install python2`
-* Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 * curl: `choco install curl`
 * .NET Framework 3.5: `choco install dotnet3.5`
+* rake: `gem install rake`
+* Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 
 ### Adjust Paths
 
@@ -48,6 +49,8 @@ All commands should be run in an administrator shell. You will need to restart y
 * cmake: `pathed /append "C:\Program Files\CMake\bin" /user`
 * tsserver: `pathed /append %userprofile%\AppData\Roaming\npm /user`
 * MSBuild: `pathed /append "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin" /user`
+  * *OR* if you are using the community edition of Visual Studio:
+  * `pathed /append "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin" /user`
 * restart your shell as administrator
 
 ### Install
@@ -64,12 +67,12 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 
 ### Prerequisites
 
-* Vim: `brew install vim`
-* NeoVim: `brew install neovim`
-* MacVim: `brew cask install macvim`
 * xCode command line tools: `xcode-select --install`
 * [Homebrew](https://brew.sh/)
 * [Homebrew Cask](https://caskroom.github.io/)
+* Vim: `brew install vim`
+* NeoVim: `brew install neovim`
+* MacVim: `brew cask install macvim`
 * Ruby: `brew install ruby`
 * Rake: `gem install rake`
 * Nodejs: `brew install node`
