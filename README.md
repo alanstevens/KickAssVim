@@ -10,7 +10,7 @@ Kick Ass Vim is a turn-key configuration for the [Vim](http://www.vim.org) edito
 
 See the list of included [plugins](https://github.com/alanstevens/KickAssVim/blob/master/plugins.vim).
 
-Much of the setup complexity for Kick Ass Vim is necessary to compile [YouCompleteMe](https://github.com/Valloric/YouCompleteMe). It's totally worth it.
+Kick Ass Vim relies on [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for autocompletion.
 
 For best compatability, grab a font from [Nerd Fonts](http://nerdfonts.com/). I use [Hack](https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/Hack.zip).
 
@@ -93,6 +93,11 @@ The most common customizations (leader, font, colors, indenting) are in `~/.vim/
 ## Ubuntu Linux
 ### Prerequisites
 * gvim: `sudo apt install gvim`
+* On Windows subsystem for Linux:
+  * `sudo add-apt-repository ppa:jonathonf/vim`
+  * `sudo apt update`
+  * `sudo apt install vim`
+
 * neovim: 
   * `sudo add-apt-repository ppa:neovim-ppa/stable`
   * `sudo apt update`

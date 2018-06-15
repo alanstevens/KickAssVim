@@ -48,7 +48,8 @@ Plug 'vim-airline/vim-airline'                  " lean & mean statusline for vim
 Plug 'vim-airline/vim-airline-themes'           " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plug 'jeetsukumaran/vim-buffergator'            " list, select and switch between buffers.
 Plug 'duff/vim-bufonly'                         " quickly close all other buffers
-Plug 'scrooloose/syntastic'                     " syntax error checking
+" Plug 'scrooloose/syntastic'                     " syntax error checking
+Plug 'w0rp/ale'                                 " ALE (Asynchronous Lint Engine) is a plugin for providing linting (replacement for syntastic)
 Plug 'scrooloose/nerdtree'                      " provides a file system tree view
 Plug 'jistr/vim-nerdtree-tabs'                  " NERDTree and tabs together in Vim, painlessly
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  " Extra syntax and highlight for nerdtree files
@@ -72,14 +73,14 @@ Plug 'majutsushi/tagbar'                        " Vim plugin that displays tags 
 Plug 'sjl/gundo.vim'                            " Vim plugin to visualize your Vim undo tree.
 Plug 'moll/vim-bbye'                            " Delete buffers and close files in Vim without closing your windows or messing up your layout.
 Plug 'junegunn/fzf.vim'                         " fzf ❤️ vim - Things you can do with fzf and Vim.
-Plug 'Valloric/YouCompleteMe'               " a fast, as-you-type, fuzzy-search code completion engine
-Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim, actually, neovim requires it) Interactive command execution in Vim.
-Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
-Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
-Plug 'mhartington/vim-typings'                  " search for typings in vim! (relies on Unite)
-Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
-Plug 'vvakame/dtsm'                             " depends on unite! The .d.ts manager
-" Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
+Plug 'Valloric/YouCompleteMe'                   " a fast, as-you-type, fuzzy-search code completion engine
+" Plug 'mhartington/vim-typings'                  " search for typings in vim! (relies on Unite)
+" Plug 'Shougo/unite.vim'                         " (dependency of Tsuquyomi) Unite and create user interfaces
+" Plug 'Shougo/unite-outline'                     " (dependency of Tsuquyomi) outline source for unite.vim
+" Plug 'vvakame/dtsm'                             " depends on unite! The .d.ts manager
+" Plug 'Shougo/vimproc.vim'                       " (required by tsuquyomi) (not needed with vim 8+ or neovim, actually, neovim requires it) Interactive command execution in Vim.
+" Plug 'Quramy/tsuquyomi'                         " A Vim plugin for TypeScript (depends on Shougo/vimproc.vim)
+Plug 'leafgarland/typescript-vim'               " Typescript syntax files for Vim
 Plug 'HerringtonDarkholme/yats.vim'             " The most advanced TypeScript Syntax Highlighting
 Plug 'bdauria/angular-cli.vim'                  " a Vim Plugin for angular-cli
 Plug 'Raimondi/delimitMate'                     " provides insert mode auto-completion for quotes, parens, brackets, etc.
