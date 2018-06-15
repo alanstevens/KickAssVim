@@ -1,5 +1,6 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR=0
-set termguicolors
+" has trouble in windows subsystem for Linux
+"set termguicolors
 set wildignorecase " wasn't needed in vim
 
 

@@ -111,7 +111,7 @@ task:packages do
     sh "npm update -g"
 
     print_output "sass"
-    sh "gem install sass"
+    sh "gem install sass --no-ri --no-rdoc"
 end
 
 desc "Compile YouCompleteMe"

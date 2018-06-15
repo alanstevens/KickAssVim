@@ -44,8 +44,7 @@ if has("gui_running")
     elseif os == "Linux"
         set guifont=Hack\ Nerd\ Font\ Mono\ 12
     elseif os == "Windows"
-        set guifont=Hack\ NF:h12
-        "set guifont=Knack\ Nerd\ Font:h12
+        set guifont=Hack_Nerd_Font_Mono:h12
     endif
 endif
 " -------------------------------------------------------------------------------

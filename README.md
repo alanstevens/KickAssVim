@@ -79,7 +79,7 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * [Mono](http://www.mono-project.com/): `brew install mono` (*for c# autocompletion*)
 * ctags: `brew install ctags`
 * cmake: `brew install cmake`
-* python headers: `sudo apt-get install python-dev python3-dev`
+* python headers: `sudo apt install python-dev python3-dev`
 * curl: `brew install curl`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 
@@ -93,18 +93,29 @@ The most common customizations (leader, font, colors, indenting) are in `~/.vim/
 ## Ubuntu Linux
 ### Prerequisites
 * gvim: `sudo apt install gvim`
-* neovim: `sudo apt install neovim-qt`
-* [Mono](https://www.mono-project.com/download/stable/) (for C# autocompletion)
+* neovim: 
+  * `sudo add-apt-repository ppa:neovim-ppa/stable`
+  * `sudo apt update`
+  * `sudo apt install neovim-qt`
+* Mono (for C# autocompletion)
+  * `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF`
+  * `echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list`
+  * `sudo apt update`
+  * `sudo apt install mono-devel`
 * ruby: `sudo apt install ruby-all-dev`
-* The Silver Searcher: `sudo apt install silversearcher-ag`
-* nodejs: `sudo apt install nodejs`
+* The Silver Searcher: `sudo aptinstall silversearcher-ag`
+* Node:
+    * Remove legacy package: `sudo apt--purge remove node`
+    * nodejs: `sudo apt install nodejs`
+    * If `which node` doesn't return a value, make sure the node command is available: `sudo ln -s 'which nodejs' /usr/bin/node`
+* npm: `sudo apt install npm`
 * curl: `sudo apt install curl`
-* Ruby file utils: `gem install file-utils`
+* Cmake: `sudo apt install build-essential cmake`
+* Ctags: `sudo apt install ctags`
 * Pip package manager: `sudo apt install python-pip`
 * Add python 2.7+ support for  NeoVim: `pip2 install neovim`
-* Cmake: `sudo apt-get install build-essential cmake`
-* Ctags: `sudo apt install ctags`
-* Rake: `sudo gem install rake`
+* Rake: `gem install rake --no-ri --no-rdoc`
+* Ruby file utils: `gem install file-utils --no-ri --no-rdoc`
 ### Install
 
 * Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git ~/.vim`

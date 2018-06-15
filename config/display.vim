@@ -9,6 +9,9 @@ set showmode       " display the current mode in the status bar
 set title          " show file in titlebar
 set cursorline     " highlight current line
 
+" adjust highlight color
+"highlight CursorLine term=none cterm=none ctermbg=3
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright

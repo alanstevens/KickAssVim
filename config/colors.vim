@@ -5,18 +5,15 @@
 "     syntax enable     " Turn on syntax highlighting allowing local overrides
 " endif
 
-" adjust highlight color
-highlight CursorLine term=none cterm=none ctermbg=3
-
 if $COLORTERM == 'gnome-terminal'
   set term=gnome-256color
 endif
 
 " If in diff mode (vimdiff) use the inkpot color scheme
 " that better highlights file differences
-if &diff
-  colors inkpot    " Vim Tip #1143
-endif
+"if &diff
+"  colors inkpot    " Vim Tip #1143
+"endif
 
 " Rotate Color Scheme <F6>
 let colorlist = ""
