@@ -76,11 +76,11 @@ task:plugins do
     end
     sh "vim -S #{vim_config} -c PlugUpgrade -c PlugUpdate -c PlugClean! -c qa" #; clear"
 
-    print_output "VimProc"
-    dir = File.expand_path("#{@cwd}/plugins/vimproc.vim")
-    Dir.chdir dir do
-        sh "make"
-    end
+    # print_output "VimProc"
+    # dir = File.expand_path("#{@cwd}/plugins/vimproc.vim")
+    # Dir.chdir dir do
+    #     sh "make"
+    # end
 end
 
 desc "Install packages"
