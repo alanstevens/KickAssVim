@@ -34,19 +34,11 @@ task:config_files do
 
         sh "echo source #{vimrc} > #{home_dir}/_vimrc"
         sh "echo source #{gvimrc} > #{home_dir}/_gvimrc"
-        # neovim
-        #FileUtils.mkdir_p("#{home_dir}/AppData/Local/nvim") unless File.exists?("#{home_dir}/AppData/Local/nvim")
-        #sh "cp -n #{vimrc} #{home_dir}/AppData/Local/nvim/init.vim"
     else
         sh "echo source ~/.vim/vimrc > ~/.vimrc"
         sh "echo source ~/.vim/gvimrc > ~/.gvimrc"
-        # neovim
-        #FileUtils.mkdir_p("~/.config") unless File.exists?("~/.config")
-        #FileUtils.mkdir_p("~/.config/nvim") unless File.exists?("~/.config/nvim")
-        #sh "ln -s ~/.vimrc ~/.config/nvim/init.vim"
     end
 end
-
 
 desc "Install Vim plug."
 task:vimplug do
@@ -61,7 +53,6 @@ task:vimplug do
     plug_file = File.expand_path "#{@cwd}/autoload/plug.vim"
 
     unless File.exists?(plug_file)
-        # This is the only way I could get this working on Windows
         sh "curl -fLk --insecure https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim > #{plug_file}"
     end
 end
@@ -74,13 +65,7 @@ task:plugins do
     if @windows
         vim_config = "#{Dir.home}/_vimrc"
     end
-    sh "vim -S #{vim_config} -c PlugUpgrade -c PlugUpdate -c PlugClean! -c qa" #; clear"
-
-    # print_output "VimProc"
-    # dir = File.expand_path("#{@cwd}/plugins/vimproc.vim")
-    # Dir.chdir dir do
-    #     sh "make"
-    # end
+    sh "vim -S #{vim_config} -c PlugUpgrade -c PlugUpdate -c PlugClean! -c qa"
 end
 
 desc "Install packages"
@@ -116,7 +101,7 @@ end
 
 desc "Compile YouCompleteMe"
 task :ycm do
-    print_output "/ Compiling YouCompleteMe"
+    print_output "Compiling" "YouCompleteMe"
     dir = File.expand_path("#{@cwd}/plugins/YouCompleteMe")
     Dir.chdir dir do
         if @windows

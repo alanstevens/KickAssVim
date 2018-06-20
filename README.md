@@ -1,4 +1,3 @@
-<!-- # Kick Ass Vim -->
 # A Kick Ass Vim Development Environment.
 
 <img src="https://github.com/alanstevens/KickAssVim/raw/master/KickAssVim-logo.png" width=200>
@@ -14,6 +13,8 @@ Kick Ass Vim relies on [YouCompleteMe](https://github.com/Valloric/YouCompleteMe
 
 For best compatability, grab a font from [Nerd Fonts](http://nerdfonts.com/). I use [Hack](https://github.com/ryanoasis/nerd-fonts/releases/download/v1.1.0/Hack.zip).
 
+The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
+
 # Installation:
 
 ## Windows
@@ -21,13 +22,10 @@ For best compatability, grab a font from [Nerd Fonts](http://nerdfonts.com/). I 
 All commands should be run in an administrator shell. You will need to restart your shell for new paths to take effect.
 
 ### Prerequisites
-
-
 * Visual Studio 2017: [Community Edition](https://www.visualstudio.com/free-developer-offers/) is free.
   * Include *C++ for desktop development* to get the compiler tools.
 * Install [Chocolatey](https://chocolatey.org/) and restart your shell (as administrator).
 * Vim: `choco install vim`
-* neovim: `choco install neovim`
 * Ruby: `choco install ruby`
 * Node: `choco install nodejs`
 * The Silver Searcher `choco install ag`
@@ -38,13 +36,15 @@ All commands should be run in an administrator shell. You will need to restart y
 * curl: `choco install curl`
 * .NET Framework 3.5: `choco install dotnet3.5`
 * rake: `gem install rake`
-* Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 
 ### Adjust Paths
 
 * Download [gtools](http://www.p-nand-q.com/download/gtools/gtools-current.exe)
 * Run the gtools installer as *administrator*
-* use pathed to add pathed to your path. (Oooh, recursive): `"C:\Program Files (x86)\p-nand-q.com\GTools\pathed.exe" /append "C:\Program Files (x86)\p-nand-q.com\GTools" /user`
+* use pathed to add pathed to your path. (Oooh, recursive):
+```
+"C:\Program Files (x86)\p-nand-q.com\GTools\pathed.exe" /append "C:\Program Files (x86)\p-nand-q.com\GTools" /user
+```
 * Restart your shell as administrator.
 * cmake: `pathed /append "C:\Program Files\CMake\bin" /user`
 * tsserver: `pathed /append %userprofile%\AppData\Roaming\npm /user`
@@ -54,11 +54,11 @@ All commands should be run in an administrator shell. You will need to restart y
 * restart your shell as administrator
 
 ### Install
-* Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git %userprofile%\vimfiles`
-* Install all plugins and dependencies: `cd %userprofile%\vimfiles` and run `rake`
-
-The most common customizations (leader, font, colors, indenting) are in `%userprofile%\vimfiles\vimrc`
-
+```
+git clone git@github.com:alanstevens/KickAssVim.git %userprofile%\vimfiles
+cd %userprofile%\vimfiles
+rake
+```
 ***
 
 ## Mac
@@ -71,7 +71,6 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * [Homebrew](https://brew.sh/)
 * [Homebrew Cask](https://caskroom.github.io/)
 * Vim: `brew install vim`
-* NeoVim: `brew install neovim`
 * MacVim: `brew cask install macvim`
 * Ruby: `brew install ruby`
 * Rake: `gem install rake`
@@ -79,36 +78,35 @@ Consider installing the [ThoughtBot Laptop Script](https://github.com/thoughtbot
 * [Mono](http://www.mono-project.com/): `brew install mono` (*for c# autocompletion*)
 * ctags: `brew install ctags`
 * cmake: `brew install cmake`
-* python headers: `sudo apt install python-dev python3-dev`
+* python headers: `brew install python-dev`
 * curl: `brew install curl`
-* Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 
 ### Install
-
-* Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git ~/.vim`
-* Install all plugins and dependencies: `cd ~/.vim` and run `rake`
-
-The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
+```
+git clone git@github.com:alanstevens/KickAssVim.git ~/.vim
+cd ~/.vim
+rake
+```
 ***
 ## Ubuntu Linux
 ### Prerequisites
-* gvim: `sudo apt install gvim`
-* On Windows subsystem for Linux:
-  * `sudo add-apt-repository ppa:jonathonf/vim`
-  * `sudo apt update`
-  * `sudo apt install vim`
-
-* neovim: 
-  * `sudo add-apt-repository ppa:neovim-ppa/stable`
-  * `sudo apt update`
-  * `sudo apt install neovim-qt`
+* gvim: `sudo apt install vim-gtk`
+* Vim 8 on Windows subsystem for Linux:
+```
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+```
 * Mono (for C# autocompletion)
-  * `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF`
-  * `echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list`
-  * `sudo apt update`
-  * `sudo apt install mono-devel`
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831E
+echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt update
+sudo apt install mono-devel
+```
 * ruby: `sudo apt install ruby-all-dev`
-* The Silver Searcher: `sudo aptinstall silversearcher-ag`
+* python headers: `sudo apt install python-dev`
+* The Silver Searcher: `sudo apt install silversearcher-ag`
 * Node:
     * Remove legacy package: `sudo apt--purge remove node`
     * nodejs: `sudo apt install nodejs`
@@ -117,13 +115,11 @@ The most common customizations (leader, font, colors, indenting) are in `~/.vim/
 * curl: `sudo apt install curl`
 * Cmake: `sudo apt install build-essential cmake`
 * Ctags: `sudo apt install ctags`
-* Pip package manager: `sudo apt install python-pip`
-* Add python 2.7+ support for  NeoVim: `pip2 install neovim`
 * Rake: `gem install rake --no-ri --no-rdoc`
 * Ruby file utils: `gem install file-utils --no-ri --no-rdoc`
 ### Install
-
-* Clone this repository: `git clone git@github.com:alanstevens/KickAssVim.git ~/.vim`
-* Install all plugins and dependencies: `cd ~/.vim` and run `sudo rake`
-
-The most common customizations (leader, font, colors, indenting) are in `~/.vim/vimrc`
+```
+git clone git@github.com:alanstevens/KickAssVim.git ~/.vim
+cd ~/.vim
+sudo rake
+```
